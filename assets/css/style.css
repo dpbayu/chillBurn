@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
 
 :root {
-   --yellow: #fed330;
-   --red: #e74c3c;
-   --white: #fff;
+   --primary: #F48922;
+   --secondary: #563222;
    --black: #222;
+   --background: #060606;
+   --white: #fff;
    --light-color: #777;
    --border: .2rem solid var(--black);
 }
@@ -20,7 +21,7 @@
 }
 
 *::selection {
-   background-color: var(--yellow);
+   background-color: var(--primary);
    color: var(--black);
 }
 
@@ -34,7 +35,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-   background-color: var(--yellow);
+   background-color: var(--primary);
 }
 
 html {
@@ -45,7 +46,7 @@ html {
 }
 
 body {
-   background-color: rgb(15, 15, 22);
+   background-color: var(--background);
 }
 
 section {
@@ -56,14 +57,14 @@ section {
    text-align: center;
    margin: 20px 0;
    font-size: 48px;
-   color: var(--black);
+   color: var(--white);
    text-transform: uppercase;
    text-decoration: underline;
    text-underline-offset: 10px;
 }
 
 .title span {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .heading {
@@ -88,7 +89,7 @@ section {
 }
 
 .heading p a {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .heading p a:hover {
@@ -107,19 +108,19 @@ section {
 }
 
 .btn {
-   background-color: var(--yellow);
+   background-color: var(--primary);
    color: var(--black);
 }
 
 .delete-btn {
-   background-color: var(--red);
+   background-color: var(--secondary);
    color: var(--white);
 }
 
 .btn:hover,
 .delete-btn:hover {
-   letter-spacing: .2rem;
-   background-color: var(--red);
+   background-color: var(--secondary);
+   color: var(--white);
 }
 
 .disabled {
@@ -138,7 +139,7 @@ section {
    align-items: center;
    gap: 1rem;
    justify-content: space-between;
-   background-color: var(--yellow);
+   background-color: var(--primary);
 }
 
 .message span {
@@ -148,7 +149,7 @@ section {
 
 .message i {
    font-size: 2.5rem;
-   color: var(--red);
+   color: var(--secondary);
    cursor: pointer;
 }
 
@@ -163,7 +164,7 @@ section {
    width: 100%;
    font-size: 2rem;
    text-transform: capitalize;
-   color: var(--red);
+   color: var(--secondary);
 }
 
 .flex-btn {
@@ -192,14 +193,14 @@ section {
 }
 
 .header .flex .navbar a {
-   font-size: 2rem;
+   font-size: 18px;
+   margin: 20px;
    color: var(--white);
-   margin: 0 1rem;
+   text-decoration: none;
 }
 
 .header .flex .navbar a:hover {
-   color: var(--yellow);
-   text-decoration: underline;
+   color: var(--primary);
 }
 
 .header .flex .icons>* {
@@ -210,7 +211,7 @@ section {
 }
 
 .header .flex .icons>*:hover {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .header .flex .icons span {
@@ -222,20 +223,26 @@ section {
 }
 
 .header .flex .profile {
-   background-color: var(--white);
+   background-color: var(--black);
+   border-radius: 12px;
    border: var(--border);
-   padding: 1.5rem;
+   padding: 25px;
    text-align: center;
    position: absolute;
-   top: 70%;
-   right: 2rem;
-   width: 30rem;
+   top: 80%;
+   right: 0;
+   width: 350px;
    display: none;
    animation: fadeIn .2s linear;
 }
 
 .header .flex .profile.active {
    display: inline-block;
+}
+
+.header .flex .profile.active p {
+   font-size: 18px;
+   margin: 10px;
 }
 
 @keyframes fadeIn {
@@ -245,9 +252,9 @@ section {
 }
 
 .header .flex .profile .name {
-   font-size: 2rem;
-   color: var(--black);
-   margin-bottom: .5rem;
+   font-size: 18px;
+   margin-bottom: .16px;
+   color: var(--white);
 }
 
 .header .flex .profile .account {
@@ -255,17 +262,16 @@ section {
 }
 
 .header .flex .profile .account a {
-   color: var(--black);
+   color: var(--white);
 }
 
 .header .flex .profile .account a:hover {
-   color: var(--yellow);
-   text-decoration: underline;
+   color: var(--primary);
 }
 
 header.sticky {
    padding: 10px;
-   background: var(--yellow);
+   background: var(--secondary);
 }
 
 /* Hero */
@@ -297,7 +303,7 @@ header.sticky {
 }
 
 .hero .content h2 span {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .hero .content p {
@@ -322,7 +328,7 @@ header.sticky {
    display: flex;
    gap: 25px;
    font-size: 25px;
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .hero .content .box-2 .download {
@@ -369,7 +375,7 @@ header.sticky {
 
 .section-1 .box-container .box .text p {
    font-size: 12px;
-   color: var(--yellow);
+   color: var(--primary);
    padding: 0;
 }
 
@@ -403,7 +409,7 @@ header.sticky {
 }
 
 .section-2 .content h3 {
-   color: var(--yellow);
+   color: var(--primary);
    text-transform: capitalize;
    font-size: 20px;
 }
@@ -415,7 +421,7 @@ header.sticky {
 }
 
 .section-2 .content h2 span {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .section-2 .content p {
@@ -443,7 +449,7 @@ header.sticky {
 
 .category ul li a {
    text-decoration: none;
-   color: var(--black);
+   color: var(--white);
 }
 
 .category .box-container {
@@ -477,7 +483,7 @@ header.sticky {
 
 .category .box-container .box .content .text h2 {
    font-size: 20px;
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .category .box-container .box .text p {
@@ -510,31 +516,28 @@ header.sticky {
 }
 
 .menu .box-container {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+   display: flex;
    justify-content: center;
-   align-items: flex-start;
-   gap: 1.5rem;
+   gap: 20px;
+   flex-wrap: wrap;
 }
 
 .menu .box-container .box {
    border: var(--border);
-   padding: 1.5rem;
+   padding: 25px;
    position: relative;
    overflow: hidden;
+   height: fit-content;
 }
 
 .menu .box-container .box img {
-   height: 25rem;
-   width: 100%;
    object-fit: contain;
-   margin-bottom: 1rem;
 }
 
 .menu .box-container .box .fa-eye,
 .menu .box-container .box .fa-shopping-cart {
    position: absolute;
-   top: 1rem;
+   top: 16px;
    height: 4.5rem;
    width: 4.5rem;
    line-height: 4.3rem;
@@ -576,13 +579,13 @@ header.sticky {
 }
 
 .menu .box-container .box .cat:hover {
-   color: var(--yellow);
+   color: var(--primary);
    text-decoration: underline;
 }
 
 .menu .box-container .box .name {
    font-size: 2rem;
-   color: var(--black);
+   color: var(--white);
    margin: 1rem 0;
 }
 
@@ -596,7 +599,7 @@ header.sticky {
 .menu .box-container .box .flex .price {
    margin-right: auto;
    font-size: 2.5rem;
-   color: var(--black);
+   color: var(--white);
 }
 
 .menu .box-container .box .flex .price span {
@@ -613,7 +616,7 @@ header.sticky {
 
 .menu .box-container .box .flex .fa-edit {
    width: 5rem;
-   background-color: var(--yellow);
+   background-color: var(--primary);
    color: var(--black);
    cursor: pointer;
    font-size: 1.8rem;
@@ -630,7 +633,7 @@ header.sticky {
    position: absolute;
    top: 1rem;
    right: 1rem;
-   background-color: var(--red);
+   background-color: var(--secondary);
    color: var(--white);
    border: var(--border);
    line-height: 4rem;
@@ -652,7 +655,7 @@ header.sticky {
 }
 
 .menu .box-container .box .sub-total span {
-   color: var(--red);
+   color: var(--secondary);
 }
 
 .menu .more-btn {
@@ -677,7 +680,7 @@ header.sticky {
 }
 
 .menu .cart-total p span {
-   color: var(--red);
+   color: var(--secondary);
 }
 
 .menu .cart-total .btn {
@@ -743,7 +746,7 @@ header.sticky {
 }
 
 .about-section1 .row .item2 h3 span {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .about-section1 .row .item4 {
@@ -780,7 +783,7 @@ header.sticky {
 
 .reviews .slide .stars i {
    font-size: 1.8rem;
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .reviews .slide h3 {
@@ -791,7 +794,7 @@ header.sticky {
 }
 
 .swiper-pagination-bullet-active {
-   background-color: var(--yellow);
+   background-color: var(--primary);
 }
 
 .about-section2 .row .grid-container {
@@ -837,7 +840,7 @@ header.sticky {
 }
 
 .about-section2 .row .item1 h3 span {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .about-section2 .row .item4 {
@@ -855,7 +858,7 @@ header.sticky {
 }
 
 .about-section3 .row h2 span {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 /* Blog */
@@ -883,7 +886,8 @@ header.sticky {
 }
 
 .blog .grid-item.item1 p {
-   font-size: 12px;
+   font-size: 14px;
+   color: var(--white);
 }
 
 .blog .grid-item.item2 {
@@ -1044,32 +1048,53 @@ header.sticky {
    resize: none;
 }
 
+/* Search */
+.search-hero {
+   position: relative;
+   height: 40vh;
+   background-color: var(--black);
+   background-size: cover;
+}
+
+.search-hero .content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: var(--white);
+}
+
 .search-form form {
+   margin: 25px 0;
    display: flex;
-   gap: 1.3rem;
 }
 
 .search-form form .box {
    width: 100%;
-   border: var(--border);
-   padding: 1.4rem;
-   font-size: 1.8rem;
+   padding: 10px;
+   font-size: 20px;
    color: var(--black);
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
 }
 
 .search-form form .fa-search {
-   width: 6rem;
+   width: fit-content;
    background-color: var(--black);
    color: var(--white);
    cursor: pointer;
-   font-size: 2.5rem;
+   font-size: 21px;
+   padding: 20px;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
 }
 
 .search-form form .fa-search:hover {
-   background-color: var(--yellow);
+   background-color: var(--primary);
    color: var(--black);
 }
 
+/* Checkout */
 .checkout form {
    max-width: 50rem;
    margin: 0 auto;
@@ -1109,7 +1134,7 @@ header.sticky {
 }
 
 .checkout form .cart-items p .price {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .checkout form .cart-items .grand-total {
@@ -1118,7 +1143,7 @@ header.sticky {
 }
 
 .checkout form .cart-items .grand-total .price {
-   color: var(--red);
+   color: var(--secondary);
 }
 
 .checkout form .user-info p {
@@ -1145,6 +1170,7 @@ header.sticky {
    font-size: 1.8rem;
 }
 
+/* Order */
 .orders .box-container {
    display: flex;
    flex-wrap: wrap;
@@ -1169,6 +1195,7 @@ header.sticky {
    color: var(--black);
 }
 
+/* Form */
 .form-container form {
    border: var(--border);
    margin: 0 auto;
@@ -1321,7 +1348,7 @@ header.sticky {
 
 .footer .box-container {
    padding-bottom: 10px;
-   border-bottom: 2px solid var(--yellow);
+   border-bottom: 2px solid var(--primary);
 }
 
 .footer .social-media {
@@ -1358,7 +1385,7 @@ header.sticky {
    font-weight: 700;
    font-size: 18px;
    margin: 10px 0;
-   color: var(--yellow);
+   color: var(--primary);
    text-transform: uppercase;
 }
 
@@ -1399,7 +1426,7 @@ header.sticky {
 }
 
 .credit span {
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 /* Loader */

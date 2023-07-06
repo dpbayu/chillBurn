@@ -23,7 +23,7 @@
       $image = filter_var($image, FILTER_SANITIZE_STRING);
       $image_size = $_FILES['image']['size'];
       $image_tmp_name = $_FILES['image']['tmp_name'];
-      $image_folder = '../uploaded_img/'.$image;
+      $image_folder = '../assets/img/uploaded_img/'.$image;
       if (!empty($image)) {
          if ($image_size > 2000000) {
             $message[] = 'images size is too large!';
@@ -31,7 +31,7 @@
             $update_image = $conn->prepare("UPDATE tbl_product SET image = ? WHERE id = ?");
             $update_image->execute([$image, $product_id]);
             move_uploaded_file($image_tmp_name, $image_folder);
-            unlink('../uploaded_img/'.$old_image);
+            unlink('../assets/img/uploaded_img/'.$old_image);
             $message[] = 'image updated!';
          }
       }

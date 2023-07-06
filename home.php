@@ -19,9 +19,9 @@
 
 <body>
    <!-- Loader Start -->
-   <!-- <div class="loader">
+   <div class="loader">
       <img src="images/loader.gif">
-   </div> -->
+   </div>
    <!-- Loader End -->
    <!-- Header Start -->
    <?php require 'partials/header.php'; ?>
@@ -104,7 +104,8 @@
                </div>
             </div>
          </div>
-      </section> <!-- Section 2 End -->
+      </section>
+      <!-- Section 2 End -->
       <!-- Category Start -->
       <section class="category">
          <h1 class="title">popular <span>menu</span></h1>
@@ -256,7 +257,7 @@
                $select_products->execute();
                if ($select_products->rowCount() > 0) {
                   while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-            ?>
+               ?>
                <form action="" method="POST" class="box">
                   <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
                   <input type="hidden" name="name" value="<?= $fetch_products['name']; ?>">
@@ -264,7 +265,8 @@
                   <input type="hidden" name="image" value="<?= $fetch_products['image']; ?>">
                   <a href="quick_view.php?product_id=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
                   <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-                  <img src="assets/img/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+                  <img src="assets/img/uploaded_img/<?= $fetch_products['image']; ?>" alt="" width="300" height="300">
+                  <br>
                   <a href="category.php?category=<?= $fetch_products['category']; ?>"
                      class="cat"><?= $fetch_products['category']; ?></a>
                   <div class="name"><?= $fetch_products['name']; ?></div>
