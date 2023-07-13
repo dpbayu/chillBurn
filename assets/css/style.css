@@ -50,7 +50,7 @@ body {
 }
 
 section {
-   margin: 0 auto;
+   margin: 20px auto;
 }
 
 .title {
@@ -1051,7 +1051,7 @@ header.sticky {
 /* Search */
 .search-hero {
    position: relative;
-   height: 40vh;
+   height: 30vh;
    background-color: var(--black);
    background-size: cover;
 }
@@ -1181,7 +1181,7 @@ header.sticky {
 .orders .box-container .box {
    padding: 1rem 2rem;
    border: var(--border);
-   flex: 1 1 40rem;
+   /* flex: 1 1 40rem; */
 }
 
 .orders .box-container .box p {
@@ -1196,11 +1196,15 @@ header.sticky {
 }
 
 /* Form */
+.form-container {
+   height: 100vh;
+}
+
 .form-container form {
    border: var(--border);
    margin: 0 auto;
-   max-width: 50rem;
-   padding: 2rem;
+   max-width: 500px;
+   padding: 16px;
    text-align: center;
 }
 

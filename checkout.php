@@ -11,31 +11,35 @@
 
    if (isset($_POST['submit'])) {
       $name = $_POST['name'];
-      $name = filter_var($name, FILTER_SANITIZE_STRING);
       $number = $_POST['number'];
-      $number = filter_var($number, FILTER_SANITIZE_STRING);
       $email = $_POST['email'];
-      $email = filter_var($email, FILTER_SANITIZE_STRING);
       $method = $_POST['method'];
-      $method = filter_var($method, FILTER_SANITIZE_STRING);
       $address = $_POST['address'];
-      $address = filter_var($address, FILTER_SANITIZE_STRING);
       $total_products = $_POST['total_products'];
       $total_price = $_POST['total_price'];
-      $check_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-      $check_cart->execute([$user_id]);
-      if ($check_cart->rowCount() > 0) {
-         if($address == ''){
+      // PDO Method
+      // $check_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
+      // $check_cart->execute([$user_id]);
+      // if ($check_cart->rowCount() > 0) {
+      // Mysqli Method
+      $sql_check = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
+      $query_check = mysqli_query($conn, $sql_check);
+      if (mysqli_num_rows($query_check) > 0) {
+         if ($address == '') {
             $message[] = 'please add your address!';
-         }else{
-            
-            $insert_order = $conn->prepare("INSERT INTO tbl_order (user_id, name, number, email, method, address, total_products, total_price) VALUES (?,?,?,?,?,?,?,?)");
-            $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price]);
-            $delete_cart = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
-            $delete_cart->execute([$user_id]);
+         } else {
+            // PDO Method
+            // $insert_order = $conn->prepare("INSERT INTO tbl_order (user_id, name, number, email, method, address, total_products, total_price) VALUES (?,?,?,?,?,?,?,?)");
+            // $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price]);
+            // $delete_cart = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
+            // $delete_cart->execute([$user_id]);
+            // Mysqli Method
+            $sql_insert = "INSERT INTO tbl_order (user_id, name, number, email, method, address, total_products, total_price) VALUES ('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$total_price')";
+            $query_insert = mysqli_query($conn, $sql_insert);
+            $sql_delete = "DELETE FROM tbl_cart WHERE user_id = '$user_id'";
+            $query_delete = mysqli_query($conn, $sql_delete);
             $message[] = 'order placed successfully!';
          }
-         
       } else {
          $message[] = 'your cart is empty';
       }
@@ -60,9 +64,15 @@
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
-   <div class="heading">
-      <h3>checkout</h3>
-      <p><a href="home.php">home</a> <span> / checkout</span></p>
+   <div class="search-hero">
+      <div class="container">
+         <div class="content">
+            <div class="heading">
+               <h3>checkout cart</h3>
+               <p><a href="home.php">home</a> <span> / checkout</span></p>
+            </div>
+         </div>
+      </div>
    </div>
    <section class="checkout">
       <h1 class="title">order summary</h1>
@@ -72,16 +82,22 @@
             <?php
                $grand_total = 0;
                $cart_items[] = '';
-               $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-               $select_cart->execute([$user_id]);
-               if ($select_cart->rowCount() > 0) {
-                  while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
-                     $cart_items[] = $fetch_cart['name'].' ('.$fetch_cart['price'].' x '. $fetch_cart['quantity'].') - ';
-                     $total_products = implode($cart_items);
-                     $grand_total += ($fetch_cart['price'] * $fetch_cart['quantity']);
+               // PDO Method
+               // $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
+               // $select_cart->execute([$user_id]);
+               // if ($select_cart->rowCount() > 0) {
+               //    while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
+               // Mysqli Method
+               $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
+               $query_cart = mysqli_query($conn, $sql_cart);
+               if (mysqli_num_rows($query_cart) > 0) {
+                  while ($cart = mysqli_fetch_assoc($query_cart)) {
+                  $cart_items[] = $cart['name'].' ('.$cart['price'].' x '. $cart['quantity'].') - ';
+                  $total_products = implode($cart_items);
+                  $grand_total += ($cart['price'] * $cart['quantity']);
             ?>
-            <p><span class="name"><?= $fetch_cart['name']; ?></span><span class="price">$<?= $fetch_cart['price']; ?> x
-                  <?= $fetch_cart['quantity']; ?></span></p>
+            <p><span class="name"><?= $cart['name']; ?></span><span class="price">$<?= $cart['price']; ?> x
+                  <?= $cart['quantity']; ?></span></p>
             <?php
             }
             } else {
@@ -94,19 +110,19 @@
          </div>
          <input type="hidden" name="total_products" value="<?= $total_products; ?>">
          <input type="hidden" name="total_price" value="<?= $grand_total; ?>" value="">
-         <input type="hidden" name="name" value="<?= $fetch_profile['name'] ?>">
-         <input type="hidden" name="number" value="<?= $fetch_profile['number'] ?>">
-         <input type="hidden" name="email" value="<?= $fetch_profile['email'] ?>">
-         <input type="hidden" name="address" value="<?= $fetch_profile['address'] ?>">
+         <input type="hidden" name="name" value="<?= $user['name'] ?>">
+         <input type="hidden" name="number" value="<?= $user['number'] ?>">
+         <input type="hidden" name="email" value="<?= $user['email'] ?>">
+         <input type="hidden" name="address" value="<?= $user['address'] ?>">
          <div class="user-info">
             <h3>your info</h3>
-            <p><i class="fas fa-user"></i><span><?= $fetch_profile['name'] ?></span></p>
-            <p><i class="fas fa-phone"></i><span><?= $fetch_profile['number'] ?></span></p>
-            <p><i class="fas fa-envelope"></i><span><?= $fetch_profile['email'] ?></span></p>
+            <p><i class="fas fa-user"></i><span><?= $user['name'] ?></span></p>
+            <p><i class="fas fa-phone"></i><span><?= $user['number'] ?></span></p>
+            <p><i class="fas fa-envelope"></i><span><?= $user['email'] ?></span></p>
             <a href="update_profile.php" class="btn">update info</a>
             <h3>delivery address</h3>
             <p><i
-                  class="fas fa-map-marker-alt"></i><span><?php if ($fetch_profile['address'] == '') { echo 'please enter your address'; } else { echo $fetch_profile['address']; } ?></span>
+                  class="fas fa-map-marker-alt"></i><span><?php if ($user['address'] == '') { echo 'please enter your address'; } else { echo $user['address']; } ?></span>
             </p>
             <a href="update_address.php" class="btn">update address</a>
             <select name="method" class="box" required>
@@ -117,7 +133,7 @@
                <option value="paypal">paypal</option>
             </select>
             <input type="submit" value="place order"
-               class="btn <?php if ($fetch_profile['address'] == '') { echo 'disabled'; } ?>"
+               class="btn <?php if ($user['address'] == '') { echo 'disabled'; } ?>"
                style="width:100%; background:var(--red); color:var(--white);" name="submit">
          </div>
       </form>

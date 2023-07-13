@@ -10,9 +10,13 @@
    };
    if (isset($_POST['submit'])) {
       $address = $_POST['flat'] .', '.$_POST['building'].', '.$_POST['area'].', '.$_POST['town'] .', '. $_POST['city'] .', '. $_POST['state'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
-      $address = filter_var($address, FILTER_SANITIZE_STRING);
-      $update_address = $conn->prepare("UPDATE tbl_user set address = ? WHERE id = ?");
-      $update_address->execute([$address, $user_id]);
+      $address = filter_var($address);
+      // PDO Method
+      // $update_address = $conn->prepare("UPDATE tbl_user set address = ? WHERE id = ?");
+      // $update_address->execute([$address, $user_id]);
+      // Mysqli Method
+      $sql_address = "UPDATE tbl_user SET address = '$address' WHERE id = '$user_id'";
+      $query_address = mysqli_query($conn, $sql_address);
       $message[] = 'address saved!';
       header('location:checkout.php');
    }

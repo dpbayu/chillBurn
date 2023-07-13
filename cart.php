@@ -49,36 +49,48 @@
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
-   <div class="heading">
-      <h3>shopping cart</h3>
-      <p><a href="home.php">home</a> <span> / cart</span></p>
+   <div class="search-hero">
+      <div class="container">
+         <div class="content">
+            <div class="heading">
+               <h3>shopping cart</h3>
+               <p><a href="home.php">home</a> <span> / cart</span></p>
+            </div>
+         </div>
+      </div>
    </div>
    <!-- Shopping Cart Start  -->
-   <section class="products">
+   <section class="menu">
       <h1 class="title">your cart</h1>
       <div class="box-container">
          <?php
             $grand_total = 0;
-            $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-            $select_cart->execute([$user_id]);
-            if ($select_cart->rowCount() > 0){
-               while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
+            // PDO Method
+            // $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
+            // $select_cart->execute([$user_id]);
+            // if ($select_cart->rowCount() > 0){
+            //    while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
+            // Mysqli Method
+            $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
+            $query_cart = mysqli_query($conn, $sql_cart);
+            if (mysqli_num_rows($query_cart) > 0) {
+               while ($cart = mysqli_fetch_assoc($query_cart)) {
          ?>
          <form action="" method="POST" class="box">
-            <input type="hidden" name="cart_id" value="<?= $fetch_cart['id']; ?>">
-            <a href="quick_view.php?product_id=<?= $fetch_cart['product_id']; ?>" class="fas fa-eye"></a>
+            <input type="hidden" name="cart_id" value="<?= $cart['id']; ?>">
+            <a href="quick_view.php?product_id=<?= $cart['product_id']; ?>" class="fas fa-eye"></a>
             <button type="submit" class="fas fa-times" name="delete"
                onclick="return confirm('delete this item?');"></button>
-            <img src="assets/img/uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
-            <div class="name"><?= $fetch_cart['name']; ?></div>
+            <img src="assets/img/uploaded_img/<?= $cart['image']; ?>" alt="" height="300" width="300">
+            <div class="name"><?= $cart['name']; ?></div>
             <div class="flex">
-               <div class="price"><span>$</span><?= $fetch_cart['price']; ?></div>
-               <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $fetch_cart['quantity']; ?>"
+               <div class="price"><span>$</span><?= $cart['price']; ?></div>
+               <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>"
                   maxlength="2">
                <button type="submit" class="fas fa-edit" name="update_qty"></button>
             </div>
             <div class="sub-total"> sub total :
-               <span>$<?= $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span> </div>
+               <span>$<?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span> </div>
          </form>
          <?php
             $grand_total += $sub_total;

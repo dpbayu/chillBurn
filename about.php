@@ -72,8 +72,7 @@
                <div class="swiper-slide slide">
                   <img src="images/pic-1.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
-                     ut
-                     earum nulla sint voluptatum labore nemo.</p>
+                     ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
                      <i class="fas fa-star"></i>
                      <i class="fas fa-star"></i>
@@ -86,8 +85,7 @@
                <div class="swiper-slide slide">
                   <img src="images/pic-2.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
-                     ut
-                     earum nulla sint voluptatum labore nemo.</p>
+                     ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
                      <i class="fas fa-star"></i>
                      <i class="fas fa-star"></i>
@@ -100,8 +98,7 @@
                <div class="swiper-slide slide">
                   <img src="images/pic-3.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
-                     ut
-                     earum nulla sint voluptatum labore nemo.</p>
+                     ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
                      <i class="fas fa-star"></i>
                      <i class="fas fa-star"></i>
@@ -114,8 +111,7 @@
                <div class="swiper-slide slide">
                   <img src="images/pic-4.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
-                     ut
-                     earum nulla sint voluptatum labore nemo.</p>
+                     ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
                      <i class="fas fa-star"></i>
                      <i class="fas fa-star"></i>
@@ -128,8 +124,7 @@
                <div class="swiper-slide slide">
                   <img src="images/pic-5.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
-                     ut
-                     earum nulla sint voluptatum labore nemo.</p>
+                     ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
                      <i class="fas fa-star"></i>
                      <i class="fas fa-star"></i>
@@ -142,8 +137,7 @@
                <div class="swiper-slide slide">
                   <img src="images/pic-6.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
-                     ut
-                     earum nulla sint voluptatum labore nemo.</p>
+                     ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
                      <i class="fas fa-star"></i>
                      <i class="fas fa-star"></i>
@@ -174,12 +168,10 @@
                <div class="grid-item item4">
                   <p>The coffee in this cafe uses very good and good quality coffee beans. These coffee beans are
                      obtained from coffee farmers who have collaborated with this cafe to produce the best coffee.
-                     This
-                     coffee bean has passed many tests and trials to produce the best coffee in this cafe.</p>
+                     This coffee bean has passed many tests and trials to produce the best coffee in this cafe.</p>
                   <p>We process coffee beans using technology to produce the best coffee. We serve the best quality
                      coffee for customers who come to our cafe. And we promise to make your moment of enjoying
-                     coffee
-                     really worth enjoying.</p>
+                     coffee really worth enjoying.</p>
                </div>
             </div>
          </div>

@@ -26,26 +26,43 @@
    <!-- Header Start  -->
    <?php require 'partials/header.php'; ?>
    <!-- Header End -->
+   <div class="search-hero">
+      <div class="container">
+         <div class="content">
+            <div class="heading">
+               <h3>quick view</h3>
+               <p><a href="home.php">home</a> <span> / quick view</span></p>
+            </div>
+         </div>
+      </div>
+   </div>
    <section class="quick-view">
       <h1 class="title">quick view</h1>
       <?php
+         // PDO Method
+         // $product_id = $_GET['product_id'];
+         // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
+         // $select_products->execute([$product_id]);
+         // if ($select_products->rowCount() > 0) {
+         //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+         // Mysqli Method
          $product_id = $_GET['product_id'];
-         $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
-         $select_products->execute([$product_id]);
-         if ($select_products->rowCount() > 0) {
-            while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+         $sql_product = "SELECT * FROM tbl_product WHERE id = $product_id";
+         $query_product = mysqli_query($conn, $sql_product);
+         if (mysqli_num_rows($query_product) > 0) {
+            while ($product = mysqli_fetch_array($query_product)) {
       ?>
       <form action="" method="POST" class="box">
-         <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
-         <input type="hidden" name="name" value="<?= $fetch_products['name']; ?>">
-         <input type="hidden" name="price" value="<?= $fetch_products['price']; ?>">
-         <input type="hidden" name="image" value="<?= $fetch_products['image']; ?>">
-         <img src="assets/img/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-         <a href="category.php?category=<?= $fetch_products['category']; ?>"
-            class="cat"><?= $fetch_products['category']; ?></a>
-         <div class="name"><?= $fetch_products['name']; ?></div>
+         <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+         <input type="hidden" name="name" value="<?= $product['name']; ?>">
+         <input type="hidden" name="price" value="<?= $product['price']; ?>">
+         <input type="hidden" name="image" value="<?= $product['image']; ?>">
+         <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="">
+         <a href="category.php?category=<?= $product['category']; ?>"
+            class="cat"><?= $product['category']; ?></a>
+         <div class="name"><?= $product['name']; ?></div>
          <div class="flex">
-            <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
+            <div class="price"><span>$</span><?= $product['price']; ?></div>
             <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
          </div>
          <button type="submit" name="add_to_cart" class="cart-btn">add to cart</button>
