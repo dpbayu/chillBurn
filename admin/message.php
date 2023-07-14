@@ -8,8 +8,13 @@
    }
    if (isset($_GET['delete'])) {
       $delete_id = $_GET['delete'];
-      $delete_message = $conn->prepare("DELETE FROM tbl_message WHERE id = ?");
-      $delete_message->execute([$delete_id]);
+      // PDO Method
+      // $delete_message = $conn->prepare("DELETE FROM tbl_message WHERE id = ?");
+      // $delete_message->execute([$delete_id]);
+      // header('location:message.php');
+      // Mysqli Method
+      $sql_message = "DELETE FROM tbl_message WHERE id = '$delete_id'";
+      $query_message = mysqli_query($conn, $sql_message);
       header('location:message.php');
    }
 ?>
@@ -37,17 +42,23 @@
       <h1 class="heading">messages</h1>
       <div class="box-container">
          <?php
-            $select_messages = $conn->prepare("SELECT * FROM tbl_message");
-            $select_messages->execute();
-            if ($select_messages->rowCount() > 0) {
-               while ($fetch_messages = $select_messages->fetch(PDO::FETCH_ASSOC)) {
+            // PDO Method
+            // $select_messages = $conn->prepare("SELECT * FROM tbl_message");
+            // $select_messages->execute();
+            // if ($select_messages->rowCount() > 0) {
+            //    while ($fetch_messages = $select_messages->fetch(PDO::FETCH_ASSOC)) {
+            // Mysqli Method
+            $sql_message = "SELECT * FROM tbl_message";
+            $query_message = mysqli_query($conn, $sql_message);
+            if (mysqli_num_rows($query_message) > 0) {
+               while ($message = mysqli_fetch_assoc($query_message)) {
             ?>
             <div class="box">
-               <p> name : <span><?= $fetch_messages['name']; ?></span> </p>
-               <p> number : <span><?= $fetch_messages['number']; ?></span> </p>
-               <p> email : <span><?= $fetch_messages['email']; ?></span> </p>
-               <p> message : <span><?= $fetch_messages['message']; ?></span> </p>
-               <a href="message.php?delete=<?= $fetch_messages['id']; ?>" class="delete-btn"
+               <p> name : <span><?= $message['name']; ?></span> </p>
+               <p> number : <span><?= $message['number']; ?></span> </p>
+               <p> email : <span><?= $message['email']; ?></span> </p>
+               <p> message : <span><?= $message['message']; ?></span> </p>
+               <a href="message.php?delete=<?= $message['id']; ?>" class="delete-btn"
                   onclick="return confirm('delete this message?');">delete</a>
             </div>
             <?php

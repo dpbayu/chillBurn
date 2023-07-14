@@ -8,21 +8,34 @@
    };
    if (isset($_POST['submit'])) {
       $name = $_POST['name'];
-      $name = filter_var($name, FILTER_SANITIZE_STRING);
-      $pass = sha1($_POST['pass']);
-      $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-      $cpass = sha1($_POST['cpass']);
-      $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
-      $select_admin = $conn->prepare("SELECT * FROM admin WHERE name = ?");
-      $select_admin->execute([$name]);
-      if ($select_admin->rowCount() > 0) {
+      $password = $_POST['password'];
+      $confirm_password = $_POST['confirm_password'];
+      // PDO Method
+      // $select_admin = $conn->prepare("SELECT * FROM tbl_admin WHERE name = ?");
+      // $select_admin->execute([$name]);
+      // if ($select_admin->rowCount() > 0) {
+      //    $message[] = 'username already exists!';
+      // } else {
+      //    if ($password != $confirm_password) {
+      //       $message[] = 'confirm passowrd not matched!';
+      //    } else {
+      //       $insert_admin = $conn->prepare("INSERT INTO tbl_admin (name, password) VALUES (?,?)");
+      //       $insert_admin->execute([$name, $confirm_password]);
+      //       $message[] = 'new admin registered!';
+      //    }
+      // }
+      // Mysqli Method
+      $sql_admin = "SELECT * FROM tbl_admin WHERE name = '$name'";
+      $query_admin = mysqli_query($conn, $sql_admin);
+      if (mysqli_num_rows($query_admin) > 0) {
          $message[] = 'username already exists!';
       } else {
-         if ($pass != $cpass) {
+         if ($password != $confirm_password) {
             $message[] = 'confirm passowrd not matched!';
          } else {
-            $insert_admin = $conn->prepare("INSERT INTO admin (name, password) VALUES (?,?)");
-            $insert_admin->execute([$name, $cpass]);
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $sql_add_admin = "INSERT INTO tbl_admin (name, password) VALUES ('$name', '$password')";
+            $query_add_admin = mysqli_query($conn, $sql_add_admin);
             $message[] = 'new admin registered!';
          }
       }
@@ -52,12 +65,9 @@
    <section class="form-container">
       <form action="" method="POST">
          <h3>register new</h3>
-         <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="password" name="cpass" maxlength="20" required placeholder="confirm your password" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
+         <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box">
+         <input type="password" name="password" maxlength="20" required placeholder="enter your password" class="box">
+         <input type="password" name="confirm_password" maxlength="20" required placeholder="confirm your password" class="box">
          <input type="submit" value="register now" name="submit" class="btn">
       </form>
    </section>

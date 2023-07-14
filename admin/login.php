@@ -3,20 +3,33 @@
    session_start();
    require '../include/connect.php';
    if (isset($_POST['submit'])) {
+      // PDO Method
+      // $name = $_POST['name'];
+      // $password = $_POST['password'];
+      // $select_admin = $conn->prepare("SELECT * FROM tbl_admin WHERE name = ? AND password = ?");
+      // $select_admin->execute([$name, $pass]);
+      // if ($select_admin->rowCount() > 0) {
+      //    $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
+      //    $_SESSION['admin_id'] = $fetch_admin_id['id'];
+      //    header('location: dashboard.php');
+      // } else {
+      //    $message[] = 'incorrect username or password!';
+      // }
+      // Mysqli Method
       $name = $_POST['name'];
-      $name = filter_var($name, FILTER_SANITIZE_STRING);
-      $pass = sha1($_POST['pass']);
-      $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-      $select_admin = $conn->prepare("SELECT * FROM tbl_admin WHERE name = ? AND password = ?");
-      $select_admin->execute([$name, $pass]);
-      if ($select_admin->rowCount() > 0) {
-         $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
-         $_SESSION['admin_id'] = $fetch_admin_id['id'];
-         header('location:dashboard.php');
-      } else {
-         $message[] = 'incorrect username or password!';
+      $password = $_POST['password'];
+      $user = "SELECT * FROM tbl_admin WHERE name = '$name'";
+      $result = mysqli_query($conn, $user);
+      if (mysqli_num_rows($result) > 0) {
+         $row = mysqli_fetch_assoc($result);
+         if (password_verify($password, $row['password'])) {
+            $_SESSION['admin_id'] = $row['id'];
+            header('location: dashboard.php');
+         } else {
+            $message[] = 'incorrect username or password!';
+         }
       }
-   }
+      }
 ?>
 <!-- PHP -->
 
@@ -51,10 +64,8 @@
       <form action="" method="POST">
          <h3>login now</h3>
          <p>default username = <span>admin</span> & password = <span>111</span></p>
-         <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
+         <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box">
+         <input type="password" name="password" maxlength="20" required placeholder="enter your password" class="box">
          <input type="submit" value="login now" name="submit" class="btn">
       </form>
    </section>

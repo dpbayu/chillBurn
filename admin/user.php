@@ -4,17 +4,25 @@
    require '../include/connect.php';
    $admin_id = $_SESSION['admin_id'];
    if (!isset($admin_id)) {
-      header('location:login.php');
+      header('location: login.php');
    }
    if (isset($_GET['delete'])) {
       $delete_id = $_GET['delete'];
-      $delete_users = $conn->prepare("DELETE FROM tbl_user WHERE id = ?");
-      $delete_users->execute([$delete_id]);
-      $delete_order = $conn->prepare("DELETE FROM tbl_order WHERE user_id = ?");
-      $delete_order->execute([$delete_id]);
-      $delete_cart = $conn->prepare("DELETE FROM cart WHERE user_id = ?");
-      $delete_cart->execute([$delete_id]);
-      header('location:users.php');
+      // PDO Method
+      // $delete_users = $conn->prepare("DELETE FROM tbl_user WHERE id = ?");
+      // $delete_users->execute([$delete_id]);
+      // $delete_order = $conn->prepare("DELETE FROM tbl_order WHERE user_id = ?");
+      // $delete_order->execute([$delete_id]);
+      // $delete_cart = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
+      // $delete_cart->execute([$delete_id]);
+      // header('location:users.php');
+      // Mysqli Method
+      $sql_delete_user = "DELETE FROM tbl_user WHERE id = '$delete_id'";
+      $query_delete_user = mysqli_query($conn, $sql_delete_user);
+      $sql_delete_order = "DELETE FROM tbl_order WHERE user_id = '$delete_id'";
+      $query_delete_order = mysqli_query($conn, $sql_delete_order);
+      $sql_delete_cart = "DELETE FROM tbl_cart WHERE user_id = '$delete_id'";
+      $query_delete_cart = mysqli_query($conn, $sql_delete_cart);
    }
 ?>
 <!-- PHP -->
@@ -41,15 +49,21 @@
       <h1 class="heading">users account</h1>
       <div class="box-container">
          <?php
-            $select_account = $conn->prepare("SELECT * FROM tbl_user");
-            $select_account->execute();
-            if ($select_account->rowCount() > 0) {
-            while ($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)) {  
+            // PDO Method
+            // $select_account = $conn->prepare("SELECT * FROM tbl_user");
+            // $select_account->execute();
+            // if ($select_account->rowCount() > 0) {
+            // while ($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)) {  
+            // Mysqli Method
+               $sql_account = "SELECT * FROM tbl_user";
+               $query_account = mysqli_query($conn, $sql_account);
+               if (mysqli_num_rows($query_account) > 0) {
+                  while ($account = mysqli_fetch_assoc($query_account)) {
                ?>
                   <div class="box">
-                     <p> user id : <span><?= $fetch_accounts['id']; ?></span> </p>
-                     <p> username : <span><?= $fetch_accounts['name']; ?></span> </p>
-                     <a href="users.php?delete=<?= $fetch_accounts['id']; ?>" class="delete-btn"
+                     <p> user id : <span><?= $account['id']; ?></span> </p>
+                     <p> username : <span><?= $account['name']; ?></span> </p>
+                     <a href="user.php?delete=<?= $account['id']; ?>" class="delete-btn"
                         onclick="return confirm('delete this account?');">delete</a>
                   </div>
                <?php

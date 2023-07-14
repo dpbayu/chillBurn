@@ -22,7 +22,7 @@ if (isset($message)) {
          <a href="order.php">order</a>
          <a href="admin.php">admin</a>
          <a href="user.php">user</a>
-         <a href="message.php">messages</a>
+         <a href="message.php">message</a>
       </nav>
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
@@ -30,11 +30,16 @@ if (isset($message)) {
       </div>
       <div class="profile">
          <?php
-            $select_profile = $conn->prepare("SELECT * FROM tbl_admin WHERE id = ?");
-            $select_profile->execute([$admin_id]);
-            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+            // PDO Method
+            // $select_profile = $conn->prepare("SELECT * FROM tbl_admin WHERE id = ?");
+            // $select_profile->execute([$admin_id]);
+            // $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+            // Mysqli Method
+            $sql_admin = "SELECT * FROM tbl_admin WHERE id = '$admin_id'";
+            $query_admin = mysqli_query($conn, $sql_admin);
+            $admin = mysqli_fetch_assoc($query_admin);
          ?>
-         <p><?= $fetch_profile['name']; ?></p>
+         <p><?= $admin['name']; ?></p>
          <a href="update_profile.php" class="btn">update profile</a>
          <div class="flex-btn">
             <a href="login.php" class="option-btn">login</a>

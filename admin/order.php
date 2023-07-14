@@ -44,10 +44,14 @@
       <h1 class="heading">placed orders</h1>
       <div class="box-container">
          <?php
-            $select_orders = $conn->prepare("SELECT * FROM tbl_order");
-            $select_orders->execute();
-            if ($select_orders->rowCount() > 0) {
-               while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
+            // $select_orders = $conn->prepare("SELECT * FROM tbl_order");
+            // $select_orders->execute();
+            // if ($select_orders->rowCount() > 0) {
+            //    while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
+               $select_orders = "SELECT * FROM tbl_order";
+               $query_order = mysqli_query($conn, $select_orders);
+               if (mysqli_num_rows($query_order) > 0) {
+                  while ($fetch_orders = mysqli_fetch_assoc($query_order)) {
                ?>
                <div class="box">
                   <p> user id : <span><?= $fetch_orders['user_id']; ?></span> </p>

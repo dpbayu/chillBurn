@@ -41,19 +41,25 @@
             <a href="register.php" class="option-btn">register</a>
          </div>
          <?php
-            $select_account = $conn->prepare("SELECT * FROM tbl_admin");
-            $select_account->execute();
-            if ($select_account->rowCount() > 0) {
-               while ($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)) {  
+            // PDO Method
+            // $select_account = $conn->prepare("SELECT * FROM tbl_admin");
+            // $select_account->execute();
+            // if ($select_account->rowCount() > 0) {
+            //    while ($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)) {
+            // Mysqli Method
+            $sql_admin = "SELECT * FROM tbl_admin";
+            $query_admin = mysqli_query($conn, $sql_admin);
+            if (mysqli_num_rows($query_admin) > 0) {
+               while ($admin = mysqli_fetch_assoc($query_admin)) {
             ?>
             <div class="box">
-               <p> admin id : <span><?= $fetch_accounts['id']; ?></span> </p>
-               <p> username : <span><?= $fetch_accounts['name']; ?></span> </p>
+               <p> admin id : <span><?= $admin['id']; ?></span> </p>
+               <p> username : <span><?= $admin['name']; ?></span> </p>
                <div class="flex-btn">
-                  <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" class="delete-btn"
+                  <a href="admin.php?delete=<?= $admin['id']; ?>" class="delete-btn"
                      onclick="return confirm('delete this account?');">delete</a>
                   <?php
-                     if ($fetch_accounts['id'] == $admin_id) {
+                     if ($admin['id'] == $admin_id) {
                         echo '<a href="update_profile.php" class="option-btn">update</a>';
                      }
                   ?>

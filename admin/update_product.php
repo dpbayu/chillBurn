@@ -8,19 +8,35 @@
    };
    if (isset($_POST['update'])) {
       $product_id = $_POST['product_id'];
-      $product_id = filter_var($product_id, FILTER_SANITIZE_STRING);
       $name = $_POST['name'];
-      $name = filter_var($name, FILTER_SANITIZE_STRING);
       $price = $_POST['price'];
-      $price = filter_var($price, FILTER_SANITIZE_STRING);
       $category = $_POST['category'];
-      $category = filter_var($category, FILTER_SANITIZE_STRING);
-      $update_product = $conn->prepare("UPDATE tbl_product SET name = ?, category = ?, price = ? WHERE id = ?");
-      $update_product->execute([$name, $category, $price, $product_id]);
+      // PDO Method
+      // $update_product = $conn->prepare("UPDATE tbl_product SET name = ?, category = ?, price = ? WHERE id = ?");
+      // $update_product->execute([$name, $category, $price, $product_id]);
+      // $message[] = 'product updated!';
+      // $old_image = $_POST['old_image'];
+      // $image = $_FILES['image']['name'];
+      // $image_size = $_FILES['image']['size'];
+      // $image_tmp_name = $_FILES['image']['tmp_name'];
+      // $image_folder = '../assets/img/uploaded_img/'.$image;
+      // if (!empty($image)) {
+      //    if ($image_size > 2000000) {
+      //       $message[] = 'images size is too large!';
+      //    } else {
+      //       $update_image = $conn->prepare("UPDATE tbl_product SET image = ? WHERE id = ?");
+      //       $update_image->execute([$image, $product_id]);
+      //       move_uploaded_file($image_tmp_name, $image_folder);
+      //       unlink('../assets/img/uploaded_img/'.$old_image);
+      //       $message[] = 'image updated!';
+      //    }
+      // }
+      // Mysqli Method
+      $sql_update_product = "UPDATE tbl_product SET name = '$name', category = '$category', price = '$price' WHERE id = '$product_id'";
+      $query_update_product = mysqli_query($conn, $sql_update_product);
       $message[] = 'product updated!';
       $old_image = $_POST['old_image'];
       $image = $_FILES['image']['name'];
-      $image = filter_var($image, FILTER_SANITIZE_STRING);
       $image_size = $_FILES['image']['size'];
       $image_tmp_name = $_FILES['image']['tmp_name'];
       $image_folder = '../assets/img/uploaded_img/'.$image;
@@ -28,8 +44,8 @@
          if ($image_size > 2000000) {
             $message[] = 'images size is too large!';
          } else {
-            $update_image = $conn->prepare("UPDATE tbl_product SET image = ? WHERE id = ?");
-            $update_image->execute([$image, $product_id]);
+            $sql_update_img = "UPDATE tbl_product SET image = '$image' WHERE id = '$product_id'";
+            $query_update_img = mysqli_query($conn, $sql_update_img);
             move_uploaded_file($image_tmp_name, $image_folder);
             unlink('../assets/img/uploaded_img/'.$old_image);
             $message[] = 'image updated!';
@@ -62,24 +78,30 @@
       <h1 class="heading">update product</h1>
       <?php
          $update_id = $_GET['update'];
-         $show_products = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
-         $show_products->execute([$update_id]);
-         if ($show_products->rowCount() > 0) {
-            while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {  
+         // PDO Method
+         // $show_products = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
+         // $show_products->execute([$update_id]);
+         // if ($show_products->rowCount() > 0) {
+         //    while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {
+         // Mysqli Method
+         $sql_product = "SELECT * FROM tbl_product WHERE id ='$update_id'";
+         $query_product = mysqli_query($conn, $sql_product);
+         if (mysqli_num_rows($query_product) > 0) {
+            while ($product = mysqli_fetch_assoc($query_product)) {
          ?>
             <form action="" method="POST" enctype="multipart/form-data">
-               <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
-               <input type="hidden" name="old_image" value="<?= $fetch_products['image']; ?>">
-               <img src="../assets/img/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+               <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+               <input type="hidden" name="old_image" value="<?= $product['image']; ?>">
+               <img src="../assets/img/uploaded_img/<?= $product['image']; ?>" alt="">
                <span>update name</span>
                <input type="text" required placeholder="enter product name" name="name" maxlength="100" class="box"
-                  value="<?= $fetch_products['name']; ?>">
+                  value="<?= $product['name']; ?>">
                <span>update price</span>
                <input type="number" min="0" max="9999999999" required placeholder="enter product price" name="price"
-                  onkeypress="if (this.value.length == 10) return false;" class="box" value="<?= $fetch_products['price']; ?>">
+                  onkeypress="if (this.value.length == 10) return false;" class="box" value="<?= $product['price']; ?>">
                <span>update category</span>
                <select name="category" class="box" required>
-                  <option selected value="<?= $fetch_products['category']; ?>"><?= $fetch_products['category']; ?></option>
+                  <option selected value="<?= $product['category']; ?>"><?= $product['category']; ?></option>
                   <option value="main dish">main dish</option>
                   <option value="fast food">fast food</option>
                   <option value="drinks">drinks</option>

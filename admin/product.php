@@ -8,41 +8,63 @@
    };
    if (isset($_POST['add_product'])) {
       $name = $_POST['name'];
-      $name = filter_var($name, FILTER_SANITIZE_STRING);
       $price = $_POST['price'];
-      $price = filter_var($price, FILTER_SANITIZE_STRING);
       $category = $_POST['category'];
-      $category = filter_var($category, FILTER_SANITIZE_STRING);
       $image = $_FILES['image']['name'];
-      $image = filter_var($image, FILTER_SANITIZE_STRING);
       $image_size = $_FILES['image']['size'];
       $image_tmp_name = $_FILES['image']['tmp_name'];
       $image_folder = '../assets/img/uploaded_img/'.$image;
-      $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE name = ?");
-      $select_products->execute([$name]);
-      if ($select_products->rowCount() > 0) {
+      // PDO Method
+      // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE name = ?");
+      // $select_products->execute([$name]);
+      // if ($select_products->rowCount() > 0) {
+      //    $message[] = 'product name already exists!';
+      // } else {
+      //    if ($image_size > 2000000) {
+      //       $message[] = 'image size is too large';
+      //    } else {
+      //       move_uploaded_file($image_tmp_name, $image_folder);
+      //       $insert_product = $conn->prepare("INSERT INTO tbl_product (name, category, price, image) VALUES (?,?,?,?)");
+      //       $insert_product->execute([$name, $category, $price, $image]);
+      //       $message[] = 'new product added!';
+      //    }
+      // }
+      // Mysqli Method
+      $sql_product = "SELECT * FROM tbl_product";
+      $query_product = mysqli_query($conn, $sql_product);
+      if (mysqli_num_rows($query_product) > 0) {
          $message[] = 'product name already exists!';
       } else {
          if ($image_size > 2000000) {
             $message[] = 'image size is too large';
          } else {
             move_uploaded_file($image_tmp_name, $image_folder);
-            $insert_product = $conn->prepare("INSERT INTO tbl_product (name, category, price, image) VALUES (?,?,?,?)");
-            $insert_product->execute([$name, $category, $price, $image]);
+            $sql_add_product = "INSERT INTO tbl_product (name, category, price, image) VALUES ('$name', '$category', '$price', '$image')";
+            $query_add_product = mysqli_query($conn, $sql_add_product);
             $message[] = 'new product added!';
          }
       }
    }
    if (isset($_GET['delete'])) {
       $delete_id = $_GET['delete'];
-      $delete_product_image = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
-      $delete_product_image->execute([$delete_id]);
-      $fetch_delete_image = $delete_product_image->fetch(PDO::FETCH_ASSOC);
-      unlink('../uploaded_img/'.$fetch_delete_image['image']);
-      $delete_product = $conn->prepare("DELETE FROM tbl_product WHERE id = ?");
-      $delete_product->execute([$delete_id]);
-      $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE product_id = ?");
-      $delete_cart->execute([$delete_id]);
+      // PDO Method
+      // $delete_product_image = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
+      // $delete_product_image->execute([$delete_id]);
+      // $fetch_delete_image = $delete_product_image->fetch(PDO::FETCH_ASSOC);
+      // unlink('../uploaded_img/'.$fetch_delete_image['image']);
+      // $delete_product = $conn->prepare("DELETE FROM tbl_product WHERE id = ?");
+      // $delete_product->execute([$delete_id]);
+      // $delete_cart = $conn->prepare("DELETE FROM cart WHERE product_id = ?");
+      // $delete_cart->execute([$delete_id]);
+      // Mysqli Method
+      $sql_delete_img = "SELECT * FROM tbl_product WHERE id = '$delete_id'";
+      $query_delete_img = mysqli_query($conn, $sql_delete_img);
+      $delete_img = mysqli_fetch_assoc($query_delete_img);
+      unlink('../uploaded_img/'.$delete_img['image']);
+      $sql_delete_product = "DELETE * FROM tbl_product WHERE id = '$delete_id'";
+      $query_delete_product = mysqli_query($conn,$sql_delete_product);
+      $sql_delete_cart = "DELETE FROM tbl_cart WHERE id = '$delete_id'";
+      $query_delete_cart = mysqli_query($conn,$sql_delete_cart);
       header('location:product.php');
    }
 ?>
@@ -88,21 +110,27 @@
    <section class="show-products" style="padding-top: 0;">
       <div class="box-container">
          <?php
-            $show_products = $conn->prepare("SELECT * FROM tbl_product ORDER BY id DESC");
-            $show_products->execute();
-            if ($show_products->rowCount() > 0) {
-            while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {  
+            // PDO Method
+            // $show_products = $conn->prepare("SELECT * FROM tbl_product ORDER BY id DESC");
+            // $show_products->execute();
+            // if ($show_products->rowCount() > 0) {
+            // while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {  
+            // Mysqli Method
+            $sql_product = "SELECT * FROM tbl_product ORDER BY id DESC";
+            $query_product = mysqli_query($conn, $sql_product);
+            if (mysqli_num_rows($query_product) > 0) {
+               while ($product = mysqli_fetch_assoc($query_product)) {
          ?>
          <div class="box">
-            <img src="../assets/img/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+            <img src="../assets/img/uploaded_img/<?= $product['image']; ?>" alt="" height="300" width="300">
             <div class="flex">
-               <div class="price"><span>$</span><?= $fetch_products['price']; ?><span>/-</span></div>
-               <div class="category"><?= $fetch_products['category']; ?></div>
+               <div class="price"><span>$</span><?= $product['price']; ?><span>/-</span></div>
+               <div class="category"><?= $product['category']; ?></div>
             </div>
-            <div class="name"><?= $fetch_products['name']; ?></div>
+            <div class="name"><?= $product['name']; ?></div>
             <div class="flex-btn">
-               <a href="update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
-               <a href="product.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn"
+               <a href="update_product.php?update=<?= $product['id']; ?>" class="option-btn">update</a>
+               <a href="product.php?delete=<?= $product['id']; ?>" class="delete-btn"
                   onclick="return confirm('delete this product?');">delete</a>
             </div>
          </div>
