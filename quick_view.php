@@ -26,7 +26,7 @@
    <!-- Header Start  -->
    <?php require 'partials/header.php'; ?>
    <!-- Header End -->
-   <div class="search-hero">
+   <div class="simple-hero">
       <div class="container">
          <div class="content">
             <div class="heading">

@@ -26,12 +26,12 @@
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
-   <div class="search-hero">
+   <div class="simple-hero">
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>search</h3>
-               <p><a href="home.php">home</a> <span> / search</span></p>
+               <h3>SEARCH</h3>
+               <p><a href="home.php">Home</a> <span> / Search</span></p>
             </div>
          </div>
       </div>
@@ -69,7 +69,7 @@
                      class="cat"><?= $product['category']; ?></a>
                   <p class="name"><?= $product['name']; ?></p>
                   <div class="flex">
-                     <div class="price"><span>$ </span><?= $product['price']; ?></div>
+                     <p class="price">$ <span><?= $product['price']; ?></span></p>
                      <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                   </div>
                </div>
@@ -90,22 +90,22 @@
                               alt="Image <?= $product['name'] ?>">
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">name</label>
+                           <label style="width: 150px;">Name</label>
                            <p class="mx-3">:</p>
                            <p><?= $product['name'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">category</label>
+                           <label style="width: 150px;">Category</label>
                            <p class="mx-3">:</p>
                            <a href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">price</label>
+                           <label style="width: 150px;">Price</label>
                            <p class="mx-3">:</p>
                            <p>$ <?= $product['price'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">quantity</label>
+                           <label style="width: 150px;">Quantity</label>
                            <p class="mx-3">:</p>
                            <p>1</p>
                         </div>

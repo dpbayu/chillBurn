@@ -528,6 +528,7 @@ nav .profile .name {
    text-align: center;
    text-decoration: none;
    border-radius: 6px;
+   border: none;
 }
 
 .menu .box-container .box .fa-eye:hover,
@@ -1061,14 +1062,14 @@ nav .profile .name {
 }
 
 /* Search */
-.search-hero {
+.simple-hero {
    position: relative;
    height: 30vh;
    background-color: var(--black);
    background-size: cover;
 }
 
-.search-hero .content {
+.simple-hero .content {
    position: absolute;
    top: 50%;
    left: 50%;
