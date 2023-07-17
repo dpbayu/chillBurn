@@ -50,12 +50,6 @@
             <?php
                if (isset($_POST['search_box']) OR isset($_POST['search_btn'])) {
                $search_box = $_POST['search_box'];
-               // PDO Method
-               // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE name LIKE '%{$search_box}%'");
-               // $select_products->execute();
-               // if ($select_products->rowCount() > 0) {
-               //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-               // Mysqli Method
                $sql_product = "SELECT * FROM tbl_product WHERE name LIKE '%{$search_box}%'";
                $query_product = mysqli_query($conn, $sql_product);
                if (mysqli_num_rows($query_product) > 0) {

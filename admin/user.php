@@ -8,15 +8,6 @@
    }
    if (isset($_GET['delete'])) {
       $delete_id = $_GET['delete'];
-      // PDO Method
-      // $delete_users = $conn->prepare("DELETE FROM tbl_user WHERE id = ?");
-      // $delete_users->execute([$delete_id]);
-      // $delete_order = $conn->prepare("DELETE FROM tbl_order WHERE user_id = ?");
-      // $delete_order->execute([$delete_id]);
-      // $delete_cart = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
-      // $delete_cart->execute([$delete_id]);
-      // header('location:users.php');
-      // Mysqli Method
       $sql_delete_user = "DELETE FROM tbl_user WHERE id = '$delete_id'";
       $query_delete_user = mysqli_query($conn, $sql_delete_user);
       $sql_delete_order = "DELETE FROM tbl_order WHERE user_id = '$delete_id'";
@@ -49,12 +40,6 @@
       <h1 class="heading">users account</h1>
       <div class="box-container">
          <?php
-            // PDO Method
-            // $select_account = $conn->prepare("SELECT * FROM tbl_user");
-            // $select_account->execute();
-            // if ($select_account->rowCount() > 0) {
-            // while ($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)) {  
-            // Mysqli Method
                $sql_account = "SELECT * FROM tbl_user";
                $query_account = mysqli_query($conn, $sql_account);
                if (mysqli_num_rows($query_account) > 0) {

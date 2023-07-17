@@ -3,19 +3,6 @@
    session_start();
    require '../include/connect.php';
    if (isset($_POST['submit'])) {
-      // PDO Method
-      // $name = $_POST['name'];
-      // $password = $_POST['password'];
-      // $select_admin = $conn->prepare("SELECT * FROM tbl_admin WHERE name = ? AND password = ?");
-      // $select_admin->execute([$name, $pass]);
-      // if ($select_admin->rowCount() > 0) {
-      //    $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
-      //    $_SESSION['admin_id'] = $fetch_admin_id['id'];
-      //    header('location: dashboard.php');
-      // } else {
-      //    $message[] = 'incorrect username or password!';
-      // }
-      // Mysqli Method
       $name = $_POST['name'];
       $password = $_POST['password'];
       $user = "SELECT * FROM tbl_admin WHERE name = '$name'";

@@ -11,27 +11,6 @@
       $name = $_POST['name'];
       $price = $_POST['price'];
       $category = $_POST['category'];
-      // PDO Method
-      // $update_product = $conn->prepare("UPDATE tbl_product SET name = ?, category = ?, price = ? WHERE id = ?");
-      // $update_product->execute([$name, $category, $price, $product_id]);
-      // $message[] = 'product updated!';
-      // $old_image = $_POST['old_image'];
-      // $image = $_FILES['image']['name'];
-      // $image_size = $_FILES['image']['size'];
-      // $image_tmp_name = $_FILES['image']['tmp_name'];
-      // $image_folder = '../assets/img/uploaded_img/'.$image;
-      // if (!empty($image)) {
-      //    if ($image_size > 2000000) {
-      //       $message[] = 'images size is too large!';
-      //    } else {
-      //       $update_image = $conn->prepare("UPDATE tbl_product SET image = ? WHERE id = ?");
-      //       $update_image->execute([$image, $product_id]);
-      //       move_uploaded_file($image_tmp_name, $image_folder);
-      //       unlink('../assets/img/uploaded_img/'.$old_image);
-      //       $message[] = 'image updated!';
-      //    }
-      // }
-      // Mysqli Method
       $sql_update_product = "UPDATE tbl_product SET name = '$name', category = '$category', price = '$price' WHERE id = '$product_id'";
       $query_update_product = mysqli_query($conn, $sql_update_product);
       $message[] = 'product updated!';
@@ -78,12 +57,6 @@
       <h1 class="heading">update product</h1>
       <?php
          $update_id = $_GET['update'];
-         // PDO Method
-         // $show_products = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
-         // $show_products->execute([$update_id]);
-         // if ($show_products->rowCount() > 0) {
-         //    while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {
-         // Mysqli Method
          $sql_product = "SELECT * FROM tbl_product WHERE id ='$update_id'";
          $query_product = mysqli_query($conn, $sql_product);
          if (mysqli_num_rows($query_product) > 0) {

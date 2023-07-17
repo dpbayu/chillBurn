@@ -39,13 +39,6 @@
    <section class="quick-view">
       <h1 class="title">quick view</h1>
       <?php
-         // PDO Method
-         // $product_id = $_GET['product_id'];
-         // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE id = ?");
-         // $select_products->execute([$product_id]);
-         // if ($select_products->rowCount() > 0) {
-         //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-         // Mysqli Method
          $product_id = $_GET['product_id'];
          $sql_product = "SELECT * FROM tbl_product WHERE id = $product_id";
          $query_product = mysqli_query($conn, $sql_product);

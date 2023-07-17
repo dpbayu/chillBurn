@@ -44,12 +44,6 @@
          <h1 class="title">latest <span>dishes</span></h1>
          <div class="box-container">
             <?php
-               // PDO Method
-               // $select_products = $conn->prepare("SELECT * FROM tbl_product ORDER BY id DESC LIMIT 3");
-               // $select_products->execute();
-               // if ($select_products->rowCount() > 0) {
-               //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-               // Mysqli Method
                $sql_product = "SELECT * FROM tbl_product ORDER BY id DESC LIMIT 3";
                $query_product = mysqli_query($conn, $sql_product);
                if (mysqli_num_rows($query_product) > 0) {
@@ -132,12 +126,6 @@
                <div class="col-md-6 p-3 m-0">
                   <h3>Main Dish</h3>
                   <?php
-                     // PDO Method
-                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'main dish'");
-                     // $select_products->execute();
-                     // if ($select_products->rowCount() > 0) {
-                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-                     // Mysqli Method
                      $sql_product = "SELECT * FROM tbl_product WHERE category = 'main dish' LIMIT 10";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {
@@ -170,12 +158,6 @@
                <div class="col-md-6 p-3 m-0">
                   <h3>Drink</h3>
                   <?php
-                     // PDO Method
-                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'drink'");
-                     // $select_products->execute();
-                     // if ($select_products->rowCount() > 0) {
-                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-                     // Mysqli Method
                      $sql_product = "SELECT * FROM tbl_product WHERE category = 'drink' LIMIT 10";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {
@@ -202,12 +184,6 @@
                <div class="col-md-6 p-3 m-0">
                   <h3>Dessert</h3>
                   <?php
-                     // PDO Method
-                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'dessert'");
-                     // $select_products->execute();
-                     // if ($select_products->rowCount() > 0) {
-                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-                     // Mysqli Method
                      $sql_product = "SELECT * FROM tbl_product WHERE category = 'dessert' LIMIT 10";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {

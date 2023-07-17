@@ -30,11 +30,6 @@ if (isset($message)) {
       </div>
       <div class="profile">
          <?php
-            // PDO Method
-            // $select_profile = $conn->prepare("SELECT * FROM tbl_admin WHERE id = ?");
-            // $select_profile->execute([$admin_id]);
-            // $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-            // Mysqli Method
             $sql_admin = "SELECT * FROM tbl_admin WHERE id = '$admin_id'";
             $query_admin = mysqli_query($conn, $sql_admin);
             $admin = mysqli_fetch_assoc($query_admin);

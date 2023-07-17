@@ -46,12 +46,6 @@
                   if ($user_id == '') {
                      echo '<p class="empty">please login to see your orders</p>';
                   } else {
-                  // PDO Method
-                  // $select_orders = $conn->prepare("SELECT * FROM tbl_order WHERE user_id = ?");
-                  // $select_orders->execute([$user_id]);
-                  // if ($select_orders->rowCount() > 0) {
-                  //    while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
-                  // Mysqli Method
                   $sql_order = "SELECT * FROM tbl_order WHERE user_id = '$user_id'";
                   $query_order = mysqli_query($conn, $sql_order);
                   if (mysqli_num_rows($query_order) > 0) {

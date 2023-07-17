@@ -10,21 +10,6 @@
       $name = $_POST['name'];
       $password = $_POST['password'];
       $confirm_password = $_POST['confirm_password'];
-      // PDO Method
-      // $select_admin = $conn->prepare("SELECT * FROM tbl_admin WHERE name = ?");
-      // $select_admin->execute([$name]);
-      // if ($select_admin->rowCount() > 0) {
-      //    $message[] = 'username already exists!';
-      // } else {
-      //    if ($password != $confirm_password) {
-      //       $message[] = 'confirm passowrd not matched!';
-      //    } else {
-      //       $insert_admin = $conn->prepare("INSERT INTO tbl_admin (name, password) VALUES (?,?)");
-      //       $insert_admin->execute([$name, $confirm_password]);
-      //       $message[] = 'new admin registered!';
-      //    }
-      // }
-      // Mysqli Method
       $sql_admin = "SELECT * FROM tbl_admin WHERE name = '$name'";
       $query_admin = mysqli_query($conn, $sql_admin);
       if (mysqli_num_rows($query_admin) > 0) {

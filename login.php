@@ -8,21 +8,6 @@
       $user_id = '';
    };
    if (isset($_POST['submit'])) {
-      // PDO Method
-      // $email = $_POST['email'];
-      // $email = filter_var($email);
-      // $pass = sha1($_POST['pass']);
-      // $pass = filter_var($pass);
-      // $select_user = $conn->prepare("SELECT * FROM tbl_user WHERE email = ? AND password = ?");
-      // $select_user->execute([$email, $pass]);
-      // $row = $select_user->fetch(PDO::FETCH_ASSOC);
-      // if ($select_user->rowCount() > 0) {
-      //    $_SESSION['user_id'] = $row['id'];
-      //    header('location:home.php');
-      // } else {
-      //    $message[] = 'incorrect username or password!';
-      // }
-      // Mysqli Method
       $email = $_POST['email'];
       $password = $_POST['password'];
       $user = "SELECT * FROM tbl_user WHERE email = '$email'";

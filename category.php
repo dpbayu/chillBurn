@@ -42,13 +42,6 @@
          <h1 class="title">food category</h1>
          <div class="box-container">
             <?php
-               // PDO Method
-               // $category = $_GET['category'];
-               // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = ?");
-               // $select_products->execute([$category]);
-               // if ($select_products->rowCount() > 0) {
-               //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-               // Mysqli Method
                $category = $_GET['category'];
                $sql_category = "SELECT * FROM tbl_product WHERE category = '$category'";
                $query_category = mysqli_query($conn, $sql_category);

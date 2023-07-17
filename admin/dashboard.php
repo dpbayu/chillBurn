@@ -37,14 +37,6 @@
          </div>
          <div class="box">
             <?php
-               // PDO Method
-               // $total_pendings = 0;
-               // $select_pendings = $conn->prepare("SELECT * FROM tbl_order WHERE payment_status = ?");
-               // $select_pendings->execute(['pending']);
-               // while ($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)) {
-               //    $total_pendings += $fetch_pendings['total_price'];
-               // }
-               // Mysqli Method
                $total_pendings = 0;
                $sql_pending = "SELECT * FROM tbl_order WHERE payment_status = 'pending'";
                $query_pending = mysqli_query($conn, $sql_pending);
@@ -58,14 +50,6 @@
          </div>
          <div class="box">
             <?php
-               // PDO Method
-               // $total_completes = 0;
-               // $select_completes = $conn->prepare("SELECT * FROM tbl_order WHERE payment_status = ?");
-               // $select_completes->execute(['completed']);
-               // while ($fetch_completes = $select_completes->fetch(PDO::FETCH_ASSOC)) {
-               //    $total_completes += $fetch_completes['total_price'];
-               // }
-               // Mysqli Method
                $total_completes = 0;
                $sql_complete = "SELECT * FROM tbl_order WHERE payment_status = 'completed'";
                $query_complete = mysqli_query($conn, $sql_complete);
@@ -79,11 +63,6 @@
          </div>
          <div class="box">
             <?php
-               // PDO Method
-               // $select_orders = $conn->prepare("SELECT * FROM tbl_order");
-               // $select_orders->execute();
-               // $numbers_of_orders = $select_orders->rowCount();
-               // Mysqli Method
                $sql_order = "SELECT *FROM tbl_order";
                $query_order = mysqli_query($conn, $sql_order);
                $order = mysqli_num_rows($query_order);
@@ -94,11 +73,6 @@
          </div>
          <div class="box">
             <?php
-               // PDO Method
-               // $select_products = $conn->prepare("SELECT * FROM tbl_product");
-               // $select_products->execute();
-               // $numbers_of_products = $select_products->rowCount();
-               // Mysqli Method
                $sql_product = "SELECT * FROM tbl_product";
                $query_product = mysqli_query($conn, $sql_product);
                $product = mysqli_num_rows($query_product);
@@ -109,11 +83,6 @@
          </div>
          <div class="box">
             <?php
-               // PDO Method
-               // $select_users = $conn->prepare("SELECT * FROM tbl_user");
-               // $select_users->execute();
-               // $numbers_of_users = $select_users->rowCount();
-               // Mysqli Method
                $sql_user = "SELECT * FROM tbl_user";
                $query_user = mysqli_query($conn, $sql_user);
                $user = mysqli_num_rows($query_user);
@@ -124,11 +93,6 @@
          </div>
          <div class="box">
             <?php
-               // PDO Method
-               // $select_admins = $conn->prepare("SELECT * FROM tbl_admin");
-               // $select_admins->execute();
-               // $numbers_of_admins = $select_admins->rowCount();
-               // Mysqli Method
                $sql_admin = "SELECT * FROM tbl_admin";
                $query_admin = mysqli_query($conn, $sql_admin);
                $admin = mysqli_num_rows($query_admin);
@@ -139,11 +103,6 @@
          </div>
          <div class="box">
             <?php
-               // PDO Method
-               // $select_messages = $conn->prepare("SELECT * FROM tbl_message");
-               // $select_messages->execute();
-               // $numbers_of_messages = $select_messages->rowCount();
-               // Mysqli Method
                $sql_message = "SELECT * FROM tbl_message";
                $query_message = mysqli_query($conn, $sql_message);
                $message = mysqli_num_rows($query_message);

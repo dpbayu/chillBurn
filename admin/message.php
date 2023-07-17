@@ -8,11 +8,6 @@
    }
    if (isset($_GET['delete'])) {
       $delete_id = $_GET['delete'];
-      // PDO Method
-      // $delete_message = $conn->prepare("DELETE FROM tbl_message WHERE id = ?");
-      // $delete_message->execute([$delete_id]);
-      // header('location:message.php');
-      // Mysqli Method
       $sql_message = "DELETE FROM tbl_message WHERE id = '$delete_id'";
       $query_message = mysqli_query($conn, $sql_message);
       header('location:message.php');
@@ -42,12 +37,6 @@
       <h1 class="heading">messages</h1>
       <div class="box-container">
          <?php
-            // PDO Method
-            // $select_messages = $conn->prepare("SELECT * FROM tbl_message");
-            // $select_messages->execute();
-            // if ($select_messages->rowCount() > 0) {
-            //    while ($fetch_messages = $select_messages->fetch(PDO::FETCH_ASSOC)) {
-            // Mysqli Method
             $sql_message = "SELECT * FROM tbl_message";
             $query_message = mysqli_query($conn, $sql_message);
             if (mysqli_num_rows($query_message) > 0) {

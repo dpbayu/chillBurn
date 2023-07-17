@@ -17,23 +17,12 @@
       $address = $_POST['address'];
       $total_products = $_POST['total_products'];
       $total_price = $_POST['total_price'];
-      // PDO Method
-      // $check_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-      // $check_cart->execute([$user_id]);
-      // if ($check_cart->rowCount() > 0) {
-      // Mysqli Method
       $sql_check = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
       $query_check = mysqli_query($conn, $sql_check);
       if (mysqli_num_rows($query_check) > 0) {
          if ($address == '') {
             $message[] = 'please add your address!';
          } else {
-            // PDO Method
-            // $insert_order = $conn->prepare("INSERT INTO tbl_order (user_id, name, number, email, method, address, total_products, total_price) VALUES (?,?,?,?,?,?,?,?)");
-            // $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price]);
-            // $delete_cart = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
-            // $delete_cart->execute([$user_id]);
-            // Mysqli Method
             $sql_insert = "INSERT INTO tbl_order (user_id, name, number, email, method, address, total_products, total_price) VALUES ('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$total_price')";
             $query_insert = mysqli_query($conn, $sql_insert);
             $sql_delete = "DELETE FROM tbl_cart WHERE user_id = '$user_id'";
@@ -82,12 +71,6 @@
             <?php
                $grand_total = 0;
                $cart_items[] = '';
-               // PDO Method
-               // $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-               // $select_cart->execute([$user_id]);
-               // if ($select_cart->rowCount() > 0) {
-               //    while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
-               // Mysqli Method
                $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
                $query_cart = mysqli_query($conn, $sql_cart);
                if (mysqli_num_rows($query_cart) > 0) {

@@ -69,12 +69,6 @@
          <div class="box-container">
             <?php
                $grand_total = 0;
-               // PDO Method
-               // $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-               // $select_cart->execute([$user_id]);
-               // if ($select_cart->rowCount() > 0){
-               //    while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
-               // Mysqli Method
                $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
                $query_cart = mysqli_query($conn, $sql_cart);
                if (mysqli_num_rows($query_cart) > 0) {

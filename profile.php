@@ -12,25 +12,11 @@
       $email = $_POST['email'];
       $number = $_POST['number'];
       if (!empty($name)) {
-         // PDO Method
-         // $update_name = $conn->prepare("UPDATE tbl_user SET name = ? WHERE id = ?");
-         // $update_name->execute([$name, $user_id]);
-         // Mysqli Method
          $sql_name = "UPDATE tbl_user SET name = '$name' WHERE id = '$user_id'";
          $query_name = mysqli_query($conn, $sql_name);
          $message[] = 'Update name succesfully!';
       }
       if (!empty($email)) {
-         // PDO Method
-         // $select_email = $conn->prepare("SELECT * FROM tbl_user WHERE email = ?");
-         // $select_email->execute([$email]);
-         // if ($select_email->rowCount() > 0) {
-         //    $message[] = 'email already taken!';
-         // } else {
-         //    $update_email = $conn->prepare("UPDATE tbl_user SET email = ? WHERE id = ?");
-         //    $update_email->execute([$email, $user_id]);
-         // }
-         // Mysqli Method
          $sql_email = "SELECT * FROM tbl_user WHERE email = '$email'";
          $query_email = mysqli_query($conn, $sql_email);
          if (mysqli_num_rows($query_email) > 0) {
@@ -42,16 +28,6 @@
          }
       }
       if (!empty($number)) {
-         // PDO Method
-         // $select_number = $conn->prepare("SELECT * FROM tbl_user WHERE number = ?");
-         // $select_number->execute([$number]);
-         // if ($select_number->rowCount() > 0) {
-         //    $message[] = 'number already taken!';
-         // } else {
-         //    $update_number = $conn->prepare("UPDATE tbl_user SET number = ? WHERE id = ?");
-         //    $update_number->execute([$number, $user_id]);
-         // }
-         // Mysqli Method
          $sql_number = "SELECT * FROM tbl_user WHERE number = '$number'";
          $query_number = mysqli_query($conn, $sql_number);
          if (mysqli_num_rows($query_number) > 0) {
@@ -62,11 +38,6 @@
             $message[] = 'Update number succesfully!';
          }
       }
-      // PDO Method  
-      // $select_prev_pass = $conn->prepare("SELECT password FROM tbl_user WHERE id = ?");
-      // $select_prev_pass->execute([$user_id]);
-      // $fetch_prev_pass = $select_prev_pass->fetch(PDO::FETCH_ASSOC);
-      // Mysqli Method
       if (!empty($old_password)) {
          $old_password = $_POST['old_password'];
          $new_password = $_POST['new_password'];
@@ -81,10 +52,6 @@
          } elseif ($confirm_password != $new_password) {
             $message[] = 'Both password do not match!';
          } else {
-            // PDO Method
-            // $update_pass = $conn->prepare("UPDATE tbl_user SET password = ? WHERE id = ?");
-            // $update_pass->execute([$confirm_password, $user_id]);
-            // Mysqli Method
             $new_password = password_hash($new_password, PASSWORD_DEFAULT);
             $update_password = "UPDATE tbl_user SET password = '$new_password' WHERE id = '$user_id'";
             $query_update_password = mysqli_query($conn, $update_password);

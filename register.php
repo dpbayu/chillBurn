@@ -9,38 +9,6 @@
    };
 
    if (isset($_POST['register'])) {
-      // PDO Method
-      // $name = $_POST['name']; 
-      // $name = filter_var($name);
-      // $email = $_POST['email'];
-      // $email = filter_var($email);
-      // $number = $_POST['number'];
-      // $number = filter_var($number);
-      // $pass = sha1($_POST['pass']);
-      // $pass = filter_var($pass);
-      // $cpass = sha1($_POST['cpass']);
-      // $cpass = filter_var($cpass);
-      // $select_user = $conn->prepare("SELECT * FROM tbl_user WHERE email = ? OR number = ?");
-      // $select_user->execute([$email, $number]);
-      // $row = $select_user->fetch(PDO::FETCH_ASSOC);
-      // if ($select_user->rowCount() > 0) {
-      //    $message[] = 'email or number already exists!';
-      // } else {
-      //    if ($pass != $cpass) {
-      //       $message[] = 'confirm password not matched!';
-      //    } else {
-      //       $insert_user = $conn->prepare("INSERT INTO tbl_user (name, email, number, password) VALUES (?,?,?,?)");
-      //       $insert_user->execute([$name, $email, $number, $cpass]);
-      //       $select_user = $conn->prepare("SELECT * FROM tbl_user WHERE email = ? AND password = ?");
-      //       $select_user->execute([$email, $pass]);
-      //       $row = $select_user->fetch(PDO::FETCH_ASSOC);
-      //       if($select_user->rowCount() > 0){
-      //          $_SESSION['user_id'] = $row['id'];
-      //          header('location:home.php');
-      //       }
-      //    }
-      // }
-      // Mysqli Method
       $name = $_POST['name']; 
       $email = $_POST['email'];
       $number = $_POST['number'];

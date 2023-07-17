@@ -25,14 +25,9 @@
             </nav>
             <div class="icons">
                 <?php
-                    // Mysqli Method 
                     $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
                     $query_cart = mysqli_query($conn, $sql_cart);
                     $total_items = mysqli_num_rows($query_cart);
-                    // PDO Method
-                    // $count_cart_items = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-                    // $count_cart_items->execute([$user_id]);
-                    // $total_cart_items = $count_cart_items->rowCount();
                 ?>
                 <a href="search.php"><i class="fas fa-search"></i></a>
                 <a class="text-decoration-none" href="cart.php"><i class="fas fa-shopping-cart"></i><span>(<?= $total_items; ?>)</span></a>
@@ -41,16 +36,10 @@
             </div>
             <div class="profile">
                 <?php
-                    // Mysqli_ Method
                     $sql_user = "SELECT * FROM tbl_user WHERE id = '$user_id'";
                     $query_user = mysqli_query($conn, $sql_user);
                     if (mysqli_num_rows($query_user) > 0) {
                         $user = mysqli_fetch_assoc($query_user);
-                    // PDO Method
-                    // $select_profile = $conn->prepare("SELECT * FROM tbl_user WHERE id = ?");
-                    // $select_profile->execute([$user_id]);
-                    // if ($select_profile->rowCount() > 0) {
-                    //     $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
                 ?>
                 <p class="name"><?= $user['name']; ?></p>
                 <div class="flex gap-3">

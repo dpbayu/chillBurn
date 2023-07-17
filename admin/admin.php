@@ -41,12 +41,6 @@
             <a href="register.php" class="option-btn">register</a>
          </div>
          <?php
-            // PDO Method
-            // $select_account = $conn->prepare("SELECT * FROM tbl_admin");
-            // $select_account->execute();
-            // if ($select_account->rowCount() > 0) {
-            //    while ($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)) {
-            // Mysqli Method
             $sql_admin = "SELECT * FROM tbl_admin";
             $query_admin = mysqli_query($conn, $sql_admin);
             if (mysqli_num_rows($query_admin) > 0) {
