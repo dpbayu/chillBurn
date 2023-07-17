@@ -64,7 +64,7 @@
                   <input type="email" class="form-control mb-3" name="email" maxlength="50" placeholder="Enter your email" required>
                   <textarea name="msg" class="form-control mb-3" required placeholder="Enter your message" maxlength="500" cols="20"
                      rows="10"></textarea>
-                  <input type="submit" value="send message" name="send" class="btn">
+                  <input type="submit" value="Send Message" name="send" class="btn">
                </form>
             </div>
          </div>

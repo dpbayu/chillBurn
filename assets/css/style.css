@@ -98,7 +98,6 @@ span {
    border-radius: 50px;
    padding: 10px 40px;
    cursor: pointer;
-   text-transform: capitalize;
    transition: .2s linear;
 }
 
@@ -112,10 +111,13 @@ span {
    color: var(--white);
 }
 
-.btn:hover,
-.delete-btn:hover {
+.btn:hover {
    background-color: var(--secondary);
    color: var(--white);
+}
+
+.delete-btn:hover {
+   background-color: var(--light-color);
 }
 
 .disabled {
@@ -643,13 +645,7 @@ nav .profile .name {
 
 .menu .box-container .box .sub-total {
    margin: 10px 0;
-   font-size: 16px;
    color: var(--light-color);
-   text-transform: capitalize;
-}
-
-.menu .box-container .box .sub-total span {
-   color: var(--primary);
 }
 
 .menu .more-btn {

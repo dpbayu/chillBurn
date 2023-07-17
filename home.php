@@ -36,7 +36,7 @@
                <p>A place to experience the delights of modern coffee art! It offers its guest scrumption dessert,
                   tasty coffee and, of course, warmth</p>
                <div class="more-btn">
-                  <a href="menu.php" class="btn"><i class="fas fa-shopping-cart me-3"></i>orders</a>
+                  <a href="menu.php" class="btn"><i class="fas fa-shopping-cart me-3"></i>Orders</a>
                </div>
             </div>
             <div class="box-2">
@@ -46,8 +46,8 @@
                   <i class="fas fa-brands fa-square-twitter me-3"></i>
                </div>
                <div class="download">
-                  <a href="menu.php" class="btn"><i class="fas fa-brands fa-apple me-3"></i>apple</a>
-                  <a href="menu.php" class="btn"><i class="fas fa-brands fa-android me-3"></i>play store</a>
+                  <a href="menu.php" class="btn"><i class="fas fa-brands fa-apple me-3"></i>Apple</a>
+                  <a href="menu.php" class="btn"><i class="fas fa-brands fa-android me-3"></i>Play Store</a>
                </div>
             </div>
          </div>
@@ -159,7 +159,7 @@
                      ?>
                   </div>
                   <a href="category.php?category=main dish">
-                     <button class="btn">view all</button>
+                     <button class="btn">View All</button>
                   </a>
                </div>
                <!-- Main Dish End -->
@@ -198,7 +198,7 @@
                      ?>
                   </div>
                   <a href="category.php?category=drink">
-                     <button class="btn">view all</button>
+                     <button class="btn">View All</button>
                   </a>
                </div>
                <!-- Drink End -->
@@ -237,7 +237,7 @@
                      ?>
                   </div>
                   <a href="category.php?category=dessert">
-                     <button class="btn">view all</button>
+                     <button class="btn">View All</button>
                   </a>
                </div>
                <!-- Dessert End -->
@@ -326,7 +326,7 @@
                ?>
             </div>
             <div class="more-btn">
-               <a href="menu.php" class="btn">view all</a>
+               <a href="menu.php" class="btn">View All</a>
             </div>
          </div>
       </section>
@@ -340,7 +340,7 @@
                      <h1 class="title">read our <span>blog</span></h1>
                      <p>Contains hot news from various regions about coffee and for coffee lovers</p>
                      <div class="more-btn">
-                        <a href="menu.php" class="btn">view all</a>
+                        <a href="menu.php" class="btn">View All</a>
                      </div>
                   </div>
                </div>
@@ -369,7 +369,7 @@
          <form action="">
             <input type="text" placeholder="Your Email">
          </form>
-         <button class="btn" type="submit">subscribe</button>
+         <button class="btn" type="submit">Subscribe</button>
       </div>
    </div>
    <!-- Subscribe End -->

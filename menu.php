@@ -143,7 +143,7 @@
                   ?>
                   <div class="d-flex w-100 justify-content-center mb-3">
                      <a href="category.php?category=main dish">
-                        <button class="btn">view all</button>
+                        <button class="btn">View All</button>
                      </a>
                   </div>
                </div>
@@ -175,7 +175,7 @@
                   ?>
                   <div class="d-flex w-100 justify-content-center mb-3">
                      <a href="category.php?category=drink">
-                        <button class="btn">view all</button>
+                        <button class="btn">View All</button>
                      </a>
                   </div>
                </div>
@@ -201,7 +201,7 @@
                   ?>
                   <div class="d-flex w-100 justify-content-center mb-3">
                      <a href="category.php?category=dessert">
-                        <button class="btn">view all</button>
+                        <button class="btn">View All</button>
                      </a>
                   </div>
                </div>

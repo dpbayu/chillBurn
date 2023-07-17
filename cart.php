@@ -56,8 +56,8 @@
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>shopping cart</h3>
-               <p><a href="home.php">home</a> <span> / cart</span></p>
+               <h3>SHOPPING CART</h3>
+               <p><a href="home.php">Home</a> <span> / Cart</span></p>
             </div>
          </div>
       </div>
@@ -65,7 +65,7 @@
    <div class="container">
       <!-- Shopping Cart Start  -->
       <section class="menu">
-         <h1 class="title">your <span>cart</span></h1>
+         <h1 class="title">YOUR <span>CART</span></h1>
          <div class="box-container">
             <?php
                $grand_total = 0;
@@ -90,7 +90,7 @@
                            maxlength="2">
                         <button type="submit" class="fas fa-edit" name="update_qty"></button>
                      </div>
-                     <div class="sub-total"> sub total :
+                     <div class="sub-total"> Sub Total :
                         <span>$ <?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span>
                      </div>
                   </div>
@@ -137,20 +137,20 @@
                $grand_total += $sub_total;
             }
             } else {
-               echo '<p class="empty">your cart is empty</p>';
+               echo '<p class="empty">Your cart is empty</p>';
             }
             ?>
          </div>
          <div class="cart-total">
             <p>cart total : <span>$ <?= $grand_total; ?></span></p>
-            <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+            <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Proceed to Checkout</a>
          </div>
          <div class="more-btn">
             <form action="" method="POST" class="mb-3">
                <button type="submit" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" name="delete_all"
-                  onclick="return confirm('Delete all from cart?');">delete all</button>
+                  onclick="return confirm('Delete all from cart?');">Delete All</button>
             </form>
-            <a href="menu.php" class="btn">continue shopping</a>
+            <a href="menu.php" class="btn">Continue Shopping</a>
          </div>
       </section>
       <!-- Shopping Cart End -->
