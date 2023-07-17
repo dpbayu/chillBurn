@@ -108,7 +108,7 @@
       <!-- Section 2 End -->
       <!-- Category Start -->
       <section class="category">
-         <h1 class="title">popular <span>menu</span></h1>
+         <h1 class="title">POPULAR <span>MENU</span></h1>
          <div class="container" x-data="{ tab: 'main dish' }">
             <!-- Menu -->
             <ul class="menu">
@@ -133,7 +133,7 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                      ?>
-                     <form action="" method="POST" class="box">
+                     <form class="box" action="" method="POST">
                         <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                         <input type="hidden" name="name" value="<?= $product['name']; ?>">
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
@@ -248,7 +248,7 @@
       <!-- Product Start -->
       <section class="menu my-5">
          <div class="container">
-            <h1 class="title">product of the <span>week</span></h1>
+            <h1 class="title">PRODUCT OF THE <span>WEEK</span></h1>
             <div class="box-container">
                <?php
                $sql_product = "SELECT * FROM tbl_product ORDER BY id DESC LIMIT 3";
@@ -264,13 +264,13 @@
                   <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
                      class="fas fa-eye"></button>
                   <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-                  <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="300" height="300">
+                  <img src="assets/img/uploaded_img/<?= $product['image']; ?>" width="300" height="300">
                   <div class="content">
                      <a href="category.php?category=<?= $product['category']; ?>"
                         class="cat"><?= $product['category']; ?></a>
                      <p class="name"><?= $product['name']; ?></p>
                      <div class="flex">
-                        <div class="price"><span>$ </span><?= $product['price']; ?></div>
+                        <p class="price">$ <span><?= $product['price']; ?></span></p>
                         <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                      </div>
                   </div>
@@ -290,18 +290,18 @@
                                  alt="Image <?= $product['name'] ?>">
                            </div>
                            <div class="d-flex">
-                              <label style="width: 150px;">name</label>
+                              <label style="width: 150px;">Name</label>
                               <p class="mx-3">:</p>
                               <p><?= $product['name'] ?></p>
                            </div>
                            <div class="d-flex">
-                              <label style="width: 150px;">category</label>
+                              <label style="width: 150px;">Category</label>
                               <p class="mx-3">:</p>
                               <a
                                  href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
                            </div>
                            <div class="d-flex">
-                              <label style="width: 150px;">price</label>
+                              <label style="width: 150px;">Price</label>
                               <p class="mx-3">:</p>
                               <p>$ <?= $product['price'] ?></p>
                            </div>
@@ -332,7 +332,7 @@
       </section>
       <!-- Product End -->
       <!-- Blog Start -->
-      <section class="blog">
+      <!-- <section class="blog">
          <div class="container">
             <div class="grid-container">
                <div class="grid-item item1">
@@ -358,16 +358,16 @@
                </div>
             </div>
          </div>
-      </section>
+      </section> -->
       <!-- Blog End -->
    </div>
    <!-- Subscribe Start -->
    <div class="subscribe">
       <div class="content">
-         <h1 class="title text-white">subscribe to our newsletter and <span>youtube</span></h1>
-         <p>enter your email</p>
+         <h1 class="title text-white">SUBSCRIBE TO OUR NEWSLETTER AND <span>youtube</span></h1>
+         <p>ENTER YOUR EMAIL</p>
          <form action="">
-            <input type="text" placeholder="your email">
+            <input type="text" placeholder="Your Email">
          </form>
          <button class="btn" type="submit">subscribe</button>
       </div>

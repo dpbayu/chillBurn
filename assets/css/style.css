@@ -57,9 +57,7 @@ span {
 .title {
    text-align: center;
    margin: 20px 0;
-   font-size: 48px;
    color: var(--white);
-   text-transform: uppercase;
    text-decoration: underline;
    text-underline-offset: 10px;
 }
@@ -485,7 +483,7 @@ nav .profile .name {
 }
 /* Category End */
 
-/* Menu */
+/* Menu Start */
 .menu-hero {
    height: 100vh;
    background: url('../img/menu-hero.png');
@@ -503,18 +501,10 @@ nav .profile .name {
    margin: 25px 0;
 }
 
-.list-menu h3 {
-   color: var(--primary);
-}
-
-.list-menu p {
-   text-transform: uppercase;
-}
-
 .menu .box-container {
    display: flex;
    justify-content: center;
-   gap: 56px;
+   gap: 60px;
    flex-wrap: wrap;
    margin: 50px 0;
 }
@@ -524,13 +514,6 @@ nav .profile .name {
    position: relative;
    overflow: hidden;
    height: fit-content;
-}
-
-.menu .box-container .box img {
-   /* object-fit: contain; */
-   height: 200px;
-   margin-bottom: 20px;
-   /* width: -webkit-fill-available; */
 }
 
 .menu .box-container .box .fa-eye,
@@ -572,6 +555,11 @@ nav .profile .name {
    right: 16px;
 }
 
+.menu .box-container .box img {
+   height: 200px;
+   margin-bottom: 20px;
+}
+
 .menu .box-container .box .content {
    padding: 0 20px;
 }
@@ -588,34 +576,31 @@ nav .profile .name {
 }
 
 .menu .box-container .box .content .name {
-   font-size: 24px;
+   font-size: 18px;
    color: var(--white);
-   margin: 16px 0;
-   text-transform: capitalize;
+   margin: 10px 0;
 }
 
 .menu .box-container .box .content .flex {
    display: flex;
    align-items: center;
-   gap: 16px;
+   gap: 10px;
    margin: 20px 0;
-   text-transform: capitalize;
 }
 
 .menu .box-container .box .content .flex .price {
-   margin-right: auto;
-   font-size: 24px;
-   color: var(--primary);
+   margin: auto;
+   margin-left: 0;
+   color: var(--light-color);
 }
 
 .menu .box-container .box .content .flex .price span {
-   color: var(--light-color);
-   font-size: 20px;
+   font-size: 24px;
 }
 
 .menu .box-container .box .content .flex .qty {
-   padding: 16px;
-   font-size: 18px;
+   padding: 10px;
+   font-size: 16px;
    color: var(--white);
    background-color: var(--black);
    border-radius: 6px;
@@ -700,32 +685,23 @@ nav .profile .name {
    margin: 10px;
 }
 
-/* Modal */
-.menu .modal .modal-dialog .modal-content .modal-header span {
-   text-transform: uppercase;
-   color: var(--primary);
-   border: none;
+/* Modal Start */
+.menu .modal .modal-dialog .modal-content .modal-header .modal-title {
+   font-size: 24px;
 }
 
 .menu .modal .modal-dialog .modal-content .modal-body img {
    width: 100%;
 }
 
-.menu .modal .modal-dialog .modal-content .modal-body label {
-   text-transform: capitalize;
-}
-
-.menu .modal .modal-dialog .modal-content .modal-body p {
-   text-transform: capitalize;
-}
-
 .menu .modal .modal-dialog .modal-content .modal-body a {
-   text-transform: capitalize;
    text-decoration: none;
    color: var(--primary);
 }
+/* Modal End */
+/* Menu End */
 
-/* About */
+/* About Start */
 .about-hero {
    height: 100vh;
    background: url('../img/about-hero.png');
@@ -994,7 +970,7 @@ nav .profile .name {
    color: var(--white);
 }
 
-/* Subscribe */
+/* Subscribe Start */
 .subscribe {
    background: url(../img/subscribe.png);
    background-repeat: no-repeat;
@@ -1017,7 +993,6 @@ nav .profile .name {
 .subscribe .content p {
    font-size: 24px;
    color: var(--white);
-   text-transform: capitalize;
 }
 
 .subscribe .content form {
@@ -1030,9 +1005,10 @@ nav .profile .name {
 
 .subscribe .content form input {
    width: 75%;
-   border-radius: 20px;
-   padding: 10px;
+   border-radius: 50px;
+   padding: 12px;
 }
+/* Subscribe End */
 
 /* Contact */
 .contact-hero {
