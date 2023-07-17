@@ -6,32 +6,35 @@
       $user_id = $_SESSION['user_id'];
    } else {
       $user_id = '';
-      header('location:home.php');
+      header('location: home.php');
    };
-
    if (isset($_POST['delete'])) {
       $cart_id = $_POST['cart_id'];
-      $delete_cart_item = $conn->prepare("DELETE FROM tbl_cart WHERE id = ?");
-      $delete_cart_item->execute([$cart_id]);
-      $message[] = 'cart item deleted!';
+      // $delete_cart_item = $conn->prepare("DELETE FROM tbl_cart WHERE id = ?");
+      // $delete_cart_item->execute([$cart_id]);
+      $sql_delete_cart = "DELETE FROM tbl_cart WHERE id = '$cart_id'";
+      $query_delete_cart = mysqli_query($conn, $sql_delete_cart);
+      $message[] = 'Cart item deleted!';
    }
-
    if (isset($_POST['delete_all'])) {
-      $delete_cart_item = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
-      $delete_cart_item->execute([$user_id]);
+      // $delete_cart_item = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
+      // $delete_cart_item->execute([$user_id]);
       // header('location:cart.php');
-      $message[] = 'deleted all from cart!';
+      $sql_delete_cart = "DELETE FROM tbl_cart WHERE user_id = '$user_id'";
+      $query_delete_cart = mysqli_query($conn, $sql_delete_cart);
+      $message[] = 'Deleted all from cart!';
    }
-
    if (isset($_POST['update_qty'])) {
       $cart_id = $_POST['cart_id'];
       $qty = $_POST['qty'];
-      $qty = filter_var($qty, FILTER_SANITIZE_STRING);
-      $update_qty = $conn->prepare("UPDATE tbl_cart SET quantity = ? WHERE id = ?");
-      $update_qty->execute([$qty, $cart_id]);
-      $message[] = 'cart quantity updated';
+      // $update_qty = $conn->prepare("UPDATE tbl_cart SET quantity = ? WHERE id = ?");
+      // $update_qty->execute([$qty, $cart_id]);
+      $sql_quantity = "UPDATE tbl_cart SET quantity = '$qty' WHERE id = '$cart_id'";
+      $query_quantity = mysqli_query($conn, $sql_quantity);
+      $message[] = 'Cart quantity updated';
    }
    $grand_total = 0;
+   $page = 'cart';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -59,60 +62,105 @@
          </div>
       </div>
    </div>
-   <!-- Shopping Cart Start  -->
-   <section class="menu">
-      <h1 class="title">your cart</h1>
-      <div class="box-container">
-         <?php
-            $grand_total = 0;
-            // PDO Method
-            // $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
-            // $select_cart->execute([$user_id]);
-            // if ($select_cart->rowCount() > 0){
-            //    while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
-            // Mysqli Method
-            $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
-            $query_cart = mysqli_query($conn, $sql_cart);
-            if (mysqli_num_rows($query_cart) > 0) {
-               while ($cart = mysqli_fetch_assoc($query_cart)) {
-         ?>
-         <form action="" method="POST" class="box">
-            <input type="hidden" name="cart_id" value="<?= $cart['id']; ?>">
-            <a href="quick_view.php?product_id=<?= $cart['product_id']; ?>" class="fas fa-eye"></a>
-            <button type="submit" class="fas fa-times" name="delete"
-               onclick="return confirm('delete this item?');"></button>
-            <img src="assets/img/uploaded_img/<?= $cart['image']; ?>" alt="" height="300" width="300">
-            <div class="name"><?= $cart['name']; ?></div>
-            <div class="flex">
-               <div class="price"><span>$</span><?= $cart['price']; ?></div>
-               <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>"
-                  maxlength="2">
-               <button type="submit" class="fas fa-edit" name="update_qty"></button>
-            </div>
-            <div class="sub-total"> sub total :
-               <span>$<?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span> </div>
-         </form>
-         <?php
-            $grand_total += $sub_total;
-         }
-         } else {
-            echo '<p class="empty">your cart is empty</p>';
-         }
-      ?>
-      </div>
-      <div class="cart-total">
-         <p>cart total : <span>$<?= $grand_total; ?></span></p>
-         <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
-      </div>
-      <div class="more-btn">
-         <form action="" method="POST">
-            <button type="submit" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" name="delete_all"
-               onclick="return confirm('delete all from cart?');">delete all</button>
-         </form>
-         <a href="menu.php" class="btn">continue shopping</a>
-      </div>
-   </section>
-   <!-- Shopping Cart End -->
+   <div class="container">
+      <!-- Shopping Cart Start  -->
+      <section class="menu">
+         <h1 class="title">your <span>cart</span></h1>
+         <div class="box-container">
+            <?php
+               $grand_total = 0;
+               // PDO Method
+               // $select_cart = $conn->prepare("SELECT * FROM tbl_cart WHERE user_id = ?");
+               // $select_cart->execute([$user_id]);
+               // if ($select_cart->rowCount() > 0){
+               //    while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
+               // Mysqli Method
+               $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
+               $query_cart = mysqli_query($conn, $sql_cart);
+               if (mysqli_num_rows($query_cart) > 0) {
+                  while ($cart = mysqli_fetch_assoc($query_cart)) {
+               ?>
+               <form action="" method="POST" class="box">
+                  <input type="hidden" name="cart_id" value="<?= $cart['id']; ?>">
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $cart['id'] ?>"
+                     class="fas fa-eye">
+                  </button>
+                  <button type="submit" class="fas fa-times" name="delete" onclick="return confirm('Delete this item?');">
+                  </button>
+                  <img src="assets/img/uploaded_img/<?= $cart['image']; ?>" alt="<?= $cart['name']; ?>" width="300" height="300">
+                  <div class="content">
+                     <p class="name"><?= $cart['name']; ?></p>
+                     <div class="flex">
+                        <div class="price"><span>$ </span><?= $cart['price']; ?></div>
+                        <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>"
+                           maxlength="2">
+                        <button type="submit" class="fas fa-edit" name="update_qty"></button>
+                     </div>
+                     <div class="sub-total"> sub total :
+                        <span>$ <?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span>
+                     </div>
+                  </div>
+               </form>
+               <!-- Modal Start -->
+               <div class="modal fade" id="modal<?= $cart['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
+                                 class="fw-bold"><?= $cart['name']; ?></span></h1>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="text-center mb-3">
+                              <img src="assets/img/uploaded_img/<?= $cart['image']; ?>" width="250" height="250"
+                                 alt="Image <?= $cart['name']; ?>">
+                           </div>
+                           <div class="d-flex">
+                              <label style="width: 150px;">Name</label>
+                              <p class="mx-3">:</p>
+                              <p><?= $cart['name']; ?></p>
+                           </div>
+                           <div class="d-flex">
+                              <label style="width: 150px;">Price</label>
+                              <p class="mx-3">:</p>
+                              <p>$ <?= $cart['price']; ?></p>
+                           </div>
+                           <div class="d-flex">
+                              <label style="width: 150px;">Quantity</label>
+                              <p class="mx-3">:</p>
+                              <p><?= $cart['quantity']; ?></p>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Modal End -->
+            <?php
+               $grand_total += $sub_total;
+            }
+            } else {
+               echo '<p class="empty">your cart is empty</p>';
+            }
+            ?>
+         </div>
+         <div class="cart-total">
+            <p>cart total : <span>$ <?= $grand_total; ?></span></p>
+            <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+         </div>
+         <div class="more-btn">
+            <form action="" method="POST" class="mb-3">
+               <button type="submit" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" name="delete_all"
+                  onclick="return confirm('Delete all from cart?');">delete all</button>
+            </form>
+            <a href="menu.php" class="btn">continue shopping</a>
+         </div>
+      </section>
+      <!-- Shopping Cart End -->
+   </div>
    <!-- footer section starts  -->
    <?php include 'partials/footer.php'; ?>
    <!-- footer section ends -->

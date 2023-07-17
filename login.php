@@ -67,9 +67,15 @@
    </div>
    <section class="form-container">
       <form action="" method="POST">
-         <h3>login now</h3>
-         <input type="email" name="email" placeholder="enter your email" class="box" required>
-         <input type="password" name="password" placeholder="enter your password" class="box" required>
+         <h3>form login</h3>
+         <div class="mb-3">
+            <label class="form-label">email</label>
+            <input type="email" name="email" class="form-control box" placeholder="Enter your email" required>
+         </div>
+         <div class="mb-5">
+         <label class="form-label">password</label>
+            <input type="password" name="password" class="form-control box" placeholder="Enter your password" required>
+         </div>
          <input type="submit" value="login now" name="submit" class="btn">
          <p>don't have an account? <a href="register.php">register now</a></p>
       </form>

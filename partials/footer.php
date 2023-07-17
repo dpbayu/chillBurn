@@ -2,7 +2,7 @@
 <footer class="footer">
    <div class="container">
       <div class="box-container">
-         <section class="grid">
+         <div class="grid">
             <div class="box">
                <h3>opening hours</h3>
                <p>Monday - Friday: 00:07 am to 00:10 pm</p>
@@ -18,7 +18,7 @@
                <a href="tel:089604333574">089-604-333-574</a>
                <a href="mailto:dwiputrabayu19@gmail.com">dwiputrabayu19@gmail.com</a>
             </div>
-         </section>
+         </div>
          <div class="social-media">
             <a href=""><i class="fas fa-brands fa-instagram me-3"></i></a>
             <a href=""><i class="fas fa-brands fa-square-facebook me-3"></i></a>
@@ -44,4 +44,5 @@
 <!-- Footer End -->
 <!-- JS Start -->
 <script src="https://kit.fontawesome.com/e4027260b9.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- JS End -->

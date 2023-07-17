@@ -7,7 +7,8 @@
    } else {
       $user_id = '';
    };
-   require 'components/add_cart.php';
+   require 'function.php';
+   $page = 'home';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -19,9 +20,9 @@
 
 <body>
    <!-- Loader Start -->
-   <!-- <div class="loader">
+   <div class="loader">
       <img src="images/loader.gif">
-   </div> -->
+   </div>
    <!-- Loader End -->
    <!-- Header Start -->
    <?php require 'partials/header.php'; ?>
@@ -81,7 +82,7 @@
                </div>
             </div>
          </div>
-      </section> 
+      </section>
       <!-- Section 1 End -->
       <!-- Section 2 Start -->
       <section class="section-2">
@@ -95,7 +96,8 @@
                      <h3>our history</h3>
                      <h2>Cursus habitasse <span>neque</span></h2>
                      <p>Our incredibly rare beans come from humble beginnings in Yemen, where decades of political
-                        turmoil once forced local farmers to start growing Khat, a narcotic native to the Arabian Peninsula.</p>
+                        turmoil once forced local farmers to start growing Khat, a narcotic native to the Arabian
+                        Peninsula.</p>
                      <p>The Dawoodi Bohra Community changed this, removing all the Khat plants and replacing the with
                         coffee, bringing this humble brew back to its roots.</p>
                   </div>
@@ -107,136 +109,151 @@
       <!-- Category Start -->
       <section class="category">
          <h1 class="title">popular <span>menu</span></h1>
-         <div class="container" x-data="{ tab: 'fast food' }">
+         <div class="container" x-data="{ tab: 'main dish' }">
             <!-- Menu -->
             <ul class="menu">
-               <li>
-                  <a href="#" @click.prevent="tab = 'fast food'">Fast Food</a>
-               </li>
                <li>
                   <a href="#" @click.prevent="tab = 'main dish'">Main Dish</a>
                </li>
                <li>
-                  <a href="#" @click.prevent="tab = 'desserts'">Desserts</a>
+                  <a href="#" @click.prevent="tab = 'dessert'">Dessert</a>
                </li>
                <li>
-                  <a href="#" @click.prevent="tab = 'drinks'">Drinks</a>
+                  <a href="#" @click.prevent="tab = 'drink'">Drink</a>
                </li>
             </ul>
             <div class="content">
-               <!-- Fast Food Start -->
+               <!-- Main Dish Start -->
                <div x-show="tab === 'main dish'" class="my-5">
                   <div class="box-container">
-                     <div class="box">
+                     <?php
+                     // PDO Method
+                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'main dish'");
+                     // $select_products->execute();
+                     // if ($select_products->rowCount() > 0) {
+                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+                     // Mysqli Method
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'main dish' LIMIT 6";
+                     $query_product = mysqli_query($conn, $sql_product);
+                     if (mysqli_num_rows($query_product) > 0) {
+                        while ($product = mysqli_fetch_array($query_product)) {
+                     ?>
+                     <form action="" method="POST" class="box">
+                        <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+                        <input type="hidden" name="name" value="<?= $product['name']; ?>">
+                        <input type="hidden" name="price" value="<?= $product['price']; ?>">
+                        <input type="hidden" name="image" value="<?= $product['image']; ?>">
                         <div class="content">
-                           <img src="assets/img/menu/tea/Tea.png" alt="menu">
+                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                              height="200" width="200">
                            <div class="text">
-                              <h2>Espresso</h2>
-                              <p>This most basic coffee drink is usually served in demitasse</p>
-                              <h3>Rp 10.000</h3>
+                              <h2><?= $product['name'] ?></h2>
+                              <h3>$ <span><?= $product['price'] ?></span></h3>
+                              <div class="quantity">
+                                 <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+                                 <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                              </div>
                            </div>
                         </div>
-                     </div>
-                     <div class="box">
-                        <div class="content">
-                           <img src="assets/img/menu/tea/Tea.png" alt="menu">
-                           <div class="text">
-                              <h2>Espresso</h2>
-                              <p>This most basic coffee drink is usually served in demitasse</p>
-                              <h3>Rp 10.000</h3>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="box">
-                        <div class="content">
-                           <img src="assets/img/menu/tea/Tea.png" alt="menu">
-                           <div class="text">
-                              <h2>Espresso</h2>
-                              <p>This most basic coffee drink is usually served in demitasse</p>
-                              <h3>Rp 10.000</h3>
-                           </div>
-                        </div>
-                     </div>
+                     </form>
+                     <?php
+                     }
+                     } else {
+                        echo '<p class="empty">no products added yet!</p>';
+                     }
+                     ?>
                   </div>
-                  <a href="category.php?category=fast food">
-                     <button class="btn">view all</button>
-                  </a>
-               </div>
-               <!-- Fast Food End -->
-               <!-- Main Dish Start -->
-               <div x-show="tab === 'fast food'" class="my-5">
-                  <div class="box-container">
-                     <div class="box">
-                        <div class="content">
-                           <img src="assets/img/menu/coffee/Coffee.png" alt="menu">
-                           <div class="text">
-                              <h2>Espresso</h2>
-                              <p>This most basic coffee drink is usually served in demitasse</p>
-                              <h3>Rp 10.000</h3>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="box">
-                        <div class="content">
-                           <img src="assets/img/menu/coffee/Coffee.png" alt="menu">
-                           <div class="text">
-                              <h2>Espresso</h2>
-                              <p>This most basic coffee drink is usually served in demitasse</p>
-                              <h3>Rp 10.000</h3>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="box">
-                        <div class="content">
-                           <img src="assets/img/menu/coffee/Coffee.png" alt="menu">
-                           <div class="text">
-                              <h2>Espresso</h2>
-                              <p>This most basic coffee drink is usually served in demitasse</p>
-                              <h3>Rp 10.000</h3>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <a href="category.php?category=fast food">
+                  <a href="category.php?category=main dish">
                      <button class="btn">view all</button>
                   </a>
                </div>
                <!-- Main Dish End -->
-               <!-- Dessert Start -->
-               <div x-show="tab === 'desserts'" class="my-5">
+               <!-- Drink Start -->
+               <div x-show="tab === 'drink'" class="my-5">
                   <div class="box-container">
-                     <div class="box">
+                     <?php
+                     // PDO Method
+                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'drink'");
+                     // $select_products->execute();
+                     // if ($select_products->rowCount() > 0) {
+                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+                     // Mysqli Method
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'drink' LIMIT 6";
+                     $query_product = mysqli_query($conn, $sql_product);
+                     if (mysqli_num_rows($query_product) > 0) {
+                        while ($product = mysqli_fetch_array($query_product)) {
+                     ?>
+                     <form action="" method="POST" class="box">
+                        <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+                        <input type="hidden" name="name" value="<?= $product['name']; ?>">
+                        <input type="hidden" name="price" value="<?= $product['price']; ?>">
+                        <input type="hidden" name="image" value="<?= $product['image']; ?>">
                         <div class="content">
-                           <img src="assets/img/menu/dessert/Dessert.png" alt="menu">
+                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                              height="200" width="200">
                            <div class="text">
-                              <h2>Peanut Chessecake</h2>
-                              <p>Cheesecake is a sweet dessert consisting of one or more layers</p>
-                              <h3>Rp 30.000</h3>
+                              <h2><?= $product['name'] ?></h2>
+                              <h3>$ <span><?= $product['price'] ?></span></h3>
+                              <div class="quantity">
+                                 <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+                                 <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                              </div>
                            </div>
                         </div>
-                     </div>
-                     <div class="box">
-                        <div class="content">
-                           <img src="assets/img/menu/dessert/Dessert.png" alt="menu">
-                           <div class="text">
-                              <h2>Peanut Chessecake</h2>
-                              <p>Cheesecake is a sweet dessert consisting of one or more layers</p>
-                              <h3>Rp 30.000</h3>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="box">
-                        <div class="content">
-                           <img src="assets/img/menu/dessert/Dessert.png" alt="menu">
-                           <div class="text">
-                              <h2>Peanut Chessecake</h2>
-                              <p>Cheesecake is a sweet dessert consisting of one or more layers</p>
-                              <h3>Rp 30.000</h3>
-                           </div>
-                        </div>
-                     </div>
+                     </form>
+                     <?php
+                     }
+                     } else {
+                        echo '<p class="empty">no products added yet!</p>';
+                     }
+                     ?>
                   </div>
-                  <a href="category.php?category=desserts">
+                  <a href="category.php?category=drink">
+                     <button class="btn">view all</button>
+                  </a>
+               </div>
+               <!-- Drink End -->
+               <!-- Dessert Start -->
+               <div x-show="tab === 'dessert'" class="my-5">
+                  <div class="box-container">
+                     <?php
+                     // PDO Method
+                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'dessert'");
+                     // $select_products->execute();
+                     // if ($select_products->rowCount() > 0) {
+                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+                     // Mysqli Method
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'dessert' LIMIT 6";
+                     $query_product = mysqli_query($conn, $sql_product);
+                     if (mysqli_num_rows($query_product) > 0) {
+                        while ($product = mysqli_fetch_array($query_product)) {
+                     ?>
+                     <form action="function.php" method="POST" class="box">
+                        <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+                        <input type="hidden" name="name" value="<?= $product['name']; ?>">
+                        <input type="hidden" name="price" value="<?= $product['price']; ?>">
+                        <input type="hidden" name="image" value="<?= $product['image']; ?>">
+                        <div class="content">
+                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                              height="200" width="200">
+                           <div class="text">
+                              <h2><?= $product['name'] ?></h2>
+                              <h3>$ <span><?= $product['price'] ?></span></h3>
+                              <div class="quantity">
+                                 <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+                                 <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                     <?php
+                     }
+                     } else {
+                        echo '<p class="empty">no products added yet!</p>';
+                     }
+                     ?>
+                  </div>
+                  <a href="category.php?category=dessert">
                      <button class="btn">view all</button>
                   </a>
                </div>
@@ -262,29 +279,75 @@
                if (mysqli_num_rows($query_product) > 0) {
                   while ($product = mysqli_fetch_array($query_product)) {
                ?>
-               <form action="" method="POST" class="box">
+               <form class="box" action="" method="POST">
                   <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                   <input type="hidden" name="name" value="<?= $product['name']; ?>">
                   <input type="hidden" name="price" value="<?= $product['price']; ?>">
                   <input type="hidden" name="image" value="<?= $product['image']; ?>">
-                  <a href="quick_view.php?product_id=<?= $product['id']; ?>" class="fas fa-eye"></a>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
+                     class="fas fa-eye"></button>
                   <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                   <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="300" height="300">
-                  <br>
-                  <a href="category.php?category=<?= $product['category']; ?>"
-                     class="cat"><?= $product['category']; ?></a>
-                  <div class="name"><?= $product['name']; ?></div>
-                  <div class="flex">
-                     <div class="price"><span>$</span><?= $product['price']; ?></div>
-                     <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                  <div class="content">
+                     <a href="category.php?category=<?= $product['category']; ?>"
+                        class="cat"><?= $product['category']; ?></a>
+                     <p class="name"><?= $product['name']; ?></p>
+                     <div class="flex">
+                        <div class="price"><span>$ </span><?= $product['price']; ?></div>
+                        <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                     </div>
                   </div>
                </form>
+               <!-- Modal Start -->
+               <div class="modal fade" id="modal<?= $product['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
+                                 class="fw-bold"><?= $product['name'] ?></span></h1>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="text-center mb-3">
+                              <img src="assets/img/uploaded_img/<?= $product['image']; ?>"
+                                 alt="Image <?= $product['name'] ?>">
+                           </div>
+                           <div class="d-flex">
+                              <label style="width: 150px;">name</label>
+                              <p class="mx-3">:</p>
+                              <p><?= $product['name'] ?></p>
+                           </div>
+                           <div class="d-flex">
+                              <label style="width: 150px;">category</label>
+                              <p class="mx-3">:</p>
+                              <a
+                                 href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
+                           </div>
+                           <div class="d-flex">
+                              <label style="width: 150px;">price</label>
+                              <p class="mx-3">:</p>
+                              <p>$ <?= $product['price'] ?></p>
+                           </div>
+                           <div class="d-flex">
+                              <label style="width: 150px;">Quantity</label>
+                              <p class="mx-3">:</p>
+                              <p>1</p>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Modal End -->
                <?php
-            }
-            } else {
-               echo '<p class="empty">no products added yet!</p>';
-            }
-            ?>
+               }
+               } else {
+                  echo '<p class="empty">no products added yet!</p>';
+               }
+               ?>
             </div>
             <div class="more-btn">
                <a href="menu.php" class="btn">view all</a>
@@ -323,7 +386,7 @@
       <!-- Blog End -->
    </div>
    <!-- Subscribe Start -->
-   <section class="subscribe">
+   <div class="subscribe">
       <div class="content">
          <h1 class="title text-white">subscribe to our newsletter and <span>youtube</span></h1>
          <p>enter your email</p>
@@ -332,7 +395,8 @@
          </form>
          <button class="btn" type="submit">subscribe</button>
       </div>
-   </section> <!-- Subscribe End -->
+   </div>
+   <!-- Subscribe End -->
    <!-- Footer Start -->
    <?php include 'partials/footer.php'; ?>
    <!-- Footer End -->

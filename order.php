@@ -8,6 +8,7 @@
       $user_id = '';
       header('location:home.php');
    };
+   $page = 'order';
 ?>
 <!-- PHP -->
 
@@ -38,7 +39,7 @@
       </div>
    </div>
    <section class="orders">
-      <h1 class="title">your orders</h1>
+      <h1 class="title">your <span>order</span></h1>
       <div class="container">
          <div class="box-container">
                <?php
@@ -64,7 +65,7 @@
                   <p>address : <span><?= $order['address']; ?></span></p>
                   <p>payment method : <span><?= $order['method']; ?></span></p>
                   <p>your orders : <span><?= $order['total_products']; ?></span></p>
-                  <p>total price : <span>$<?= $order['total_price']; ?>/-</span></p>
+                  <p>total price : <span>$ <?= $order['total_price']; ?>/-</span></p>
                   <p> payment status : <span
                         style="color:<?php if($order['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $order['payment_status']; ?></span>
                   </p>

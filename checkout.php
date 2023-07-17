@@ -75,7 +75,7 @@
       </div>
    </div>
    <section class="checkout">
-      <h1 class="title">order summary</h1>
+      <h1 class="title">order <span>summary</span></h1>
       <form action="" method="POST">
          <div class="cart-items">
             <h3>cart items</h3>
@@ -92,12 +92,12 @@
                $query_cart = mysqli_query($conn, $sql_cart);
                if (mysqli_num_rows($query_cart) > 0) {
                   while ($cart = mysqli_fetch_assoc($query_cart)) {
-                  $cart_items[] = $cart['name'].' ('.$cart['price'].' x '. $cart['quantity'].') - ';
+                  $cart_items[] = $cart['name'].' ('.$cart['quantity'].' x '. $cart['price'].') - ';
                   $total_products = implode($cart_items);
-                  $grand_total += ($cart['price'] * $cart['quantity']);
+                  $grand_total += ($cart['quantity'] * $cart['price']);
             ?>
-            <p><span class="name"><?= $cart['name']; ?></span><span class="price">$<?= $cart['price']; ?> x
-                  <?= $cart['quantity']; ?></span></p>
+            <p><span class="name"><?= $cart['name']; ?></span><span class="price"><?= $cart['quantity']; ?> x $
+                  <?= $cart['price']; ?></span></p>
             <?php
             }
             } else {
@@ -105,7 +105,7 @@
             }
             ?>
             <p class="grand-total"><span class="name">grand total :</span><span
-                  class="price">$<?= $grand_total; ?></span></p>
+                  class="price">$ <?= $grand_total; ?></span></p>
             <a href="cart.php" class="btn">veiw cart</a>
          </div>
          <input type="hidden" name="total_products" value="<?= $total_products; ?>">
@@ -134,7 +134,7 @@
             </select>
             <input type="submit" value="place order"
                class="btn <?php if ($user['address'] == '') { echo 'disabled'; } ?>"
-               style="width:100%; background:var(--red); color:var(--white);" name="submit">
+               style="width:100%; background:var(--black); color:var(--white);" name="submit">
          </div>
       </form>
    </section>

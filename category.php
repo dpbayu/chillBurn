@@ -7,7 +7,8 @@
    } else {
       $user_id = '';
    };
-   include 'components/add_cart.php';
+   require 'function.php';
+   $page = 'menu';
 ?>
 <!-- PHP -->
 
@@ -36,45 +37,95 @@
          </div>
       </div>
    </div>
-   <section class="menu">
-      <h1 class="title">food category</h1>
-      <div class="box-container">
-         <?php
-            // PDO Method
-            // $category = $_GET['category'];
-            // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = ?");
-            // $select_products->execute([$category]);
-            // if ($select_products->rowCount() > 0) {
-            //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-            // Mysqli Method
-            $category = $_GET['category'];
-            $sql_category = "SELECT * FROM tbl_product WHERE category = '$category'";
-            $query_category = mysqli_query($conn, $sql_category);
-            if (mysqli_num_rows($query_category) > 0) {
-               while ($category_product = mysqli_fetch_array($query_category)) {
-         ?>
-         <form action="" method="POST" class="box">
-            <input type="hidden" name="product_id" value="<?= $category_product['id']; ?>">
-            <input type="hidden" name="name" value="<?= $category_product['name']; ?>">
-            <input type="hidden" name="price" value="<?= $category_product['price']; ?>">
-            <input type="hidden" name="image" value="<?= $category_product['image']; ?>">
-            <a href="quick_view.php?product_id=<?= $category_product['id']; ?>" class="fas fa-eye"></a>
-            <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-            <img src="assets/img/uploaded_img/<?= $category_product['image']; ?>" alt="" height="300" width="300">
-            <div class="name"><?= $category_product['name']; ?></div>
-            <div class="flex">
-               <div class="price"><span>$</span><?= $category_product['price']; ?></div>
-               <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
-            </div>
-         </form>
-         <?php
-         }
-         } else {
-            echo '<p class="empty">no products added yet!</p>';
-         }
-         ?>
-      </div>
-   </section>
+   <div class="container">
+      <section class="menu">
+         <h1 class="title">food category</h1>
+         <div class="box-container">
+            <?php
+               // PDO Method
+               // $category = $_GET['category'];
+               // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = ?");
+               // $select_products->execute([$category]);
+               // if ($select_products->rowCount() > 0) {
+               //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+               // Mysqli Method
+               $category = $_GET['category'];
+               $sql_category = "SELECT * FROM tbl_product WHERE category = '$category'";
+               $query_category = mysqli_query($conn, $sql_category);
+               if (mysqli_num_rows($query_category) > 0) {
+                  while ($category = mysqli_fetch_array($query_category)) {
+               ?>
+                  <form class="box" action="" method="POST">
+                     <input type="hidden" name="product_id" value="<?= $category['id']; ?>">
+                     <input type="hidden" name="name" value="<?= $category['name']; ?>">
+                     <input type="hidden" name="price" value="<?= $category['price']; ?>">
+                     <input type="hidden" name="image" value="<?= $category['image']; ?>">
+                     <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $category['id'] ?>"
+                        class="fas fa-eye"></button>
+                     <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+                     <img src="assets/img/uploaded_img/<?= $category['image']; ?>" alt="" width="300" height="300">
+                     <div class="content">
+                        <a href="category.php?category=<?= $category['category']; ?>"
+                           class="cat"><?= $category['category']; ?></a>
+                        <p class="name"><?= $category['name']; ?></p>
+                        <div class="flex">
+                           <div class="price"><span>$ </span><?= $category['price']; ?></div>
+                           <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                        </div>
+                     </div>
+                  </form>
+                  <!-- Modal Start -->
+                  <div class="modal fade" id="modal<?= $category['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                     <div class="modal-dialog">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
+                                    class="fw-bold"><?= $category['name']; ?></span></h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                           </div>
+                           <div class="modal-body">
+                              <div class="text-center mb-3">
+                                 <img src="assets/img/uploaded_img/<?= $category['image']; ?>" width="250" height="250"
+                                    alt="Image <?= $category['name'] ?>">
+                              </div>
+                              <div class="d-flex">
+                                 <label style="width: 150px;">Name</label>
+                                 <p class="mx-3">:</p>
+                                 <p><?= $category['name']; ?></p>
+                              </div>
+                              <div class="d-flex">
+                                 <label style="width: 150px;">Category</label>
+                                 <p class="mx-3">:</p>
+                                 <a href="category.php?category=<?= $category['category']; ?>"><?= $category['category'] ?></a>
+                              </div>
+                              <div class="d-flex">
+                                 <label style="width: 150px;">Price</label>
+                                 <p class="mx-3">:</p>
+                                 <p>$ <?= $category['price']; ?></p>
+                              </div>
+                              <div class="d-flex">
+                                 <label style="width: 150px;">Quantity</label>
+                                 <p class="mx-3">:</p>
+                                 <p>1</p>
+                              </div>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Modal End -->
+               <?php
+               }
+               } else {
+                  echo '<p class="empty">no products added yet!</p>';
+               }
+               ?>
+         </div>
+      </section>
+   </div>
    <!-- Footer Start -->
    <?php include 'partials/footer.php'; ?>
    <!-- Footer End -->

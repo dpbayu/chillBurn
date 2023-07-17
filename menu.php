@@ -7,7 +7,8 @@
    } else {
       $user_id = '';
    };
-   include 'components/add_cart.php';
+      require 'function.php';
+   $page = 'menu';
 ?>
 <!-- PHP -->
 
@@ -42,7 +43,7 @@
       <section class="menu">
          <h1 class="title">latest dishes</h1>
          <div class="box-container">
-               <?php
+            <?php
                // PDO Method
                // $select_products = $conn->prepare("SELECT * FROM tbl_product ORDER BY id DESC LIMIT 3");
                // $select_products->execute();
@@ -54,91 +55,108 @@
                if (mysqli_num_rows($query_product) > 0) {
                   while ($product = mysqli_fetch_array($query_product)) {
                ?>
-               <form action="" method="POST" class="box">
-                  <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
-                  <input type="hidden" name="name" value="<?= $product['name']; ?>">
-                  <input type="hidden" name="price" value="<?= $product['price']; ?>">
-                  <input type="hidden" name="image" value="<?= $product['image']; ?>">
-                  <a href="quick_view.php?product_id=<?= $product['id']; ?>" class="fas fa-eye"></a>
-                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-                  <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="300" height="300">
-                  <br>
+            <form class="box" action="" method="POST">
+               <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+               <input type="hidden" name="name" value="<?= $product['name']; ?>">
+               <input type="hidden" name="price" value="<?= $product['price']; ?>">
+               <input type="hidden" name="image" value="<?= $product['image']; ?>">
+               <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
+                  class="fas fa-eye"></button>
+               <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+               <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="300" height="300">
+               <div class="content">
                   <a href="category.php?category=<?= $product['category']; ?>"
                      class="cat"><?= $product['category']; ?></a>
-                  <div class="name"><?= $product['name']; ?></div>
+                  <p class="name"><?= $product['name']; ?></p>
                   <div class="flex">
-                     <div class="price"><span>$</span><?= $product['price']; ?></div>
+                     <div class="price"><span>$ </span><?= $product['price']; ?></div>
                      <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                   </div>
-               </form>
-               <?php
+               </div>
+            </form>
+            <!-- Modal Start -->
+            <div class="modal fade" id="modal<?= $product['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
+                              class="fw-bold"><?= $product['name'] ?></span></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                        <div class="text-center mb-3">
+                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" width="250" height="250"
+                              alt="Image <?= $product['name'] ?>">
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Name</label>
+                           <p class="mx-3">:</p>
+                           <p><?= $product['name'] ?></p>
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Category</label>
+                           <p class="mx-3">:</p>
+                           <a href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Price</label>
+                           <p class="mx-3">:</p>
+                           <p>$<?= $product['price'] ?></p>
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Input</label>
+                           <p class="mx-3">:</p>
+                           <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Modal End -->
+            <?php
             }
             } else {
                echo '<p class="empty">no products added yet!</p>';
             }
             ?>
-            </div>
-         </section>      
+         </div>
+      </section>
       <!-- Menu End -->
-      <section class=" my-5">
+      <section class=" my-5 text-white">
          <div class="col-md-12">
             <div class="row">
                <div class="col-md-6">
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
+                  <h3>Main Dish</h3>
+                  <?php
+                     // PDO Method
+                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'main dish'");
+                     // $select_products->execute();
+                     // if ($select_products->rowCount() > 0) {
+                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+                     // Mysqli Method
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'main dish' LIMIT 10";
+                     $query_product = mysqli_query($conn, $sql_product);
+                     if (mysqli_num_rows($query_product) > 0) {
+                        while ($product = mysqli_fetch_array($query_product)) {
+                     ?>
+                     <div class="d-flex w-100 justify-content-between">
+                        <p><?= $product['name'] ?></p>
+                        <p>$ <?= $product['price'] ?></p>
+                     </div>
+                     <?php
+                     }
+                     } else {
+                        echo '<p class="empty">no products added yet!</p>';
+                     }
+                  ?>
+                  <div class="d-flex w-100 justify-content-center mb-3">
+                     <a href="category.php?category=main dish">
+                        <button class="btn">view all</button>
+                     </a>
                   </div>
                </div>
                <div class="col-md-6">
@@ -150,113 +168,65 @@
                   <img src="assets/img/img-1.png" alt="" style="width: 100%;">
                </div>
                <div class="col-md-6">
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
+                  <h3>Drink</h3>
+                  <?php
+                     // PDO Method
+                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'drink'");
+                     // $select_products->execute();
+                     // if ($select_products->rowCount() > 0) {
+                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+                     // Mysqli Method
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'drink' LIMIT 10";
+                     $query_product = mysqli_query($conn, $sql_product);
+                     if (mysqli_num_rows($query_product) > 0) {
+                        while ($product = mysqli_fetch_array($query_product)) {
+                     ?>
+                     <div class="d-flex w-100 justify-content-between">
+                        <p><?= $product['name'] ?></p>
+                        <p>$ <?= $product['price'] ?></p>
+                     </div>
+                     <?php
+                     }
+                     } else {
+                        echo '<p class="empty">no products added yet!</p>';
+                     }
+                  ?>
+                  <div class="d-flex w-100 justify-content-center mb-3">
+                     <a href="category.php?category=drink">
+                        <button class="btn">view all</button>
+                     </a>
                   </div>
                </div>
             </div>
             <div class="row">
-               <div class="col-md-6">
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
-                  </div>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p class="fs-2">thai tea</p>
-                     <p class="fs-2">90.000</p>
+            <div class="col-md-6">
+                  <h3>Dessert</h3>
+                  <?php
+                     // PDO Method
+                     // $select_products = $conn->prepare("SELECT * FROM tbl_product WHERE category = 'dessert'");
+                     // $select_products->execute();
+                     // if ($select_products->rowCount() > 0) {
+                     //    while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+                     // Mysqli Method
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'dessert' LIMIT 10";
+                     $query_product = mysqli_query($conn, $sql_product);
+                     if (mysqli_num_rows($query_product) > 0) {
+                        while ($product = mysqli_fetch_array($query_product)) {
+                     ?>
+                     <div class="d-flex w-100 justify-content-between">
+                        <p><?= $product['name'] ?></p>
+                        <p>$ <?= $product['price'] ?></p>
+                     </div>
+                     <?php
+                     }
+                     } else {
+                        echo '<p class="empty">no products added yet!</p>';
+                     }
+                  ?>
+                  <div class="d-flex w-100 justify-content-center mb-3">
+                     <a href="category.php?category=dessert">
+                        <button class="btn">view all</button>
+                     </a>
                   </div>
                </div>
                <div class="col-md-6">

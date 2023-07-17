@@ -1,8 +1,3 @@
-window.addEventListener("scroll", function () {
-   var header = document.querySelector("header");
-   header.classList.toggle("sticky", window.scrollY > 0);
-})
-
 // Menu
 navbar = document.querySelector('.header .flex .navbar');
 document.querySelector('#menu-btn').onclick = () => {
@@ -27,7 +22,7 @@ function loader() {
 }
 
 function fadeOut() {
-   setInterval(loader, 100);
+   setInterval(loader, 1000);
 }
 window.onload = fadeOut;
 document.querySelectorAll('input[type="number"]').forEach(numberInput => {

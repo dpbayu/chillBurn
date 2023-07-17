@@ -7,6 +7,7 @@
    } else {
       $user_id = '';
    };
+   $page = 'about';
 ?>
 <!-- PHP -->
 
@@ -66,7 +67,7 @@
       <!-- About End 1 -->
       <!-- Review End  -->
       <section class="reviews">
-         <h1 class="title">customer's reivews</h1>
+         <h1 class="title">customer's reviews</h1>
          <div class="swiper reviews-slider">
             <div class="swiper-wrapper">
                <div class="swiper-slide slide">

@@ -61,27 +61,73 @@
                if (mysqli_num_rows($query_product) > 0) {
                   while ($product = mysqli_fetch_assoc($query_product)) {
             ?>
-            <form action="" method="POST" class="box">
+            <form class="box" action="" method="POST">
                <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                <input type="hidden" name="name" value="<?= $product['name']; ?>">
                <input type="hidden" name="price" value="<?= $product['price']; ?>">
                <input type="hidden" name="image" value="<?= $product['image']; ?>">
-               <a href="quick_view.php?product_id=<?= $product['id']; ?>" class="fas fa-eye"></a>
+               <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
+                  class="fas fa-eye"></button>
                <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-               <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="200" height="200">
-               <br>
-               <a href="category.php?category=<?= $product['category']; ?>"
-                  class="cat"><?= $product['category']; ?></a>
-               <div class="name"><?= $product['name']; ?></div>
-               <div class="flex">
-                  <div class="price"><span>$</span><?= $product['price']; ?></div>
-                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+               <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="300" height="300">
+               <div class="content">
+                  <a href="category.php?category=<?= $product['category']; ?>"
+                     class="cat"><?= $product['category']; ?></a>
+                  <p class="name"><?= $product['name']; ?></p>
+                  <div class="flex">
+                     <div class="price"><span>$ </span><?= $product['price']; ?></div>
+                     <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                  </div>
                </div>
             </form>
+            </form>
+            <!-- Modal Start -->
+            <div class="modal fade" id="modal<?= $product['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
+                              class="fw-bold"><?= $product['name'] ?></span></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                        <div class="text-center mb-3">
+                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" width="250" height="250"
+                              alt="Image <?= $product['name'] ?>">
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Name</label>
+                           <p class="mx-3">:</p>
+                           <p><?= $product['name'] ?></p>
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Category</label>
+                           <p class="mx-3">:</p>
+                           <a href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Price</label>
+                           <p class="mx-3">:</p>
+                           <p>$<?= $product['price'] ?></p>
+                        </div>
+                        <div class="d-flex">
+                           <label style="width: 150px;">Input</label>
+                           <p class="mx-3">:</p>
+                           <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Modal End -->
             <?php
             }
             } else {
-               echo '<p class="empty">no products added yet!</p>';
+               echo '<p class="empty">no products yet!</p>';
             }
             }
             ?>

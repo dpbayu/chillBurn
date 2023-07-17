@@ -30,7 +30,7 @@
       //    }
       // }
       // Mysqli Method
-      $sql_product = "SELECT * FROM tbl_product";
+      $sql_product = "SELECT * FROM tbl_product WHERE name = '$name'";
       $query_product = mysqli_query($conn, $sql_product);
       if (mysqli_num_rows($query_product) > 0) {
          $message[] = 'product name already exists!';

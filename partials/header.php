@@ -14,14 +14,14 @@
 <!-- PHP -->
 <header class="header">
     <div class="container">
-        <section class="flex">
-            <a href="home.php"><img src="assets/img/Logo.png" alt="logo" style="width: 50%;"></a>
-            <nav class="navbar">
-                <a href="home.php">home</a>
-                <a href="about.php">about</a>
-                <a href="menu.php">menu</a>
-                <a href="order.php">orders</a>
-                <a href="contact.php">contact</a>
+        <div class="flex">
+            <a href="home.php"><img src="assets/img/Logo.png" alt="logo" style="width: 75%;"></a>
+            <nav class="navbar text-white">
+                <a class="nav-link <?php if ($page == 'home') {echo 'active';} ?>" href="home.php">Home</a>
+                <a class="nav-link <?php if ($page == 'about') {echo 'active';} ?>" href="about.php">About</a>
+                <a class="nav-link <?php if ($page == 'menu') {echo 'active';} ?>" href="menu.php">Menu</a>
+                <a class="nav-link <?php if ($page == 'order') {echo 'active';} ?>" href="order.php">Order</a>
+                <a class="nav-link <?php if ($page == 'contact') {echo 'active';} ?>" href="contact.php">Contact</a>
             </nav>
             <div class="icons">
                 <?php
@@ -67,6 +67,6 @@
                 }
                 ?>
             </div>
-        </section>
+        </div>
     </div>
 </header>

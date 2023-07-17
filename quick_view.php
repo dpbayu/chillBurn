@@ -7,7 +7,7 @@
    } else {
       $user_id = '';
    };
-   include 'components/add_cart.php';
+      require 'function.php';
 ?>
 <!-- PHP -->
 
