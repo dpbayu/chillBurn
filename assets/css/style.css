@@ -1293,7 +1293,6 @@ section {
    margin: 0 auto;
    max-width: 500px;
    padding: 16px;
-   text-align: center;
 }
 
 .form-container form h3 {
@@ -1301,6 +1300,7 @@ section {
    color: var(--white);
    text-transform: uppercase;
    margin-bottom: 16px;
+   text-align: center;
 }
 
 .form-container form .form-label {
@@ -1316,10 +1316,15 @@ section {
    color: var(--light-color);
 }
 
+.form-container form input {
+   width: 100%;
+}
+
 .form-container form p {
    margin-top: 24px;
    font-size: 16px;
    color: var(--white);
+   text-align: center;
 }
 
 .form-container form p a {
