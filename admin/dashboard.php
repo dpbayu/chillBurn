@@ -11,6 +11,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +32,7 @@
       <h1 class="heading">dashboard</h1>
       <div class="box-container">
          <div class="box">
-            <h3>welcome!</h3>
+            <h3>Welcome!</h3>
             <p><?= $admin['name']; ?></p>
             <a href="update_profile.php" class="btn">update profile</a>
          </div>

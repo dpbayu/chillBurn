@@ -1,12 +1,5 @@
-// Menu
-navbar = document.querySelector('.header .flex .navbar');
-document.querySelector('#menu-btn').onclick = () => {
-   navbar.classList.toggle('active');
-   profile.classList.remove('active');
-}
-
 // Profile
-profile = document.querySelector('.header .flex .profile');
+profile = document.querySelector('nav .profile');
 document.querySelector('#user-btn').onclick = () => {
    profile.classList.toggle('active');
    navbar.classList.remove('active');
@@ -22,7 +15,7 @@ function loader() {
 }
 
 function fadeOut() {
-   setInterval(loader, 1000);
+   setInterval(loader, 100);
 }
 window.onload = fadeOut;
 document.querySelectorAll('input[type="number"]').forEach(numberInput => {
