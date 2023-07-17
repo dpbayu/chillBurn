@@ -8,7 +8,6 @@
       $user_id = '';
       header('location:home.php');
    };
-
    if (isset($_POST['submit'])) {
       $name = $_POST['name'];
       $email = $_POST['email'];
@@ -20,6 +19,7 @@
          // Mysqli Method
          $sql_name = "UPDATE tbl_user SET name = '$name' WHERE id = '$user_id'";
          $query_name = mysqli_query($conn, $sql_name);
+         $message[] = 'Update name succesfully!';
       }
       if (!empty($email)) {
          // PDO Method
@@ -35,10 +35,11 @@
          $sql_email = "SELECT * FROM tbl_user WHERE email = '$email'";
          $query_email = mysqli_query($conn, $sql_email);
          if (mysqli_num_rows($query_email) > 0) {
-            $message[] = 'email already taken!';
+            $message[] = 'Email already taken!';
          } else {
             $update_email = "UPDATE tbl_user SET email = '$email' WHERE id = '$user_id'";
             $email = mysqli_query($conn, $update_email);
+            $message[] = 'Update email succesfully!';
          }
       }
       if (!empty($number)) {
@@ -55,44 +56,42 @@
          $sql_number = "SELECT * FROM tbl_user WHERE number = '$number'";
          $query_number = mysqli_query($conn, $sql_number);
          if (mysqli_num_rows($query_number) > 0) {
-            $message[] = 'number already taken!';
+            $message[] = 'Number already taken!';
          } else {
             $update_number = "UPDATE tbl_user SET number = '$number' WHERE id = '$user_id'";
             $number = mysqli_query($conn, $update_number);
+            $message[] = 'Update number succesfully!';
          }
       }
-      $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
-      // PDO Method
+      // PDO Method  
       // $select_prev_pass = $conn->prepare("SELECT password FROM tbl_user WHERE id = ?");
       // $select_prev_pass->execute([$user_id]);
       // $fetch_prev_pass = $select_prev_pass->fetch(PDO::FETCH_ASSOC);
       // Mysqli Method
-      $sql_prev_password = "SELECT password FROM tbl_user WHERE id = '$user_id'";
-      $query_prev_password = mysqli_query($conn, $sql_prev_password);
-      $prev_password = mysqli_fetch_assoc($query_prev_password);
-      $prev_pass = $prev_password['password'];
-      $old_password = $_POST['old_password'];
-      $new_password = $_POST['new_password'];
-      $confirm_password = $_POST['confirm_password'];
-      if ($old_password != $empty_pass) {
-         if ($old_password != $prev_pass) {
-            $message[] = 'old password not matched!';
-         } elseif ($new_password != $confirm_password) {
-            $message[] = 'confirm password not matched!';
+      if (!empty($old_password)) {
+         $old_password = $_POST['old_password'];
+         $new_password = $_POST['new_password'];
+         $confirm_password = $_POST['confirm_password'];
+         $sql_password = "SELECT * FROM tbl_user WHERE id = '$user_id'";
+         $query_password = mysqli_query($conn, $sql_password);
+         $row = mysqli_fetch_array($query_password);
+         if (empty ($old_password)) {
+            $message[] = 'Enter old password!';
+         } elseif (empty($new_password)) {
+            $message[] = 'Enter new password!';
+         } elseif ($confirm_password != $new_password) {
+            $message[] = 'Both password do not match!';
          } else {
-            if ($new_password != $empty_pass) {
-               // PDO Method
-               // $update_pass = $conn->prepare("UPDATE tbl_user SET password = ? WHERE id = ?");
-               // $update_pass->execute([$confirm_password, $user_id]);
-               // Mysqli Method
-               $update_password = "UPDATE tbl_user SET password = '$new_password' WHERE id = '$user_id'";
-               $query_update_password = mysqli_query($conn, $update_password);
-               $message[] = 'password updated successfully!';
-            } else {
-               $message[] = 'please enter a new password!';
-            }
+            // PDO Method
+            // $update_pass = $conn->prepare("UPDATE tbl_user SET password = ? WHERE id = ?");
+            // $update_pass->execute([$confirm_password, $user_id]);
+            // Mysqli Method
+            $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+            $update_password = "UPDATE tbl_user SET password = '$new_password' WHERE id = '$user_id'";
+            $query_update_password = mysqli_query($conn, $update_password);
+            $message[] = 'Password updated successfully!';
          }
-      }  
+      }
    }
 ?>
 <!-- PHP -->
@@ -115,14 +114,32 @@
    <section class="form-container update-form">
       <form action="" method="POST">
          <h3>update profile</h3>
-         <input type="text" name="name" placeholder="<?= $user['name']; ?>" class="box" maxlength="50">
-         <input type="email" name="email" placeholder="<?= $user['email']; ?>" class="box" maxlength="50">
-         <input type="number" name="number" placeholder="<?= $user['number']; ?>" class=" box" min="0"
-            max="9999999999" maxlength="10">
-         <input type="password" name="old_password" placeholder="enter your old password" class="box" maxlength="50">
-         <input type="password" name="new_password" placeholder="enter your new password" class="box" maxlength="50">
-         <input type="password" name="confirm_password" placeholder="confirm your new password" class="box" maxlength="50">
-         <input type="submit" value="update now" name="submit" class="btn">
+         <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="<?= $user['name']; ?>">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="<?= $user['email']; ?>">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Number</label>
+            <input type="number" class="form-control" name="number" placeholder="<?= $user['number']; ?>" min="0"
+               max="99999999" maxlength="10">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Old Password</label>
+            <input type="password" class="form-control" name="old_password" placeholder="Enter your old password">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">New Password</label>
+            <input type="password" class="form-control" name="new_password" placeholder="Enter your new password">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm your new password">
+         </div>
+         <input type="submit" value="update now" class="btn" name="submit">
       </form>
    </section>
    <!-- Footer Start  -->

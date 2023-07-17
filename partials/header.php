@@ -53,7 +53,7 @@
                     //     $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
                 ?>
                 <p class="name"><?= $user['name']; ?></p>
-                <div class="flex">
+                <div class="flex gap-3">
                     <a href="profile.php" class="btn">profile</a>
                     <a href="logout.php" onclick="return confirm('logout from this website?');"
                         class="delete-btn">logout</a>
