@@ -60,24 +60,24 @@
          <div class="container">
             <div class="box-container">
                <div class="box">
-                  <img src="assets/img/img-1.png" alt="">
+                  <img src="assets/img/img-1.png">
                   <div class="text">
                      <p>01</p>
-                     <h3>fun hangout</h3>
+                     <h5>Fun hangout</h5>
                   </div>
                </div>
                <div class="box">
-                  <img src="assets/img/img-2.png" alt="">
+                  <img src="assets/img/img-2.png">
                   <div class="text">
                      <p>02</p>
-                     <h3>comfortable place to be alone</h3>
+                     <h5>Comfortable place to be alone</h5>
                   </div>
                </div>
                <div class="box">
-                  <img src="assets/img/img-3.png" alt="">
+                  <img src="assets/img/img-3.png">
                   <div class="text">
                      <p>03</p>
-                     <h3>can also be used for meetings</h3>
+                     <h5>Can also be used for meetings</h5>
                   </div>
                </div>
             </div>
@@ -89,12 +89,12 @@
          <div class="col-md-12">
             <div class="row">
                <div class="col-md-6">
-                  <img src="assets/img/Image-1.png" alt="history img">
+                  <img src="assets/img/image-1.png">
                </div>
                <div class="col-md-6">
                   <div class="content">
-                     <h3>our history</h3>
-                     <h2>Cursus habitasse <span>neque</span></h2>
+                     <h3>Our History</h3>
+                     <h4>Cursus habitasse <span>neque</span></h4>
                      <p>Our incredibly rare beans come from humble beginnings in Yemen, where decades of political
                         turmoil once forced local farmers to start growing Khat, a narcotic native to the Arabian
                         Peninsula.</p>
@@ -106,20 +106,21 @@
          </div>
       </section>
       <!-- Section 2 End -->
-      <!-- Popular Menu Start -->
+      <!-- Category Start -->
       <section class="category">
          <h1 class="title">popular <span>menu</span></h1>
          <div class="container" x-data="{ tab: 'main dish' }">
             <!-- Menu -->
             <ul class="menu">
                <li>
-                  <a :class="{'text-color': tab === 'main dish'}" href="#" @click.prevent="tab = 'main dish'">Main Dish</a>
+                  <a :class="{'active': tab === 'main dish'}" href="#" @click.prevent="tab = 'main dish'">Main
+                     Dish</a>
                </li>
                <li>
-                  <a :class="{'text-color': tab === 'dessert'}" href="#" @click.prevent="tab = 'dessert'">Dessert</a>
+                  <a :class="{'active': tab === 'drink'}" href="#" @click.prevent="tab = 'drink'">Drink</a>
                </li>
                <li>
-                  <a :class="{'text-color': tab === 'drink'}" href="#" @click.prevent="tab = 'drink'">Drink</a>
+                  <a :class="{'active': tab === 'dessert'}" href="#" @click.prevent="tab = 'dessert'">Dessert</a>
                </li>
             </ul>
             <div class="content">
@@ -137,12 +138,12 @@
                         <input type="hidden" name="name" value="<?= $product['name']; ?>">
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
-                        <div class="content">
+                        <div class="box-content">
                            <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h2><?= $product['name'] ?></h2>
-                              <h3>$ <span><?= $product['price'] ?></span></h3>
+                              <h6><?= $product['name'] ?></h6>
+                              <p>$ <span><?= $product['price'] ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -153,7 +154,7 @@
                      <?php
                      }
                      } else {
-                        echo '<p class="empty">no products added yet!</p>';
+                        echo '<p class="empty">No products!</p>';
                      }
                      ?>
                   </div>
@@ -176,12 +177,12 @@
                         <input type="hidden" name="name" value="<?= $product['name']; ?>">
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
-                        <div class="content">
+                        <div class="box-content">
                            <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h2><?= $product['name'] ?></h2>
-                              <h3>$ <span><?= $product['price'] ?></span></h3>
+                              <h6><?= $product['name'] ?></h6>
+                              <p>$ <span><?= $product['price'] ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -210,17 +211,17 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                      ?>
-                     <form action="function.php" method="POST" class="box">
+                     <form action="" method="POST" class="box">
                         <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                         <input type="hidden" name="name" value="<?= $product['name']; ?>">
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
-                        <div class="content">
+                        <div class="box-content">
                            <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h2><?= $product['name'] ?></h2>
-                              <h3>$ <span><?= $product['price'] ?></span></h3>
+                              <h6><?= $product['name'] ?></h6>
+                              <p>$ <span><?= $product['price'] ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -243,7 +244,7 @@
             </div>
          </div>
       </section>
-      <!-- Popular Menu End -->
+      <!-- Category End -->
       <!-- Product Start -->
       <section class="menu my-5">
          <div class="container">

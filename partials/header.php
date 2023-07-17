@@ -12,6 +12,7 @@
     }
 ?>
 <!-- PHP -->
+<!-- Nav Start -->
 <nav class="navbar navbar-expand-lg">
     <div class="container position-relative">
         <a href="home.php"><img src="assets/img/Logo.png" alt="logo" style="width: 75%;"></a>
@@ -75,3 +76,4 @@
         </div>
     </div>
 </nav>
+<!-- Nav End -->
