@@ -106,20 +106,20 @@
          </div>
       </section>
       <!-- Section 2 End -->
-      <!-- Category Start -->
+      <!-- Popular Menu Start -->
       <section class="category">
          <h1 class="title">popular <span>menu</span></h1>
          <div class="container" x-data="{ tab: 'main dish' }">
             <!-- Menu -->
             <ul class="menu">
                <li>
-                  <a href="#" @click.prevent="tab = 'main dish'">Main Dish</a>
+                  <a :class="{'text-color': tab === 'main dish'}" href="#" @click.prevent="tab = 'main dish'">Main Dish</a>
                </li>
                <li>
-                  <a href="#" @click.prevent="tab = 'dessert'">Dessert</a>
+                  <a :class="{'text-color': tab === 'dessert'}" href="#" @click.prevent="tab = 'dessert'">Dessert</a>
                </li>
                <li>
-                  <a href="#" @click.prevent="tab = 'drink'">Drink</a>
+                  <a :class="{'text-color': tab === 'drink'}" href="#" @click.prevent="tab = 'drink'">Drink</a>
                </li>
             </ul>
             <div class="content">
@@ -261,7 +261,7 @@
             </div>
          </div>
       </section>
-      <!-- Category End -->
+      <!-- Popular Menu End -->
       <!-- Product Start -->
       <section class="menu my-5">
          <div class="container">

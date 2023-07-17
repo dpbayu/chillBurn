@@ -444,6 +444,11 @@ section {
    color: var(--white);
 }
 
+.category ul li a.text-color {
+   color: var(--primary);
+   font-weight: 600;
+}
+
 .category .box-container {
    display: flex;
    gap: 20px;
@@ -1442,6 +1447,10 @@ section {
    color: var(--light-color);
 }
 
+.footer .social-media a:hover {
+   color: var(--primary);
+}
+
 .footer .grid {
    display: flex;
    flex-wrap: wrap;
@@ -1476,6 +1485,7 @@ section {
    color: var(--light-color);
    margin: 0;
    padding: 0;
+   text-decoration: none;
 }
 
 .footer .grid .box a:hover {
@@ -1488,9 +1498,12 @@ section {
    flex-wrap: wrap;
 }
 
+.footer .flex .navbar {
+   color: var(--white);
+}
+
 .footer .flex .navbar a {
    font-size: 20px;
-   color: var(--white);
    margin: 0 10px;
    text-decoration: none;
    text-transform: capitalize;

@@ -31,11 +31,11 @@
       <div class="flex">
          <a href="home.php"><img src="assets/img/Logo.png" alt="logo" style="width: 75%;"></a>
          <nav class="navbar">
-            <a href="home.php">home</a>
-            <a href="about.php">about</a>
-            <a href="menu.php">menu</a>
-            <a href="order.php">order</a>
-            <a href="contact.php">contact</a>
+            <a class="nav-link <?php if ($page == 'home') {echo 'active';} ?>" href="home.php">home</a>
+            <a class="nav-link <?php if ($page == 'about') {echo 'active';} ?>" href="about.php">about</a>
+            <a class="nav-link <?php if ($page == 'menu') {echo 'active';} ?>" href="menu.php">menu</a>
+            <a class="nav-link <?php if ($page == 'order') {echo 'active';} ?>" href="order.php">order</a>
+            <a class="nav-link <?php if ($page == 'contact') {echo 'active';} ?>" href="contact.php">contact</a>
          </nav>
       </div>
    </div>
