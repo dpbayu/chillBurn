@@ -12,14 +12,25 @@
       $email = $_POST['email'];
       $number = $_POST['number'];
       $msg = $_POST['msg'];
-      $select_message = $conn->prepare("SELECT * FROM tbl_message WHERE name = ? AND email = ? AND number = ? AND message = ?");
-      $select_message->execute([$name, $email, $number, $msg]);
-      if ($select_message->rowCount() > 0){
-         $message[] = 'already sent message!';
+      // PDO Method
+      // $select_message = $conn->prepare("SELECT * FROM tbl_message WHERE name = ? AND email = ? AND number = ? AND message = ?");
+      // $select_message->execute([$name, $email, $number, $msg]);
+      // if ($select_message->rowCount() > 0){
+      //    $message[] = 'already sent message!';
+      // } else {
+      //    $insert_message = $conn->prepare("INSERT INTO tbl_message (user_id, name, email, number, message) VALUES (?,?,?,?,?)");
+      //    $insert_message->execute([$user_id, $name, $email, $number, $msg]);
+      //    $message[] = 'sent message successfully!';
+      // }
+      // Mysqli Method
+      $sql_message = "SELECT * FROM tbl_message WHERE name = '$name' AND email = '$email' AND number = '$number' AND message = '$msg'";
+      $query_message = mysqli_query($conn, $sql_message);
+      if (mysqli_num_rows($query_message) > 0) {
+         $message[] = 'Already sen message';
       } else {
-         $insert_message = $conn->prepare("INSERT INTO tbl_message (user_id, name, email, number, message) VALUES (?,?,?,?,?)");
-         $insert_message->execute([$user_id, $name, $email, $number, $msg]);
-         $message[] = 'sent message successfully!';
+         $sql_insert_message = "INSERT INTO tbl_message (user_id, name, email, number, message) VALUES ('$user_id','$name', '$email', '$number', '$msg')";
+         $query_insert_message = mysqli_query($conn, $sql_insert_message);
+         $message[] = 'Sent message successfully';
       }
    }
    $page = 'contact';
@@ -51,25 +62,26 @@
          </div>
       </div>
    </div>
-   <!-- Contact Start  -->
-   <section class="contact">
-      <div class="row">
-         <div class="image">
-            <img src="images/contact-img.svg" alt="">
+   <div class="container">
+      <!-- Contact Start  -->
+      <section class="contact">
+         <div class="row">
+            <div class="col-md-12">
+               <form action="" method="POST">
+                  <h3 class="text-white">tell us something!</h3>
+                  <input type="text" class="form-control mb-3" name="name" maxlength="50" placeholder="Enter your name" required>
+                  <input type="number" class="form-control mb-3" name="number" min="0" max="9999999999" placeholder="Enter your number"
+                     required maxlength="10">
+                  <input type="email" class="form-control mb-3" name="email" maxlength="50" placeholder="Enter your email" required>
+                  <textarea name="msg" class="form-control mb-3" required placeholder="Enter your message" maxlength="500" cols="20"
+                     rows="10"></textarea>
+                  <input type="submit" value="send message" name="send" class="btn">
+               </form>
+            </div>
          </div>
-         <form action="" method="POST">
-            <h3>tell us something!</h3>
-            <input type="text" name="name" maxlength="50" class="box" placeholder="enter your name" required>
-            <input type="number" name="number" min="0" max="9999999999" class="box" placeholder="enter your number"
-               required maxlength="10">
-            <input type="email" name="email" maxlength="50" class="box" placeholder="enter your email" required>
-            <textarea name="msg" class="box" required placeholder="enter your message" maxlength="500" cols="30"
-               rows="10"></textarea>
-            <input type="submit" value="send message" name="send" class="btn">
-         </form>
-      </div>
-   </section>
-   <!-- Contact End -->
+      </section>
+      <!-- Contact End -->
+   </div>
    <!-- Footer Start  -->
    <?php include 'partials/footer.php'; ?>
    <!-- Footer End -->
