@@ -84,15 +84,40 @@
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
+   <div class="search-hero">
+      <div class="container">
+         <div class="content">
+            <div class="heading">
+               <h3>register</h3>
+               <p><a href="home.php">home</a> <span> / register</span></p>
+            </div>
+         </div>
+      </div>
+   </div>
    <section class="form-container">
       <form action="" method="POST">
          <h3>register now</h3>
-         <input type="text" name="name" required placeholder="enter your name" class="box" maxlength="50">
-         <input type="email" name="email" required placeholder="enter your email" class="box" maxlength="50">
-         <input type="number" name="number" required placeholder="enter your number" class="box" min="0"
-            max="9999999999" maxlength="10">
-         <input type="password" name="password" required placeholder="enter your password" class="box" maxlength="50">
-         <input type="password" name="cpass" required placeholder="confirm your password" class="box" maxlength="50">
+         <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+         </div>
+         <div class="mb-3">
+            <label class="form-label">number</label>
+            <input type="number" class="form-control" name="number" placeholder="Enter your number" min="0"
+               max="9999999999">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter your password">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="cpass" placeholder="confirm your password">
+         </div>
          <input type="submit" value="register now" name="register" class="btn">
          <p>already have an account? <a href="login.php">login now</a></p>
       </form>

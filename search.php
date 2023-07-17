@@ -7,7 +7,7 @@
    } else {
       $user_id = '';
    };
-   include 'components/add_cart.php';
+   include 'function.php';
 ?>
 <!-- PHP -->
 
@@ -87,8 +87,7 @@
                <div class="modal-dialog">
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
-                              class="fw-bold"><?= $product['name'] ?></span></h1>
+                        <h1 class="modal-title" id="exampleModalLabel">Menu <span><?= $product['name'] ?></span></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                      </div>
                      <div class="modal-body">
@@ -97,24 +96,24 @@
                               alt="Image <?= $product['name'] ?>">
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">Name</label>
+                           <label style="width: 150px;">name</label>
                            <p class="mx-3">:</p>
                            <p><?= $product['name'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">Category</label>
+                           <label style="width: 150px;">category</label>
                            <p class="mx-3">:</p>
                            <a href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">Price</label>
+                           <label style="width: 150px;">price</label>
                            <p class="mx-3">:</p>
-                           <p>$<?= $product['price'] ?></p>
+                           <p>$ <?= $product['price'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">Input</label>
+                           <label style="width: 150px;">quantity</label>
                            <p class="mx-3">:</p>
-                           <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                           <p>1</p>
                         </div>
                      </div>
                      <div class="modal-footer">
