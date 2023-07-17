@@ -45,8 +45,8 @@
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>contact</h3>
-               <p><a href="home.php">home</a> <span> / contact</span></p>
+               <h3>CONTACT</h3>
+               <p><a href="home.php">Home</a> <span> / Contact</span></p>
             </div>
          </div>
       </div>
@@ -57,7 +57,7 @@
          <div class="row">
             <div class="col-md-12">
                <form action="" method="POST">
-                  <h3 class="text-white">tell us something!</h3>
+                  <h3 class="text-white">TELL US <span>SOMETHING!</span></h3>
                   <input type="text" class="form-control mb-3" name="name" maxlength="50" placeholder="Enter your name" required>
                   <input type="number" class="form-control mb-3" name="number" min="0" max="9999999999" placeholder="Enter your number"
                      required maxlength="10">
