@@ -32,8 +32,8 @@
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>menu</h3>
-               <p><a href="home.php">home</a> <span> / menu</span></p>
+               <h3>MENU</h3>
+               <p><a href="home.php">Home</a> <span> / Menu</span></p>
             </div>
          </div>
       </div>
@@ -41,7 +41,7 @@
    <div class="container">
       <!-- Menu Start  -->
       <section class="menu">
-         <h1 class="title">latest <span>dishes</span></h1>
+         <h1 class="title">LATEST <span>DISHES</span></h1>
          <div class="box-container">
             <?php
                $sql_product = "SELECT * FROM tbl_product ORDER BY id DESC LIMIT 3";
@@ -84,12 +84,12 @@
                               alt="Image <?= $product['name'] ?>">
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">name</label>
+                           <label style="width: 150px;">Name</label>
                            <p class="mx-3">:</p>
                            <p><?= $product['name'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">category</label>
+                           <label style="width: 150px;">Category</label>
                            <p class="mx-3">:</p>
                            <a href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
                         </div>
@@ -99,7 +99,7 @@
                            <p>$ <?= $product['price'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">quantity</label>
+                           <label style="width: 150px;">Quantity</label>
                            <p class="mx-3">:</p>
                            <p>1</p>
                         </div>
