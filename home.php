@@ -304,8 +304,7 @@
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header">
-                           <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
-                                 class="fw-bold"><?= $product['name'] ?></span></h1>
+                           <h1 class="modal-title" id="exampleModalLabel">Menu <span><?= $product['name'] ?></span></h1>
                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

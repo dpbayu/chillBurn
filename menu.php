@@ -41,7 +41,7 @@
    <div class="container">
       <!-- Menu Start  -->
       <section class="menu">
-         <h1 class="title">latest dishes</h1>
+         <h1 class="title">latest <span>dishes</span></h1>
          <div class="box-container">
             <?php
                // PDO Method
@@ -80,8 +80,8 @@
                <div class="modal-dialog">
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span
-                              class="fw-bold"><?= $product['name'] ?></span></h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Menu <span><?= $product['name'] ?></span>
+                        </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                      </div>
                      <div class="modal-body">
@@ -90,24 +90,24 @@
                               alt="Image <?= $product['name'] ?>">
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">Name</label>
+                           <label style="width: 150px;">name</label>
                            <p class="mx-3">:</p>
                            <p><?= $product['name'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">Category</label>
+                           <label style="width: 150px;">category</label>
                            <p class="mx-3">:</p>
                            <a href="category.php?category=<?= $product['category']; ?>"><?= $product['category'] ?></a>
                         </div>
                         <div class="d-flex">
                            <label style="width: 150px;">Price</label>
                            <p class="mx-3">:</p>
-                           <p>$<?= $product['price'] ?></p>
+                           <p>$ <?= $product['price'] ?></p>
                         </div>
                         <div class="d-flex">
-                           <label style="width: 150px;">Input</label>
+                           <label style="width: 150px;">quantity</label>
                            <p class="mx-3">:</p>
-                           <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                           <p>1</p>
                         </div>
                      </div>
                      <div class="modal-footer">
@@ -126,10 +126,10 @@
          </div>
       </section>
       <!-- Menu End -->
-      <section class=" my-5 text-white">
+      <section class="list-menu my-5 text-white">
          <div class="col-md-12">
             <div class="row">
-               <div class="col-md-6">
+               <div class="col-md-6 p-3 m-0">
                   <h3>Main Dish</h3>
                   <?php
                      // PDO Method
@@ -143,11 +143,11 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                      ?>
-                     <div class="d-flex w-100 justify-content-between">
-                        <p><?= $product['name'] ?></p>
-                        <p>$ <?= $product['price'] ?></p>
-                     </div>
-                     <?php
+                  <div class="d-flex w-100 justify-content-between">
+                     <p><?= $product['name'] ?></p>
+                     <p>$ <?= $product['price'] ?></p>
+                  </div>
+                  <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
@@ -159,15 +159,15 @@
                      </a>
                   </div>
                </div>
-               <div class="col-md-6">
-                  <img src="assets/img/img-1.png" alt="" style="width: 100%;">
+               <div class="col-md-6 p-0 m-0">
+                  <img src="assets/img/menu-img1.png" style="width: 100%; height: 535px;">
                </div>
             </div>
             <div class="row">
-               <div class="col-md-6">
-                  <img src="assets/img/img-1.png" alt="" style="width: 100%;">
+               <div class="col-md-6 p-0 m-0">
+                  <img src="assets/img//menu-img2.png" style="width: 100%; height: 535px;">
                </div>
-               <div class="col-md-6">
+               <div class="col-md-6 p-3 m-0">
                   <h3>Drink</h3>
                   <?php
                      // PDO Method
@@ -181,11 +181,11 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                      ?>
-                     <div class="d-flex w-100 justify-content-between">
-                        <p><?= $product['name'] ?></p>
-                        <p>$ <?= $product['price'] ?></p>
-                     </div>
-                     <?php
+                  <div class="d-flex w-100 justify-content-between">
+                     <p><?= $product['name'] ?></p>
+                     <p>$ <?= $product['price'] ?></p>
+                  </div>
+                  <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
@@ -199,7 +199,7 @@
                </div>
             </div>
             <div class="row">
-            <div class="col-md-6">
+               <div class="col-md-6 p-3 m-0">
                   <h3>Dessert</h3>
                   <?php
                      // PDO Method
@@ -213,11 +213,11 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                      ?>
-                     <div class="d-flex w-100 justify-content-between">
-                        <p><?= $product['name'] ?></p>
-                        <p>$ <?= $product['price'] ?></p>
-                     </div>
-                     <?php
+                  <div class="d-flex w-100 justify-content-between">
+                     <p><?= $product['name'] ?></p>
+                     <p>$ <?= $product['price'] ?></p>
+                  </div>
+                  <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
@@ -229,8 +229,8 @@
                      </a>
                   </div>
                </div>
-               <div class="col-md-6">
-                  <img src="assets/img/img-1.png" alt="" style="width: 100%;">
+               <div class="col-md-6 p-0 m-0">
+                  <img src="assets/img/menu-img3.png" style="width: 100%; height: 535px;">
                </div>
             </div>
          </div>

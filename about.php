@@ -45,7 +45,7 @@
          <div class="row">
             <div class="grid-container">
                <div class="grid-item item1">
-                  <img src="assets/img/about-img1.png" alt="">
+                  <img src="assets/img/about-img1.png">
                </div>
                <div class="grid-item item2">
                   <h3>About <span>our cafe</span></h3>
@@ -59,7 +59,7 @@
                      cafe is made for those who are looking for a place to just hang out or to relax with friends.</p>
                </div>
                <div class="grid-item item4">
-                  <img src="assets/img/about-img2.png" alt="">
+                  <img src="assets/img/about-img2.png">
                </div>
             </div>
          </div>
@@ -161,10 +161,10 @@
                   <h3>About <span>our coffee</span></h3>
                </div>
                <div class="grid-item item2">
-                  <img src="assets/img/about-img5.png" alt="">
+                  <img src="assets/img/about-img3.png" alt="">
                </div>
                <div class="grid-item item3">
-                  <img src="assets/img/about-img6.png" alt="">
+                  <img src="assets/img/about-img4.png" alt="">
                </div>
                <div class="grid-item item4">
                   <p>The coffee in this cafe uses very good and good quality coffee beans. These coffee beans are
@@ -185,7 +185,7 @@
                <h2>Come to <span>visit us.</span></h2>
             </div>
             <div class="col-md-8">
-               <img src="assets/img/about-img7.png" alt="">
+               <img src="assets/img/about-img5.png">
             </div>
          </div>
       </section>

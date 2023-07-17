@@ -85,14 +85,15 @@ section {
    font-size: 24px;
    color: var(--light-color);
    text-align: center;
+   text-transform: uppercase;
 }
 
 .heading p a {
    color: var(--primary);
+   text-decoration: none;
 }
 
 .heading p a:hover {
-   text-decoration: underline;
    color: var(--white);
 }
 
@@ -554,6 +555,14 @@ section {
    margin: 25px 0;
 }
 
+.list-menu h3 {
+   color: var(--primary);
+}
+
+.list-menu p {
+   text-transform: uppercase;
+}
+
 .menu .box-container {
    display: flex;
    justify-content: center;
@@ -744,6 +753,11 @@ section {
 }
 
 /* Modal */
+.menu .modal .modal-dialog .modal-content .modal-header span {
+   text-transform: uppercase;
+   color: var(--primary);
+   border: none;
+}
 .menu .modal .modal-dialog .modal-content .modal-body img {
    width: 100%;
 }
