@@ -77,18 +77,15 @@ span {
 .heading h3 {
    font-size: 48px;
    color: var(--white);
-   text-transform: capitalize;
 }
 
 .heading p {
    font-size: 24px;
-   color: var(--light-color);
    text-align: center;
-   text-transform: uppercase;
 }
 
 .heading p a {
-   color: var(--primary);
+   color: var(--light-color);
    text-decoration: none;
 }
 
@@ -756,8 +753,7 @@ nav .profile .name {
 
 .about-section1 .row .item2 h3 {
    text-align: start;
-   width: 200px;
-   font-size: 48px;
+   font-size: 40px;
    color: var(--white);
 }
 
@@ -771,7 +767,7 @@ nav .profile .name {
    margin-top: -200px;
 }
 
-/* Review */
+/* Review Start */
 .reviews .slide {
    margin-bottom: 64px;
    border: var(--border);
@@ -812,6 +808,7 @@ nav .profile .name {
 .swiper-pagination-bullet-active {
    background-color: var(--primary);
 }
+/* Review End */
 
 .about-section2 .row .grid-container {
    margin: 25px auto;
@@ -851,8 +848,7 @@ nav .profile .name {
 
 .about-section2 .row .item1 h3 {
    text-align: start;
-   width: 250px;
-   font-size: 48px;
+   font-size: 40px;
    color: var(--white);
 }
 
@@ -872,13 +868,13 @@ nav .profile .name {
 
 .about-section3 .row h2 {
    font-size: 64px;
-   width: 300px;
    color: var(--white);
 }
 
 .about-section3 .row h2 span {
    color: var(--primary);
 }
+/* About End */
 
 /* Blog */
 .blog {

@@ -27,18 +27,18 @@
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
-   <!-- Header Start -->
+   <!-- Hero Start -->
    <div class="about-hero">
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>About Us</h3>
-               <p><a href="home.php">home</a> <span> / about</span></p>
+               <h3>ABOUT US</h3>
+               <p><a href="home.php">Home</a> <span> / About</span></p>
             </div>
          </div>
       </div>
    </div>
-   <!-- Header End -->
+   <!-- Hero End -->
    <div class="container">
       <!-- About Start 1 -->
       <section class="about-section1">
@@ -48,7 +48,7 @@
                   <img src="assets/img/about-img1.png">
                </div>
                <div class="grid-item item2">
-                  <h3>About <span>our cafe</span></h3>
+                  <h3>ABOUT <br><span>OUR CAFE</span></h3>
                </div>
                <div class="grid-item item3">
                   <p>This cafe was created in 2001 by an entrepreneur who wanted to create and develop his own cafe.
@@ -67,7 +67,7 @@
       <!-- About End 1 -->
       <!-- Review End  -->
       <section class="reviews">
-         <h1 class="title">customer's reviews</h1>
+         <h1 class="title">CUSTOMER <span>REVIEWS</span></h1>
          <div class="swiper reviews-slider">
             <div class="swiper-wrapper">
                <div class="swiper-slide slide">
@@ -158,7 +158,7 @@
          <div class="row">
             <div class="grid-container">
                <div class="grid-item item1">
-                  <h3>About <span>our coffee</span></h3>
+                  <h3>ABOUT <br><span>OUR COFFEE</span></h3>
                </div>
                <div class="grid-item item2">
                   <img src="assets/img/about-img3.png" alt="">
@@ -182,7 +182,7 @@
       <section class="about-section3">
          <div class="row">
             <div class="col-md-4">
-               <h2>Come to <span>visit us.</span></h2>
+               <h2>Come to <br><span>visit us.</span></h2>
             </div>
             <div class="col-md-8">
                <img src="assets/img/about-img5.png">
