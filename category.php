@@ -31,15 +31,15 @@
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>food category</h3>
-               <p><a href="home.php">home</a> <span> / food category</span></p>
+               <h3>FOOD CATEGORY</h3>
+               <p><a href="home.php">Home</a> <span> / Food Category</span></p>
             </div>
          </div>
       </div>
    </div>
    <div class="container">
       <section class="menu">
-         <h1 class="title">food category</h1>
+         <h1 class="title">FOOD <span>CATEGORY</span></h1>
          <div class="box-container">
             <?php
                $category = $_GET['category'];
@@ -113,7 +113,7 @@
                <?php
                }
                } else {
-                  echo '<p class="empty">no products added yet!</p>';
+                  echo '<p class="empty">No products</p>';
                }
                ?>
          </div>
