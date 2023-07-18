@@ -18,7 +18,7 @@
             $_SESSION['user_id'] = $row['id'];
             header('location: home.php');
          } else {
-            $message[] = 'incorrect username or password!';
+            $message[] = 'Incorrect username or password!';
          }
       }
    }
@@ -44,8 +44,8 @@
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>login</h3>
-               <p><a href="home.php">home</a> <span> / login</span></p>
+               <h3>Login</h3>
+               <p><a href="home.php">Home</a> <span> / Login</span></p>
             </div>
          </div>
       </div>
@@ -62,7 +62,7 @@
             <input type="password" name="password" class="form-control box" placeholder="Enter your password" required>
          </div>
          <input type="submit" value="login now" name="submit" class="btn">
-         <p>don't have an account? <a href="register.php">register now</a></p>
+         <p>Dont't have an account? <a href="register.php">Register now</a></p>
       </form>
    </section>
    <?php include 'partials/footer.php'; ?>

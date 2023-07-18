@@ -1,7 +1,7 @@
 <!-- PHP -->
 <?php
    session_start();
-   include 'include/connect.php';
+   require 'include/connect.php';
    if (isset($_SESSION['user_id'])) {
       $user_id = $_SESSION['user_id'];
    } else {
@@ -38,8 +38,8 @@
             $message[] = 'Update number succesfully!';
          }
       }
+      $old_password = $_POST['old_password'];
       if (!empty($old_password)) {
-         $old_password = $_POST['old_password'];
          $new_password = $_POST['new_password'];
          $confirm_password = $_POST['confirm_password'];
          $sql_password = "SELECT * FROM tbl_user WHERE id = '$user_id'";
@@ -52,8 +52,8 @@
          } elseif ($confirm_password != $new_password) {
             $message[] = 'Both password do not match!';
          } else {
-            $new_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $update_password = "UPDATE tbl_user SET password = '$new_password' WHERE id = '$user_id'";
+            $hash = password_hash($new_password, PASSWORD_DEFAULT);
+            $update_password = "UPDATE tbl_user SET password = '$hash' WHERE id = '$user_id'";
             $query_update_password = mysqli_query($conn, $update_password);
             $message[] = 'Password updated successfully!';
          }

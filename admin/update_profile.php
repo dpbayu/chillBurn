@@ -8,41 +8,58 @@
    }
    if (isset($_POST['submit'])) {
       $name = $_POST['name'];
-      $name = filter_var($name, FILTER_SANITIZE_STRING);
       if (!empty($name)) {
-         $select_name = $conn->prepare("SELECT * FROM tbl_admin WHERE name = ?");
-         $select_name->execute([$name]);
-         if ($select_name->rowCount() > 0) {
-            $message[] = 'username already taken!';
+         $sql_name = "SELECT * FROM tbl_admin WHERE name = '$name'";
+         $query_name = mysqli_query($conn, $sql_name);
+         if (mysqli_num_rows($query_name) > 0) {
+            $message[] = 'Username already taken!';
          } else {
-            $update_name = $conn->prepare("UPDATE tbl_admin SET name = ? WHERE id = ?");
-            $update_name->execute([$name, $admin_id]);
+            $sql_update = "UPDATE tbl_admin SET name = '$name' WHERE id = '$admin_id'";
+            $query_update = mysqli_query($conn, $sql_update);
+            $message[] = 'Update name succesfully!';
          }
       }
-      $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
-      $select_old_pass = $conn->prepare("SELECT password FROM tbl_admin WHERE id = ?");
-      $select_old_pass->execute([$admin_id]);
-      $fetch_prev_pass = $select_old_pass->fetch(PDO::FETCH_ASSOC);
-      $prev_pass = $fetch_prev_pass['password'];
-      $old_pass = sha1($_POST['old_pass']);
-      $old_pass = filter_var($old_pass, FILTER_SANITIZE_STRING);
-      $new_pass = sha1($_POST['new_pass']);
-      $new_pass = filter_var($new_pass, FILTER_SANITIZE_STRING);
-      $confirm_pass = sha1($_POST['confirm_pass']);
-      $confirm_pass = filter_var($confirm_pass, FILTER_SANITIZE_STRING);
-      if ($old_pass != $empty_pass) {
-         if ($old_pass != $prev_pass) {
-            $message[] = 'old password not matched!';
-         } elseif ($new_pass != $confirm_pass) {
-            $message[] = 'confirm password not matched!';
+      // $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
+      // $select_old_pass = $conn->prepare("SELECT password FROM tbl_admin WHERE id = ?");
+      // $select_old_pass->execute([$admin_id]);
+      // $fetch_prev_pass = $select_old_pass->fetch(PDO::FETCH_ASSOC);
+      // $prev_pass = $fetch_prev_pass['password'];
+      // $old_pass = sha1($_POST['old_pass']);
+      // $new_pass = sha1($_POST['new_pass']);
+      // $confirm_pass = sha1($_POST['confirm_pass']);
+      // if ($old_pass != $empty_pass) {
+      //    if ($old_pass != $prev_pass) {
+      //       $message[] = 'old password not matched!';
+      //    } elseif ($new_pass != $confirm_pass) {
+      //       $message[] = 'confirm password not matched!';
+      //    } else {
+      //       if ($new_pass != $empty_pass){
+      //          $update_pass = $conn->prepare("UPDATE tbl_admin SET password = ? WHERE id = ?");
+      //          $update_pass->execute([$confirm_pass, $admin_id]);
+      //          $message[] = 'password updated successfully!';
+      //       } else {
+      //          $message[] = 'please enter a new password!';
+      //       }
+      //    }
+      // }
+      $old_password = $_POST['old_password'];
+      if (!empty($old_password)) {
+         $new_password = $_POST['new_password'];
+         $confirm_password = $_POST['confirm_password'];
+         $sql_password = "SELECT * FROM tbl_admin WHERE id = '$admin_id'";
+         $query_password = mysqli_query($conn, $sql_password);
+         $row = mysqli_fetch_array($query_password);
+         if (empty ($old_password)) {
+            $message[] = 'Enter old password!';
+         } elseif (empty($new_password)) {
+            $message[] = 'Enter new password!';
+         } elseif ($confirm_password != $new_password) {
+            $message[] = 'Both password do not match!';
          } else {
-            if ($new_pass != $empty_pass){
-               $update_pass = $conn->prepare("UPDATE tbl_admin SET password = ? WHERE id = ?");
-               $update_pass->execute([$confirm_pass, $admin_id]);
-               $message[] = 'password updated successfully!';
-            } else {
-               $message[] = 'please enter a new password!';
-            }
+            $hash = password_hash($new_password, PASSWORD_DEFAULT);
+            $update_password = "UPDATE tbl_admin SET password = '$hash' WHERE id = '$admin_id'";
+            $query_update_password = mysqli_query($conn, $update_password);
+            $message[] = 'Password updated successfully!';
          }
       }
    }
@@ -56,10 +73,15 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Profile</title>
+   <title>Product</title>
+   <!-- Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
    <!-- Font Awesome  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
    <!-- Custom CSS  -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="assets/libs/dataTables/datatables.min.css" />
    <link rel="stylesheet" href="assets/css/admin_style.css">
 </head>
 
@@ -70,16 +92,24 @@
    <!-- Admin Update Start  -->
    <section class="form-container">
       <form action="" method="POST">
-         <h3>update profile</h3>
-         <input type="text" name="name" maxlength="20" class="box" oninput="this.value = this.value.replace(/\s/g, '')"
-            placeholder="<?= $fetch_profile['name']; ?>">
-         <input type="password" name="old_pass" maxlength="20" placeholder="enter your old password" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="password" name="new_pass" maxlength="20" placeholder="enter your new password" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="password" name="confirm_pass" maxlength="20" placeholder="confirm your new password" class="box"
-            oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="submit" value="update now" name="submit" class="btn">
+         <h3>Update Profile</h3>
+         <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="name" class="form-control" placeholder="<?= $admin['name']; ?>">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Old Password</label>
+            <input type="password" name="old_password" class="form-control" placeholder="Enter your old password">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">New Password</label>
+            <input type="password" name="new_password" class="form-control" placeholder="Enter your new password">
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" name="confirm_password" class="form-control" placeholder="Confirm your new password">
+         </div>
+         <input type="submit" value="Update Now" name="submit" class="btn btn-success">
       </form>
    </section>
    <!-- Admin Update End -->

@@ -13,7 +13,7 @@
             $_SESSION['admin_id'] = $row['id'];
             header('location: dashboard.php');
          } else {
-            $message[] = 'incorrect username or password!';
+            $message[] = 'Incorrect username or password!';
          }
       }
    }
@@ -63,7 +63,7 @@
             <label class="form-label">Password</label>
             <input type="password" name="password" required placeholder="Enter password" class="form-control">
          </div>
-         <input type="submit" value="login now" name="submit" class="btn">
+         <input type="submit" value="login now" name="submit" class="btn btn-primary">
       </form>
    </section>
    <!-- Login End -->

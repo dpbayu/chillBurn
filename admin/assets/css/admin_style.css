@@ -229,7 +229,7 @@ nav .profile {
    display: none;
    animation: fadeIn .2s linear;
    border-radius: 6px;
-   background-color: var(--red);
+   background-color: var(--black);
 }
 
 @keyframes fadeIn {
@@ -307,33 +307,14 @@ nav .profile.active {
    color: var(--main-color);
 }
 
-.accounts .box-container {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, 33rem);
-   gap: 20px;
-   justify-content: center;
-   align-items: flex-start;
-}
-
-.accounts .box-container .box {
-   background-color: var(--white);
+/* Admin Start */
+.admin .box {
    border-radius: 6px;
-   box-shadow: var(--box-shadow);
-   border: var(--border);
-   padding: 16px;
-   padding-top: 16px;
+   border: 1px solid var(--orange);
+   padding: 20px;
    text-align: center;
 }
-
-.accounts .box-container .box p {
-   padding: 6px 0;
-   font-size: 1.8rem;
-   color: var(--black);
-}
-
-.accounts .box-container .box p span {
-   color: var(--main-color);
-}
+/* Admin End */
 
 .messages .box-container {
    display: grid;
@@ -441,7 +422,7 @@ nav .profile.active {
       grid-template-columns: 1fr;
    }
 
-   .accounts .box-container {
+   .admin {
       grid-template-columns: 1fr;
    }
 
