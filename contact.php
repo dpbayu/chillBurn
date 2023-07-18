@@ -58,12 +58,11 @@
             <div class="col-md-12">
                <form action="" method="POST">
                   <h3 class="text-white">TELL US <span>SOMETHING!</span></h3>
-                  <input type="text" class="form-control mb-3" name="name" maxlength="50" placeholder="Enter your name" required>
-                  <input type="number" class="form-control mb-3" name="number" min="0" max="9999999999" placeholder="Enter your number"
-                     required maxlength="10">
-                  <input type="email" class="form-control mb-3" name="email" maxlength="50" placeholder="Enter your email" required>
-                  <textarea name="msg" class="form-control mb-3" required placeholder="Enter your message" maxlength="500" cols="20"
-                     rows="10"></textarea>
+                  <input type="text" class="form-control mb-3" name="name" placeholder="Enter name" required>
+                  <input type="number" class="form-control mb-3" name="number" placeholder="Enter number" maxlength="12" required>
+                  <input type="email" class="form-control mb-3" name="email" placeholder="Enter email" required>
+                  <textarea name="msg" class="form-control mb-3" required placeholder="Enter message" maxlength="500"
+                     cols="20" rows="10"></textarea>
                   <input type="submit" value="Send Message" name="send" class="btn">
                </form>
             </div>
