@@ -79,6 +79,10 @@ span {
    background-color: var(--main-color);
 }
 
+.btn:hover {
+   background-color: var(--red);
+}
+
 .delete-btn {
    background-color: var(--red);
 }
@@ -132,7 +136,7 @@ span {
    border: var(--border);
    border-radius: .5rem;
    background-color: var(--white);
-   padding: 1.5rem;
+   padding: 20px;
    text-align: center;
    width: 100%;
    font-size: 16px;
@@ -192,6 +196,7 @@ nav {
 nav .nav-link {
    color: var(--white);
 }
+
 nav .nav-link:hover {
    color: var(--light-color);
 }
@@ -240,44 +245,41 @@ nav .profile.active {
 #menu-btn {
    display: none;
 }
+
 /* Nav End */
 
+/* Dashboard Start */
 .dashboard .box-container {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-   gap: 1.5rem;
-   align-items: flex-start;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   justify-content: center;
 }
 
 .dashboard .box-container .box {
    text-align: center;
-   background-color: var(--white);
-   border: var(--border);
-   box-shadow: var(--box-shadow);
-   border-radius: .5rem;
+   border: 1px solid var(--orange);
+   border-radius: 6px;
    text-align: center;
-   padding: 1.5rem;
+   padding: 20px;
+   width: 250px;
 }
 
 .dashboard .box-container .box h3 {
-   font-size: 2.7rem;
-   color: var(--black);
-}
-
-.dashboard .box-container .box h3 span {
-   font-size: 16px;
+   color: var(--white);
 }
 
 .dashboard .box-container .box p {
-   padding: 1.5rem;
-   border-radius: .5rem;
+   padding: 20px;
+   border-radius: 3px;
    background-color: var(--light-bg);
-   border-radius: .5rem;
-   font-size: 1.8rem;
    border: var(--border);
    margin: 16px 0;
    color: var(--light-color);
 }
+
+/* Dashboard End */
+
 
 .add-products form {
    margin: 0 auto;
@@ -311,7 +313,7 @@ nav .profile.active {
 .show-products .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);
-   gap: 1.5rem;
+   gap: 20px;
    justify-content: center;
    align-items: flex-start;
 }
@@ -321,7 +323,7 @@ nav .profile.active {
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
    border: var(--border);
-   padding: 1.5rem;
+   padding: 20px;
 }
 
 .show-products .box-container .box img {
@@ -356,7 +358,7 @@ nav .profile.active {
 }
 
 .show-products .box-container .box .flex .price span {
-   font-size: 1.5rem;
+   font-size: 20px;
 }
 
 .update-product form {
@@ -399,7 +401,7 @@ nav .profile.active {
 .placed-orders .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);
-   gap: 1.5rem;
+   gap: 20px;
    justify-content: center;
    align-items: flex-start;
 }
@@ -438,7 +440,7 @@ nav .profile.active {
 .accounts .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);
-   gap: 1.5rem;
+   gap: 20px;
    justify-content: center;
    align-items: flex-start;
 }
@@ -466,7 +468,7 @@ nav .profile.active {
 .messages .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);
-   gap: 1.5rem;
+   gap: 20px;
    justify-content: center;
    align-items: flex-start;
 }
