@@ -33,14 +33,14 @@
    <!-- Header End -->
    <!-- Dashboard Start  -->
    <section class="dashboard">
-      <h1 class="heading">dashboard</h1>
       <div class="container">
+         <h1 class="heading">Dashboard</h1>
          <div class="box-container">
             <!-- Welcome Start -->
             <div class="box">
                <h3>Welcome!</h3>
                <p><?= $admin['name']; ?></p>
-               <a href="update_profile.php" class="btn">Update Profile</a>
+               <a href="update_profile.php" class="btn btn-primary">Update Profile</a>
             </div>
             <!-- Welcome End -->
             <!-- Total Pending Start -->
@@ -55,7 +55,7 @@
                ?>
                <h3><span>$ </span><?= $total_pendings; ?><span>/-</span></h3>
                <p>Total Pending</p>
-               <a href="order.php" class="btn">See Order</a>
+               <a href="order.php" class="btn btn-primary">See Order</a>
             </div>
             <!-- Total Pending End -->
             <!-- Total Complete Start -->
@@ -70,7 +70,7 @@
                ?>
                <h3><span>$ </span><?= $total_completes; ?><span>/-</span></h3>
                <p>Total Completed</p>
-               <a href="order.php" class="btn">See Order</a>
+               <a href="order.php" class="btn btn-primary">See Order</a>
             </div>
             <!-- Total Complete End -->
             <!-- Total Order Start -->
@@ -82,7 +82,7 @@
                ?>
                <h3><?= $order; ?></h3>
                <p>Total Orders</p>
-               <a href="order.php" class="btn">See Order</a>
+               <a href="order.php" class="btn btn-primary">See Order</a>
             </div>
             <!-- Total Order End -->
             <!-- Product Start -->
@@ -94,7 +94,7 @@
                ?>
                <h3><?= $product; ?></h3>
                <p>Product Added</p>
-               <a href="product.php" class="btn">See Products</a>
+               <a href="product.php" class="btn btn-primary">See Products</a>
             </div>
             <!-- Product End -->
             <!-- User Start -->
@@ -106,7 +106,7 @@
                ?>
                <h3><?= $user; ?></h3>
                <p>Users Account</p>
-               <a href="user.php" class="btn">See Users</a>
+               <a href="user.php" class="btn btn-primary">See Users</a>
             </div>
             <!-- User End -->
             <!-- Admin Start -->
@@ -118,7 +118,7 @@
                ?>
                <h3><?= $admin; ?></h3>
                <p>Admins</p>
-               <a href="admin.php" class="btn">See Admins</a>
+               <a href="admin.php" class="btn btn-primary">See Admins</a>
             </div>
             <!-- Admin End -->
             <!-- Message Start -->
@@ -130,9 +130,9 @@
                ?>
                <h3><?= $message; ?></h3>
                <p>New Message</p>
-               <a href="message.php" class="btn">See Message</a>
+               <a href="message.php" class="btn btn-primary">See Message</a>
             </div>
-            // Message End
+            <!-- Message End -->
          </div>
       </div>
    </section>

@@ -54,12 +54,10 @@ if (isset($message)) {
                   $admin = mysqli_fetch_assoc($query_admin);
                ?>
                <p><?= $admin['name']; ?></p>
-               <a href="update_profile.php" class="btn">Update Profile</a>
                <div class="flex-btn">
-                  <a href="login.php" class="option-btn">Login</a>
-                  <a href="register.php" class="option-btn">Register</a>
+                  <a href="update_profile.php" class="btn btn-warning">Update Profile</a>
+                  <a href="logout.php" onclick="return confirm('Logout from this website?');" class="btn btn-danger">Logout</a>
                </div>
-               <a href="logout.php" onclick="return confirm('Logout from this website?');" class="delete-btn">Logout</a>
             </div>
          </div>
       </div>

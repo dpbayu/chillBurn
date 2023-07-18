@@ -10,11 +10,6 @@ document.querySelector('#menu-btn').onclick = () =>{
    profile.classList.remove('active');
 }
 
-window.onscroll = () =>{
-   profile.classList.remove('active');
-   navbar.classList.remove('active');
-}
-
 subImages = document.querySelectorAll('.update-product .image-container .sub-images img');
 mainImage = document.querySelector('.update-product .image-container .main-image img');
 

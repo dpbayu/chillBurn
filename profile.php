@@ -91,6 +91,7 @@
          </p>
          <a href="update_address.php" class="btn">Update Address</a>
       </div>
+      <!-- Modal Start -->
       <div class="modal fade" id="updateInfo" tabindex="-1" aria-labelledby="updateInfo" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content p-3">
@@ -134,6 +135,7 @@
             </div>
          </div>
       </div>
+      <!-- Modal End -->
    </section>
    <!-- Footer Start -->
    <?php include 'partials/footer.php'; ?>
