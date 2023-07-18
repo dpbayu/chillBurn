@@ -7,7 +7,7 @@
    } else {
       $user_id = '';
    };
-   if (isset($_POST['submit'])) {
+   if (isset($_POST['update_profile'])) {
       $name = $_POST['name'];
       $email = $_POST['email'];
       $number = $_POST['number'];
@@ -84,12 +84,12 @@
          <p><i class="fas fa-phone"></i><span><?= $user['number']; ?></span></p>
          <p><i class="fas fa-envelope"></i><span><?= $user['email']; ?></span></p>
          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateInfo">
-            update info
+            Update Info
          </button>
          <p class="address"><i
                class="fas fa-map-marker-alt"></i><span><?php if ($user['address'] == ''){echo 'Please enter your address';}else{echo $user['address'];} ?></span>
          </p>
-         <a href="update_address.php" class="btn">update address</a>
+         <a href="update_address.php" class="btn">Update Address</a>
       </div>
       <div class="modal fade" id="updateInfo" tabindex="-1" aria-labelledby="updateInfo" aria-hidden="true">
          <div class="modal-dialog">
@@ -128,7 +128,7 @@
                         placeholder="Confirm your new password">
                   </div>
                   <div class="modal-footer">
-                     <input type="submit" value="update now" class="btn" name="submit">
+                     <input type="submit" value="Update Now" class="btn" name="update_profile">
                   </div>
                </form>
             </div>

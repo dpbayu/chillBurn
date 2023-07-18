@@ -9,7 +9,7 @@
       header('location:home.php');
    };
    if (isset($_POST['submit'])) {
-      $address = $_POST['flat'] .', '.$_POST['building'].', '.$_POST['area'].', '.$_POST['town'] .', '. $_POST['city'] .', '. $_POST['state'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
+      $address = $_POST['street'].', '.$_POST['district'].', '.$_POST['subdistrict'] .', '. $_POST['city'] .' - '. $_POST['pin_code'];
       $sql_address = "UPDATE tbl_user SET address = '$address' WHERE id = '$user_id'";
       $query_address = mysqli_query($conn, $sql_address);
       $message[] = 'Address saved!';
@@ -36,16 +36,27 @@
    <section class="form-container">
       <form action="" method="POST">
          <h3>your address</h3>
-         <input type="text" class="box" placeholder="flat no." required maxlength="50" name="flat">
-         <input type="text" class="box" placeholder="building no." required maxlength="50" name="building">
-         <input type="text" class="box" placeholder="area name" required maxlength="50" name="area">
-         <input type="text" class="box" placeholder="town name" required maxlength="50" name="town">
-         <input type="text" class="box" placeholder="city name" required maxlength="50" name="city">
-         <input type="text" class="box" placeholder="state name" required maxlength="50" name="state">
-         <input type="text" class="box" placeholder="country name" required maxlength="50" name="country">
-         <input type="number" class="box" placeholder="pin code" required max="999999" min="0" maxlength="6"
-            name="pin_code">
-         <input type="submit" value="save address" name="submit" class="btn">
+         <div class="mb-3">
+            <label class="form-label">Street</label>
+            <input type="text" class="form-control" placeholder="Street" name="street" required>
+         </div>
+         <div class="mb-3">
+            <label class="form-label">District</label>
+            <input type="text" class="form-control" placeholder="District" name="district" required>
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Subdistrict</label>
+            <input type="text" class="form-control" placeholder="Subdistrict" name="subdistrict" required>
+         </div>
+         <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" placeholder="City" name="city" required>
+         </div>
+         <div class="mb-3">
+            <label class="form-label">Pin Code</label>
+            <input type="number" class="form-control" placeholder="Pin Code" name="pin_code" maxlength="50" required>
+         </div>
+         <input type="submit" value="Save Address" name="submit" class="btn">
       </form>
    </section>
    <!-- Footer Start  -->

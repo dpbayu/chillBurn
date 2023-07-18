@@ -1112,8 +1112,6 @@ nav .profile .name {
 }
 
 .checkout form h3 {
-   font-size: 40px;
-   text-transform: capitalize;
    padding: 20px 0;
    color: var(--white);
 }
