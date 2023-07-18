@@ -59,9 +59,9 @@
                     ?>
                     <p class="name"><?= $user['name']; ?></p>
                     <div class="flex gap-3">
-                        <a href="profile.php" class="btn">profile</a>
+                        <a href="profile.php" class="btn">Profile</a>
                         <a href="logout.php" onclick="return confirm('Logout from this website?');"
-                            class="delete-btn">logout</a>
+                            class="delete-btn">Logout</a>
                     </div>
                     <?php
                     } else {

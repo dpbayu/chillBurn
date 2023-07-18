@@ -1003,7 +1003,7 @@ nav .profile .name {
 }
 /* Subscribe End */
 
-/* Contact */
+/* Contact Start */
 .contact-hero {
    height: 100vh;
    background: url('../img/contact-hero.png');
@@ -1056,8 +1056,9 @@ nav .profile .name {
    height: 150px;
    resize: none;
 }
+/* Contact End */
 
-/* Search */
+/* Search Start */
 .simple-hero {
    position: relative;
    height: 30vh;
@@ -1102,8 +1103,9 @@ nav .profile .name {
    background-color: var(--primary);
    color: var(--black);
 }
+/* Search End */
 
-/* Checkout */
+/* Checkout Start */
 .checkout form {
    max-width: 800px;
    margin: 0 auto;
@@ -1172,8 +1174,9 @@ nav .profile .name {
    margin: 20px 0;
    text-transform: capitalize;
 }
+/* Checkout End */
 
-/* Order */
+/* Order Start */
 .orders .box-container {
    display: flex;
    flex-wrap: wrap;
@@ -1188,16 +1191,13 @@ nav .profile .name {
 }
 
 .orders .box-container .box p {
-   line-height: 1.5;
-   margin: 16px 0;
-   font-size: 16px;
    color: var(--primary);
-   text-transform: capitalize;
 }
 
 .orders .box-container .box p span {
    color: var(--light-color);
 }
+/* Order End */
 
 /* Form */
 .form-container {
@@ -1251,107 +1251,36 @@ nav .profile .name {
    text-decoration: underline;
 }
 
-.user-details .user {
+/* Profile Start */
+.profile .user {
    max-width: 800px;
    margin: 0 auto;
    border: 1px solid var(--primary);
    padding: 32px;
 }
 
-.user-details .user img {
+.profile .user img {
    width: 100%;
    height: 320px;
    object-fit: contain;
 }
 
-.user-details .user p {
+.profile .user p {
    color: var(--primary);
 }
 
-.user-details .user p span {
+.profile .user p span {
    color: var(--light-color);
 }
 
-.user-details .user p i {
+.profile .user p i {
    margin-right: 16px;
 }
 
-.user-details .user .address {
+.profile .user .address {
    margin-top: 16px;
 }
-
-.quick-view form {
-   max-width: 640px;
-   padding: 32px;
-   border: var(--border);
-   position: relative;
-   margin: 0 auto;
-}
-
-.quick-view form img {
-   height: 400px;
-   width: 100%;
-   object-fit: contain;
-   margin-bottom: 16px;
-}
-
-.quick-view form .cat {
-   font-size: 28px;
-   color: var(--light-color);
-}
-
-.quick-view form .cat:hover {
-   color: var(--black);
-   text-decoration: underline;
-}
-
-.quick-view form .name {
-   font-size: 32px;
-   margin: 10px 0;
-}
-
-.quick-view form .flex {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: 24px;
-   margin: 16px 0;
-}
-
-.quick-view form .flex .price {
-   font-size: 40px;
-   color: var(--black);
-}
-
-.quick-view form .flex .price span {
-   font-size: 32px;
-   color: var(--light-color);
-}
-
-.quick-view form .flex .qty {
-   border: var(--border);
-   padding: 16px;
-   font-size: 28px;
-   color: var(--black);
-}
-
-.quick-view form .cart-btn {
-   width: 100%;
-   padding: 16px 48px;
-   text-align: center;
-   border: var(--border);
-   font-size: 32px;
-   color: var(--black);
-   cursor: pointer;
-   text-transform: capitalize;
-   background: none;
-   margin-top: 16px;
-}
-
-.quick-view form .cart-btn:hover {
-   background-color: var(--black);
-   color: var(--white);
-}
+/* Profile End */
 
 /* Footer */
 .footer {

@@ -77,7 +77,7 @@
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
-   <section class="user-details">
+   <section class="profile">
       <div class="user">
          <img src="images/user-icon.png" alt="">
          <p><i class="fas fa-user"></i><span><span><?= $user['name']; ?></span></span></p>

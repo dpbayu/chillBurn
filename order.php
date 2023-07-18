@@ -32,14 +32,14 @@
       <div class="container">
          <div class="content">
             <div class="heading">
-               <h3>orders</h3>
-               <p><a href="home.php">home</a> <span> / order</span></p>
+               <h3>Orders</h3>
+               <p><a href="home.php">Home</a> <span> / Orders</span></p>
             </div>
          </div>
       </div>
    </div>
    <section class="orders">
-      <h1 class="title">your <span>order</span></h1>
+      <h1 class="title">YOUR <span>ORDER</span></h1>
       <div class="container">
          <div class="box-container">
                <?php
@@ -52,22 +52,22 @@
                      while ($order = mysqli_fetch_assoc($query_order)) {
                ?>
                <div class="box">
-                  <p>placed on : <span><?= $order['placed_on']; ?></span></p>
-                  <p>name : <span><?= $order['name']; ?></span></p>
-                  <p>email : <span><?= $order['email']; ?></span></p>
-                  <p>number : <span><?= $order['number']; ?></span></p>
-                  <p>address : <span><?= $order['address']; ?></span></p>
-                  <p>payment method : <span><?= $order['method']; ?></span></p>
-                  <p>your orders : <span><?= $order['total_products']; ?></span></p>
-                  <p>total price : <span>$ <?= $order['total_price']; ?>/-</span></p>
-                  <p> payment status : <span
+                  <p>Placed On : <span><?= $order['placed_on']; ?></span></p>
+                  <p>Name : <span><?= $order['name']; ?></span></p>
+                  <p>Email : <span><?= $order['email']; ?></span></p>
+                  <p>Number : <span><?= $order['number']; ?></span></p>
+                  <p>Address : <span><?= $order['address']; ?></span></p>
+                  <p>Payment : <span><?= $order['method']; ?></span></p>
+                  <p>Your Order : <span><?= $order['total_products']; ?></span></p>
+                  <p>Total Price : <span>$ <?= $order['total_price']; ?>/-</span></p>
+                  <p> Payment Status : <span
                         style="color:<?php if($order['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $order['payment_status']; ?></span>
                   </p>
                </div>
                <?php
                }
                } else {
-                  echo '<p class="empty">no orders placed yet!</p>';
+                  echo '<p class="empty">No orders placed yet!</p>';
                }
             }
          ?>
