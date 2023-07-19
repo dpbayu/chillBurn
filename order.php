@@ -6,7 +6,7 @@
       $user_id = $_SESSION['user_id'];
    } else {
       $user_id = '';
-      header('location:home.php');
+      header('location:index.php');
    };
    $page = 'order';
 ?>
@@ -33,7 +33,7 @@
          <div class="content">
             <div class="heading">
                <h3>Orders</h3>
-               <p><a href="home.php">Home</a> <span> / Orders</span></p>
+               <p><a href="index.php">Home</a> <span> / Orders</span></p>
             </div>
          </div>
       </div>

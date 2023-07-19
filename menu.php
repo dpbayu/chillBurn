@@ -33,7 +33,7 @@
          <div class="content">
             <div class="heading">
                <h3>MENU</h3>
-               <p><a href="home.php">Home</a> <span> / Menu</span></p>
+               <p><a href="index.php">Home</a> <span> / Menu</span></p>
             </div>
          </div>
       </div>

@@ -46,7 +46,7 @@
          <div class="content">
             <div class="heading">
                <h3>CONTACT</h3>
-               <p><a href="home.php">Home</a> <span> / Contact</span></p>
+               <p><a href="index.php">Home</a> <span> / Contact</span></p>
             </div>
          </div>
       </div>

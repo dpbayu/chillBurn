@@ -16,7 +16,7 @@
          $row = mysqli_fetch_assoc($result);
          if (password_verify($password, $row['password'])) {
             $_SESSION['user_id'] = $row['id'];
-            header('location: home.php');
+            header('location: index.php');
          } else {
             $message[] = 'Incorrect username or password!';
          }
@@ -45,7 +45,7 @@
          <div class="content">
             <div class="heading">
                <h3>Login</h3>
-               <p><a href="home.php">Home</a> <span> / Login</span></p>
+               <p><a href="index.php">Home</a> <span> / Login</span></p>
             </div>
          </div>
       </div>

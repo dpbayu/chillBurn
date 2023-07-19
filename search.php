@@ -31,7 +31,7 @@
          <div class="content">
             <div class="heading">
                <h3>SEARCH</h3>
-               <p><a href="home.php">Home</a> <span> / Search</span></p>
+               <p><a href="index.php">Home</a> <span> / Search</span></p>
             </div>
          </div>
       </div>

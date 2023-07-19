@@ -33,7 +33,7 @@
          <div class="content">
             <div class="heading">
                <h3>ABOUT US</h3>
-               <p><a href="home.php">Home</a> <span> / About</span></p>
+               <p><a href="index.php">Home</a> <span> / About</span></p>
             </div>
          </div>
       </div>

@@ -6,7 +6,7 @@
       $user_id = $_SESSION['user_id'];
    } else {
       $user_id = '';
-      header('location:home.php');
+      header('location:index.php');
    };
    if (isset($_POST['submit'])) {
       $address = $_POST['street'].', '.$_POST['district'].', '.$_POST['subdistrict'] .', '. $_POST['city'] .' - '. $_POST['pin_code'];

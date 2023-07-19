@@ -6,7 +6,7 @@
       $user_id = $_SESSION['user_id'];
    } else {
       $user_id = '';
-      header('location: home.php');
+      header('location: index.php');
    };
    if (isset($_POST['delete'])) {
       $cart_id = $_POST['cart_id'];
@@ -57,7 +57,7 @@
          <div class="content">
             <div class="heading">
                <h3>SHOPPING CART</h3>
-               <p><a href="home.php">Home</a> <span> / Cart</span></p>
+               <p><a href="index.php">Home</a> <span> / Cart</span></p>
             </div>
          </div>
       </div>

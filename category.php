@@ -32,7 +32,7 @@
          <div class="content">
             <div class="heading">
                <h3>FOOD CATEGORY</h3>
-               <p><a href="home.php">Home</a> <span> / Food Category</span></p>
+               <p><a href="index.php">Home</a> <span> / Food Category</span></p>
             </div>
          </div>
       </div>

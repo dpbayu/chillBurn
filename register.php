@@ -30,7 +30,7 @@
             if (mysqli_num_rows($select_user_result) > 0) {
                $row = mysqli_fetch_assoc($select_user_result);
                $_SESSION['user_id'] = $row['id'];
-               header('location: home.php');
+               header('location: index.php');
             }
          }
       }
@@ -57,7 +57,7 @@
          <div class="content">
             <div class="heading">
                <h3>register</h3>
-               <p><a href="home.php">home</a> <span> / register</span></p>
+               <p><a href="index.php">home</a> <span> / register</span></p>
             </div>
          </div>
       </div>
