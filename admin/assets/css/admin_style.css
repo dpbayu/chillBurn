@@ -91,13 +91,13 @@ span {
    background-color: var(--red);
 } */
 
-.delete-btn {
+/* .delete-btn {
    background-color: var(--red);
 }
 
 .option-btn {
    background-color: var(--orange);
-}
+} */
 
 .flex-btn {
    display: flex;
@@ -154,7 +154,8 @@ span {
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 100vh;
+   height: 75vh;
+   margin: auto;
 }
 
 .form-container form {
@@ -316,6 +317,9 @@ nav .profile.active {
 }
 /* Admin End */
 
+/* User Start */
+
+/* User End */
 .messages .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);

@@ -51,7 +51,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Product</title>
+   <title>Admin</title>
    <!-- Bootstrap -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -78,12 +78,13 @@
             </div>
          </div>
          <div class="col-md-8">
-            <table id="product" class="table" style="width:100%">
+            <table id="admin" class="table" style="width:100%">
                <thead>
                   <tr>
                      <th>No</th>
                      <th>ID</th>
                      <th>Username</th>
+                     <th>Action</th>
                   </tr>
                </thead>
                <tbody>
@@ -112,7 +113,7 @@
                   $i++; 
                   }
                   } else {
-                     echo '<p class="empty">No products!</p>';
+                     echo '<p class="empty">No admin!</p>';
                   }
                   ?>
                </tbody>
@@ -123,6 +124,7 @@
    <!-- Accounts End -->
    <!-- JS Start  -->
    <script src="assets/js/script.js"></script>
+   <script src="assets/libs/dataTables/datatables.min.js"></script>
    <script>
       // Data Tables
       $(document).ready(function () {
@@ -130,7 +132,7 @@
             columnDefs: [{
                "searchable": false,
                "orderable": false,
-               "targets": [4, 5],
+               "targets": 3,
             }]
          });
       });
