@@ -31,11 +31,21 @@
       <div class="flex">
          <a href="index.php"><img src="assets/img/Logo.png" alt="logo" style="width: 75%;"></a>
          <nav class="navbar">
-            <a class="nav-link <?php if ($page == 'home') {echo 'active';} ?>" href="index.php">home</a>
-            <a class="nav-link <?php if ($page == 'about') {echo 'active';} ?>" href="about.php">about</a>
-            <a class="nav-link <?php if ($page == 'menu') {echo 'active';} ?>" href="menu.php">menu</a>
-            <a class="nav-link <?php if ($page == 'order') {echo 'active';} ?>" href="order.php">order</a>
-            <a class="nav-link <?php if ($page == 'contact') {echo 'active';} ?>" href="contact.php">contact</a>
+            <li class="nav-item">
+               <a class="nav-link <?php if ($page == 'home') {echo 'active';} ?>" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link <?php if ($page == 'about') {echo 'active';} ?>" href="about.php">About</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link <?php if ($page == 'menu') {echo 'active';} ?>" href="menu.php">Menu</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link <?php if ($page == 'order') {echo 'active';} ?>" href="order.php">Order</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link <?php if ($page == 'contact') {echo 'active';} ?>" href="contact.php">Contact</a>
+            </li>
          </nav>
       </div>
    </div>
@@ -44,5 +54,6 @@
 <!-- Footer End -->
 <!-- JS Start -->
 <script src="https://kit.fontawesome.com/e4027260b9.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- JS End -->

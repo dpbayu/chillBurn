@@ -24,12 +24,17 @@
 }
 
 @media (max-width: 768px) {
+    .heading h3 {
+        text-align: center;
+    }
     #menu-btn {
         display: inline-block;
     }
-
     .container {
         max-width: 100%;
+    }
+    .message {
+        padding: 10px;
     }
 
     /* Nav Start */
@@ -40,6 +45,10 @@
     nav .icons>* {
         margin: 0;
         display: flex;
+    }
+    nav .profile {
+        top: 50%;
+        width: 50%;
     }
     /* Nav End */
 

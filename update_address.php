@@ -34,30 +34,32 @@
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
    <section class="form-container">
-      <form action="" method="POST">
-         <h3>your address</h3>
-         <div class="mb-3">
-            <label class="form-label">Street</label>
-            <input type="text" class="form-control" placeholder="Street" name="street" required>
-         </div>
-         <div class="mb-3">
-            <label class="form-label">District</label>
-            <input type="text" class="form-control" placeholder="District" name="district" required>
-         </div>
-         <div class="mb-3">
-            <label class="form-label">Subdistrict</label>
-            <input type="text" class="form-control" placeholder="Subdistrict" name="subdistrict" required>
-         </div>
-         <div class="mb-3">
-            <label class="form-label">City</label>
-            <input type="text" class="form-control" placeholder="City" name="city" required>
-         </div>
-         <div class="mb-3">
-            <label class="form-label">Pin Code</label>
-            <input type="number" class="form-control" placeholder="Pin Code" name="pin_code" maxlength="50" required>
-         </div>
-         <input type="submit" value="Save Address" name="submit" class="btn">
-      </form>
+      <div class="container">
+         <form action="" method="POST">
+            <h3>your address</h3>
+            <div class="mb-3">
+               <label class="form-label">Street</label>
+               <input type="text" class="form-control" placeholder="Street" name="street" required>
+            </div>
+            <div class="mb-3">
+               <label class="form-label">District</label>
+               <input type="text" class="form-control" placeholder="District" name="district" required>
+            </div>
+            <div class="mb-3">
+               <label class="form-label">Subdistrict</label>
+               <input type="text" class="form-control" placeholder="Subdistrict" name="subdistrict" required>
+            </div>
+            <div class="mb-3">
+               <label class="form-label">City</label>
+               <input type="text" class="form-control" placeholder="City" name="city" required>
+            </div>
+            <div class="mb-3">
+               <label class="form-label">Pin Code</label>
+               <input type="number" class="form-control" placeholder="Pin Code" name="pin_code" maxlength="50" required>
+            </div>
+            <input type="submit" value="Save Address" name="submit" class="btn">
+         </form>
+      </div>
    </section>
    <!-- Footer Start  -->
    <?php include 'partials/footer.php'; ?>

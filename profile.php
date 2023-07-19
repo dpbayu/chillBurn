@@ -78,64 +78,66 @@
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
    <section class="profile">
-      <div class="user">
-         <img src="images/user-icon.png" alt="">
-         <p><i class="fas fa-user"></i><span><span><?= $user['name']; ?></span></span></p>
-         <p><i class="fas fa-phone"></i><span><?= $user['number']; ?></span></p>
-         <p><i class="fas fa-envelope"></i><span><?= $user['email']; ?></span></p>
-         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateInfo">
-            Update Info
-         </button>
-         <p class="address"><i
-               class="fas fa-map-marker-alt"></i><span><?php if ($user['address'] == ''){echo 'Please enter your address';}else{echo $user['address'];} ?></span>
-         </p>
-         <a href="update_address.php" class="btn">Update Address</a>
-      </div>
-      <!-- Modal Start -->
-      <div class="modal fade" id="updateInfo" tabindex="-1" aria-labelledby="updateInfo" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content p-3">
-               <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="updateInfo">UPDATE PROFILE <?= $user['name'] ?></h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="container">
+         <div class="user">
+            <img src="images/user-icon.png" alt="">
+            <p><i class="fas fa-user"></i><span><span><?= $user['name']; ?></span></span></p>
+            <p><i class="fas fa-phone"></i><span><?= $user['number']; ?></span></p>
+            <p><i class="fas fa-envelope"></i><span><?= $user['email']; ?></span></p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateInfo">
+               Update Info
+            </button>
+            <p class="address"><i
+                  class="fas fa-map-marker-alt"></i><span><?php if ($user['address'] == ''){echo 'Please enter your address';}else{echo $user['address'];} ?></span>
+            </p>
+            <a href="update_address.php" class="btn">Update Address</a>
+         </div>
+         <!-- Modal Start -->
+         <div class="modal fade" id="updateInfo" tabindex="-1" aria-labelledby="updateInfo" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content p-3">
+                  <div class="modal-header">
+                     <h1 class="modal-title fs-5" id="updateInfo">UPDATE PROFILE <?= $user['name'] ?></h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form class="mt-3" action="" method="POST">
+                     <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="<?= $user['name']; ?>">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="<?= $user['email']; ?>">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Number</label>
+                        <input type="number" class="form-control" name="number" placeholder="<?= $user['number']; ?>"
+                           maxlength="12">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Old Password</label>
+                        <input type="password" class="form-control" name="old_password"
+                           placeholder="Enter your old password">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">New Password</label>
+                        <input type="password" class="form-control" name="new_password"
+                           placeholder="Enter your new password">
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" name="confirm_password"
+                           placeholder="Confirm your new password">
+                     </div>
+                     <div class="modal-footer">
+                        <input type="submit" value="Update Now" class="btn" name="update_profile">
+                     </div>
+                  </form>
                </div>
-               <form class="mt-3" action="" method="POST">
-                  <div class="mb-3">
-                     <label class="form-label">Name</label>
-                     <input type="text" class="form-control" name="name" placeholder="<?= $user['name']; ?>">
-                  </div>
-                  <div class="mb-3">
-                     <label class="form-label">Email</label>
-                     <input type="email" class="form-control" name="email" placeholder="<?= $user['email']; ?>">
-                  </div>
-                  <div class="mb-3">
-                     <label class="form-label">Number</label>
-                     <input type="number" class="form-control" name="number" placeholder="<?= $user['number']; ?>"
-                        maxlength="12">
-                  </div>
-                  <div class="mb-3">
-                     <label class="form-label">Old Password</label>
-                     <input type="password" class="form-control" name="old_password"
-                        placeholder="Enter your old password">
-                  </div>
-                  <div class="mb-3">
-                     <label class="form-label">New Password</label>
-                     <input type="password" class="form-control" name="new_password"
-                        placeholder="Enter your new password">
-                  </div>
-                  <div class="mb-3">
-                     <label class="form-label">Confirm Password</label>
-                     <input type="password" class="form-control" name="confirm_password"
-                        placeholder="Confirm your new password">
-                  </div>
-                  <div class="modal-footer">
-                     <input type="submit" value="Update Now" class="btn" name="update_profile">
-                  </div>
-               </form>
             </div>
          </div>
+         <!-- Modal End -->
       </div>
-      <!-- Modal End -->
    </section>
    <!-- Footer Start -->
    <?php include 'partials/footer.php'; ?>

@@ -188,6 +188,7 @@ nav .icons>* {
    font-size: 18px;
    cursor: pointer;
    color: var(--white);
+   text-decoration: none;
 }
 
 nav .icons>*:hover {
@@ -1195,7 +1196,6 @@ nav .profile .name {
 .orders .box-container .box {
    padding: 16px 32px;
    border: var(--border);
-   /* flex: 1 1 640px; */
 }
 
 .orders .box-container .box p {
@@ -1365,13 +1365,18 @@ nav .profile .name {
 
 .footer .flex .navbar {
    color: var(--white);
+   list-style: none;
 }
 
 .footer .flex .navbar a {
    font-size: 20px;
    margin: 0 10px;
    text-decoration: none;
-   text-transform: capitalize;
+}
+
+.footer .flex .navbar a.active {
+   color: var(--primary);
+   font-weight: 700;
 }
 
 /* Credit */
