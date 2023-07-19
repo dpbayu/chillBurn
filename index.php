@@ -364,7 +364,7 @@
    <!-- Subscribe Start -->
    <div class="subscribe">
       <div class="content">
-         <h1 class="title text-white">SUBSCRIBE TO OUR NEWSLETTER AND <span>youtube</span></h1>
+         <h1 class="title text-white">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
          <p>ENTER YOUR EMAIL</p>
          <form action="">
             <input type="text" placeholder="Your Email">

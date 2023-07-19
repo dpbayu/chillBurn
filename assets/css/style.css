@@ -718,7 +718,6 @@ nav .profile .name {
 }
 
 .about-section1 .row .grid-container p {
-   font-size: 18px;
    text-align: justify;
    padding: 25px;
 }
@@ -726,13 +725,15 @@ nav .profile .name {
 .about-section1 .row .grid-item {
    text-align: center;
    padding: 20px;
-   font-size: 30px;
 }
 
 .about-section1 .row .item1 {
    grid-column: 1;
    grid-row: 1;
    height: fit-content;
+}
+.about-section1 .row .item1 img {
+   width: 100%;
 }
 
 .about-section1 .row .item3 {
@@ -762,6 +763,10 @@ nav .profile .name {
    grid-column: 2;
    grid-row: 2;
    margin-top: -200px;
+   width: 100%;
+}
+.about-section1 .row .item4 img {
+   width: 100%;
 }
 
 /* Review Start */
@@ -861,6 +866,9 @@ nav .profile .name {
 
 .about-section3 {
    margin: 25px 0;
+}
+.about-section3 img {
+   width: 100%;
 }
 
 .about-section3 .row h2 {
