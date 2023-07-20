@@ -29,7 +29,7 @@
    </div>
    <div class="container">
       <div class="flex">
-         <a href="index.php"><img src="assets/img/Logo.png" alt="logo" style="width: 75%;"></a>
+         <a href="index.php"><img src="assets/img/logo.png" alt="logo" width="100"></a>
          <nav class="navbar">
             <li class="nav-item">
                <a class="nav-link <?php if ($page == 'home') {echo 'active';} ?>" href="index.php">Home</a>
