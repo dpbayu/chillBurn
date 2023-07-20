@@ -45,7 +45,7 @@
    <!-- Custom CSS  -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
    <link rel="stylesheet" type="text/css" href="assets/libs/dataTables/datatables.min.css" />
-   <link rel="stylesheet" href="assets/css/admin_style.css">
+   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -74,7 +74,7 @@
    </section>
    <!-- Register End -->
    <!-- JS Start  -->
-   <script src="assets/js/script.js"></script>
+   <?php require 'partials/footer.php'; ?>
    <!-- JS End -->
 </body>
 

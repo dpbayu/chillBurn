@@ -13,7 +13,7 @@ function loader() {
 }
 
 function fadeOut() {
-   setInterval(loader, 100);
+   setInterval(loader, 1000);
 }
 window.onload = fadeOut;
 document.querySelectorAll('input[type="number"]').forEach(numberInput => {

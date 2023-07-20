@@ -21,7 +21,7 @@
 <body>
    <!-- Loader Start -->
    <div class="loader">
-      <img src="images/loader.gif">
+      <img src="assets/img/loader.gif">
    </div>
    <!-- Loader End -->
    <!-- Header Start -->

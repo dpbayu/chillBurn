@@ -34,7 +34,7 @@
    <!-- Font Awesome  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
    <!-- Custom CSS  -->
-   <link rel="stylesheet" href="assets/css/admin_style.css">
+   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -63,7 +63,7 @@
             <label class="form-label">Password</label>
             <input type="password" name="password" required placeholder="Enter password" class="form-control">
          </div>
-         <input type="submit" value="login now" name="submit" class="btn btn-primary">
+         <input type="submit" value="Login Now" name="submit" class="btn btn-primary">
       </form>
    </section>
    <!-- Login End -->

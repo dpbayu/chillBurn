@@ -1,0 +1,58 @@
+@media (max-width:991px) {
+}
+
+@media (max-width:768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+    nav .flex .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        border-top: var(--border);
+        border-bottom: var(--border);
+        background-color: var(--white);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: .2s linear;
+    }
+    nav .flex .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    nav .flex .navbar a {
+        display: block;
+        margin: 16px;
+    }
+    .navbar-toggler {
+        background-color: var(--white);
+    }
+    nav .profile {
+        top: 55%;
+        border: 1px solid var(--orange);
+    }
+}
+
+@media (max-width:425px) {
+    .flex-btn {
+        flex-flow: column;
+        gap: 0;
+    }
+    .heading {
+        font-size: 3rem;
+    }
+    .show-products .box-container {
+        grid-template-columns: 1fr;
+    }
+    .placed-orders .box-container {
+        grid-template-columns: 1fr;
+    }
+    .admin {
+        grid-template-columns: 1fr;
+    }
+    .admin .box {
+        margin: 20px 0;
+    }
+    .messages .box-container {
+        grid-template-columns: none;
+    }
+}

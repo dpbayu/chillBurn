@@ -73,21 +73,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <!-- Font Awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <!-- Custom CSS  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/libs/dataTables/datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/admin_style.css">
-</head>
+<!-- Head Start -->
+<?php require 'partials/head.php'; ?>
+<!-- Head End -->
 
 <body>
     <!-- Header Start -->
@@ -97,7 +85,7 @@
         <div class="container">
             <h1 class="heading">Product</h1>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-xl-4">
                     <!-- Add Product Start  -->
                     <section class="add-products">
                         <form action="" method="POST" enctype="multipart/form-data">
@@ -133,8 +121,8 @@
                     </section>
                     <!-- Add Product End -->
                 </div>
-                <div class="col-md-8">
-                    <table id="product" class="table" style="width:100%">
+                <div class="col-xl-8">
+                    <table id="product" class="table" style="width:100%; overflow-x:auto;">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -239,9 +227,7 @@
         </div>
     </section>
     <!-- JS Start  -->
-    <!-- Datables -->
-    <script src="assets/libs/dataTables/datatables.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <?php require 'partials/footer.php'; ?>
     <script>
         // Data Tables
         $(document).ready(function () {

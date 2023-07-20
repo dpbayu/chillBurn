@@ -71,7 +71,7 @@
 <body>
    <!-- Loader Start -->
    <div class="loader">
-      <img src="images/loader.gif" alt="">
+      <img src="assets/img/loader.gif">
    </div>
    <!-- Loader End -->
    <!-- Header Start  -->
@@ -80,7 +80,7 @@
    <section class="profile">
       <div class="container">
          <div class="user">
-            <img src="images/user-icon.png" alt="">
+            <img src="assets/img/user-icon.png">
             <p><i class="fas fa-user"></i><span><span><?= $user['name']; ?></span></span></p>
             <p><i class="fas fa-phone"></i><span><?= $user['number']; ?></span></p>
             <p><i class="fas fa-envelope"></i><span><?= $user['email']; ?></span></p>
