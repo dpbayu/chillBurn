@@ -81,17 +81,17 @@
                   </button>
                   <button type="submit" class="fas fa-times" name="delete" onclick="return confirm('Delete this item?');">
                   </button>
-                  <img src="assets/img/uploaded_img/<?= $cart['image']; ?>" alt="<?= $cart['name']; ?>" width="300" height="300">
+                  <img src="assets/img/menu/<?= $cart['image']; ?>" alt="<?= $cart['name']; ?>" width="300" height="300">
                   <div class="content">
                      <p class="name"><?= $cart['name']; ?></p>
                      <div class="flex">
-                        <div class="price"><span>$ </span><?= $cart['price']; ?></div>
+                        <div class="price"><span>Rp </span><?= $cart['price']; ?></div>
                         <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>"
                            maxlength="2">
                         <button type="submit" class="fas fa-edit" name="update_qty"></button>
                      </div>
-                     <div class="sub-total"> Sub Total :
-                        <span>$ <?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span>
+                     <div class="sub-total">Sub Total :
+                        <span>Rp <?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span>
                      </div>
                   </div>
                </form>
@@ -107,7 +107,7 @@
                         </div>
                         <div class="modal-body">
                            <div class="text-center mb-3">
-                              <img src="assets/img/uploaded_img/<?= $cart['image']; ?>" width="250" height="250"
+                              <img src="assets/img/menu/<?= $cart['image']; ?>" width="250" height="250"
                                  alt="Image <?= $cart['name']; ?>">
                            </div>
                            <div class="d-flex">
@@ -118,7 +118,7 @@
                            <div class="d-flex">
                               <label style="width: 150px;">Price</label>
                               <p class="mx-3">:</p>
-                              <p>$ <?= $cart['price']; ?></p>
+                              <p>Rp <?= $cart['price']; ?></p>
                            </div>
                            <div class="d-flex">
                               <label style="width: 150px;">Quantity</label>
@@ -142,7 +142,7 @@
             ?>
          </div>
          <div class="cart-total">
-            <p>cart total : <span>$ <?= $grand_total; ?></span></p>
+            <p>CART TOTAL : <span>Rp <?= $grand_total; ?></span></p>
             <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Proceed to Checkout</a>
          </div>
          <div class="more-btn">

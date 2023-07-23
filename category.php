@@ -56,13 +56,13 @@
                      <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $category['id'] ?>"
                         class="fas fa-eye"></button>
                      <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-                     <img src="assets/img/uploaded_img/<?= $category['image']; ?>" alt="" width="300" height="300">
+                     <img src="assets/img/menu/<?= $category['image']; ?>" alt="" width="300" height="300">
                      <div class="content">
                         <a href="category.php?category=<?= $category['category']; ?>"
                            class="cat"><?= $category['category']; ?></a>
                         <p class="name"><?= $category['name']; ?></p>
                         <div class="flex">
-                           <div class="price"><span>$ </span><?= $category['price']; ?></div>
+                           <div class="price">Rp <span><?= number_format($category['price'], 0, ',', '.'); ?></span></div>
                            <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                         </div>
                      </div>
@@ -79,8 +79,8 @@
                            </div>
                            <div class="modal-body">
                               <div class="text-center mb-3">
-                                 <img src="assets/img/uploaded_img/<?= $category['image']; ?>" width="250" height="250"
-                                    alt="Image <?= $category['name'] ?>">
+                                 <img src="assets/img/menu/<?= $category['image']; ?>" width="250" height="250"
+                                    alt="Image <?= $category['name']; ?>">
                               </div>
                               <div class="d-flex">
                                  <label style="width: 150px;">Name</label>
@@ -95,7 +95,7 @@
                               <div class="d-flex">
                                  <label style="width: 150px;">Price</label>
                                  <p class="mx-3">:</p>
-                                 <p>$ <?= $category['price']; ?></p>
+                                 <p>Rp <?= number_format($category['price'], 0, ',', '.'); ?></p>
                               </div>
                               <div class="d-flex">
                                  <label style="width: 150px;">Quantity</label>

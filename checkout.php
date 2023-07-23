@@ -80,7 +80,7 @@
                      $total_products = implode($cart_items);
                      $grand_total += ($cart['quantity'] * $cart['price']);
                ?>
-               <p><span class="name"><?= $cart['name']; ?></span><span class="price"><?= $cart['quantity']; ?> x $
+               <p><span class="name"><?= $cart['name']; ?></span><span class="price"><?= $cart['quantity']; ?> x Rp
                      <?= $cart['price']; ?></span></p>
                <?php
                }
@@ -88,7 +88,7 @@
                   echo '<p class="empty">your cart is empty!</p>';
                }
                ?>
-               <p class="grand-total"><span class="name">grand total :</span><span class="price">$
+               <p class="grand-total"><span class="name">GRAND TOTAL :</span><span class="price">Rp
                      <?= $grand_total; ?></span></p>
                <a href="cart.php" class="btn">View Cart</a>
             </div>

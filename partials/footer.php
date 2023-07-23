@@ -4,19 +4,19 @@
       <div class="box-container">
          <div class="grid">
             <div class="box">
-               <h3>opening hours</h3>
+               <h3>OPENING HOURS</h3>
                <p>Monday - Friday: 00:07 am to 00:10 pm</p>
                <p>Saturday - Sunday: 00:07 am to 00:10 pm</p>
             </div>
             <div class="box">
-               <h3>our address</h3>
+               <h3>OUR ADDRESS</h3>
                <p>Zamrud VI Blok A-7 No 5</p>
                <p>Kembangan, Jakarta Barat, IDN</p>
             </div>
             <div class="box">
-               <h3>contact us</h3>
+               <h3>CONTACT US</h3>
                <a href="tel:089604333574">089-604-333-574</a>
-               <a href="mailto:dwiputrabayu19@gmail.com">dwiputrabayu19@gmail.com</a>
+               <a href="mailto:dwiputrabayu19@gmail.com">Dwiputrabayu19@gmail.com</a>
             </div>
          </div>
          <div class="social-media">
@@ -49,7 +49,7 @@
          </nav>
       </div>
    </div>
-   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>dwi putra bayu</span> | all rights reserved!</div>
+   <div class="credit">&copy; Copyright @ <?= date('Y'); ?> by <span>Dwi Putra Bayu Oktantyo</span> | All Right Reserved!</div>
 </footer>
 <!-- Footer End -->
 <!-- JS Start -->

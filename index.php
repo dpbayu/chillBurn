@@ -109,26 +109,25 @@
       <!-- Category Start -->
       <section class="category">
          <h1 class="title">POPULAR <span>MENU</span></h1>
-         <div class="container" x-data="{ tab: 'main dish' }">
+         <div class="container" x-data="{ tab: 'coffee' }">
             <!-- Menu -->
             <ul class="menu">
                <li>
-                  <a :class="{'active': tab === 'main dish'}" href="#" @click.prevent="tab = 'main dish'">Main
-                     Dish</a>
+                  <a :class="{'active': tab === 'coffee'}" href="#" @click.prevent="tab = 'coffee'">Coffee</a>
                </li>
                <li>
-                  <a :class="{'active': tab === 'drink'}" href="#" @click.prevent="tab = 'drink'">Drink</a>
+                  <a :class="{'active': tab === 'tea'}" href="#" @click.prevent="tab = 'tea'">Tea</a>
                </li>
                <li>
                   <a :class="{'active': tab === 'dessert'}" href="#" @click.prevent="tab = 'dessert'">Dessert</a>
                </li>
             </ul>
             <div class="content">
-               <!-- Main Dish Start -->
-               <div x-show="tab === 'main dish'" class="my-5">
+               <!-- coffee Start -->
+               <div x-show="tab === 'coffee'" class="my-5">
                   <div class="box-container">
                      <?php
-                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'main dish' LIMIT 6";
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'coffee' LIMIT 6";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
@@ -139,11 +138,11 @@
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
                         <div class="box-content">
-                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                           <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h6><?= $product['name'] ?></h6>
-                              <p>$ <span><?= $product['price'] ?></span></p>
+                              <h6><?= $product['name']; ?></h6>
+                              <p>Rp <span><?= number_format($product['price'], 0, ',', '.') ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -154,20 +153,20 @@
                      <?php
                      }
                      } else {
-                        echo '<p class="empty">No products!</p>';
+                        echo '<p class="empty">No products added yet!</p>';
                      }
                      ?>
                   </div>
-                  <a href="category.php?category=main dish">
+                  <a href="category.php?category=coffee">
                      <button class="btn">View All</button>
                   </a>
                </div>
-               <!-- Main Dish End -->
-               <!-- Drink Start -->
-               <div x-show="tab === 'drink'" class="my-5">
+               <!-- coffee End -->
+               <!-- tea Start -->
+               <div x-show="tab === 'tea'" class="my-5">
                   <div class="box-container">
                      <?php
-                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'drink' LIMIT 6";
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'tea' LIMIT 6";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
@@ -178,11 +177,11 @@
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
                         <div class="box-content">
-                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                           <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h6><?= $product['name'] ?></h6>
-                              <p>$ <span><?= $product['price'] ?></span></p>
+                              <h6><?= $product['name']; ?></h6>
+                              <p>Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -193,15 +192,15 @@
                      <?php
                      }
                      } else {
-                        echo '<p class="empty">no products added yet!</p>';
+                        echo '<p class="empty">No products added yet!</p>';
                      }
                      ?>
                   </div>
-                  <a href="category.php?category=drink">
+                  <a href="category.php?category=tea">
                      <button class="btn">View All</button>
                   </a>
                </div>
-               <!-- Drink End -->
+               <!-- tea End -->
                <!-- Dessert Start -->
                <div x-show="tab === 'dessert'" class="my-5">
                   <div class="box-container">
@@ -217,11 +216,11 @@
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
                         <div class="box-content">
-                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                           <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h6><?= $product['name'] ?></h6>
-                              <p>$ <span><?= $product['price'] ?></span></p>
+                              <h6><?= $product['name']; ?></h6>
+                              <p>Rp <span><?= number_format($product['price'], 0, ',', '.') ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -232,7 +231,7 @@
                      <?php
                      }
                      } else {
-                        echo '<p class="empty">no products added yet!</p>';
+                        echo '<p class="empty">No products added yet!</p>';
                      }
                      ?>
                   </div>
@@ -264,13 +263,13 @@
                   <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
                      class="fas fa-eye"></button>
                   <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-                  <img src="assets/img/uploaded_img/<?= $product['image']; ?>" width="300" height="300">
+                  <img src="assets/img/menu/<?= $product['image']; ?>" width="300" height="300">
                   <div class="content">
                      <a href="category.php?category=<?= $product['category']; ?>"
                         class="cat"><?= $product['category']; ?></a>
                      <p class="name"><?= $product['name']; ?></p>
                      <div class="flex">
-                        <p class="price">$ <span><?= $product['price']; ?></span></p>
+                        <p class="price">Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></p>
                         <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                      </div>
                   </div>
@@ -286,13 +285,13 @@
                         </div>
                         <div class="modal-body">
                            <div class="text-center mb-3">
-                              <img src="assets/img/uploaded_img/<?= $product['image']; ?>"
-                                 alt="Image <?= $product['name'] ?>">
+                              <img src="assets/img/menu/<?= $product['image']; ?>"
+                                 alt="Image <?= $product['name']; ?>">
                            </div>
                            <div class="d-flex">
                               <label style="width: 150px;">Name</label>
                               <p class="mx-3">:</p>
-                              <p><?= $product['name'] ?></p>
+                              <p><?= $product['name']; ?></p>
                            </div>
                            <div class="d-flex">
                               <label style="width: 150px;">Category</label>
@@ -303,7 +302,7 @@
                            <div class="d-flex">
                               <label style="width: 150px;">Price</label>
                               <p class="mx-3">:</p>
-                              <p>$ <?= $product['price'] ?></p>
+                              <p>Rp <?= $product['price']; ?></p>
                            </div>
                            <div class="d-flex">
                               <label style="width: 150px;">Quantity</label>
@@ -346,7 +345,7 @@
                </div>
                <div class="grid-item item2">
                   <img src="assets/img/blog/blog 1.png" alt="">
-                  <h3>WHEN THE BEST TIME TO DRINK COFFEE</h3>
+                  <h3>WHEN THE BEST TIME TO tea COFFEE</h3>
                </div>
                <div class="grid-item item3">
                   <img src="assets/img/blog/blog 2.png" alt="">
@@ -354,7 +353,7 @@
                </div>
                <div class="grid-item item4">
                   <img src="assets/img/blog/blog 3.png" alt="">
-                  <h3>IS IT HEALTHY TO DRINK TEA ?</h3>
+                  <h3>IS IT HEALTHY TO tea TEA ?</h3>
                </div>
             </div>
          </div>

@@ -156,7 +156,6 @@ span {
    text-align: center;
    width: 100%;
    font-size: 32px;
-   text-transform: capitalize;
    color: var(--secondary);
 }
 
@@ -559,6 +558,7 @@ nav .profile .name {
 .menu .box-container .box img {
    height: 200px;
    margin-bottom: 20px;
+   object-fit: cover;
 }
 
 .menu .box-container .box .content {
@@ -569,7 +569,6 @@ nav .profile .name {
    font-size: 12px;
    color: var(--light-color);
    text-decoration: none;
-   text-transform: uppercase;
 }
 
 .menu .box-container .box .content .cat:hover {
@@ -667,7 +666,6 @@ nav .profile .name {
 .menu .cart-total p {
    font-size: 32px;
    color: var(--light-color);
-   text-transform: uppercase;
    margin: 0;
    padding: 0;
 }
@@ -804,7 +802,6 @@ nav .profile .name {
 .reviews .slide h3 {
    font-size: 32px;
    margin-top: 10px;
-   text-transform: capitalize;
    color: var(--white);
 }
 
@@ -1049,7 +1046,6 @@ nav .profile .name {
    font-size: 40px;
    color: var(--black);
    margin-bottom: 16px;
-   text-transform: capitalize;
 }
 
 .contact .row form .box {
@@ -1146,7 +1142,6 @@ nav .profile .name {
 
 .checkout form .cart-items p .name {
    color: var(--light-color);
-   text-transform: capitalize;
 }
 
 .checkout form .cart-items p .price {
@@ -1181,7 +1176,6 @@ nav .profile .name {
    border: var(--border);
    padding: 10px;
    margin: 20px 0;
-   text-transform: capitalize;
 }
 /* Checkout End */
 
@@ -1222,14 +1216,12 @@ nav .profile .name {
 .form-container form h3 {
    font-size: 40px;
    color: var(--white);
-   text-transform: uppercase;
    margin-bottom: 16px;
    text-align: center;
 }
 
 .form-container form .form-label {
    color: var(--light-color);
-   text-transform: capitalize;
    font-size: 20px;
 }
 
@@ -1340,7 +1332,6 @@ nav .profile .name {
    font-size: 18px;
    margin: 10px 0;
    color: var(--primary);
-   text-transform: uppercase;
 }
 
 .footer .grid .box p,
@@ -1385,7 +1376,6 @@ nav .profile .name {
    text-align: center;
    background-color: var(--black);
    color: var(--light-color);
-   text-transform: capitalize;
 }
 
 .credit span {

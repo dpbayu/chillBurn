@@ -13,19 +13,19 @@
         $image = $_FILES['image']['name'];
         $image_size = $_FILES['image']['size'];
         $image_tmp_name = $_FILES['image']['tmp_name'];
-        $image_folder = '../assets/img/uploaded_img/'.$image;
+        $image_folder = '../assets/img/menu/'.$image;
         $sql_product = "SELECT * FROM tbl_product WHERE name = '$name'";
         $query_product = mysqli_query($conn, $sql_product);
         if (mysqli_num_rows($query_product) > 0) {
-            $message[] = 'product name already exists!';
+            $message[] = 'Product name already exists!';
         } else {
             if ($image_size > 2000000) {
-            $message[] = 'image size is too large';
+            $message[] = 'Image size is too large';
             } else {
             move_uploaded_file($image_tmp_name, $image_folder);
             $sql_add_product = "INSERT INTO tbl_product (name, category, price, image) VALUES ('$name', '$category', '$price', '$image')";
             $query_add_product = mysqli_query($conn, $sql_add_product);
-            $message[] = 'new product added!';
+            $message[] = 'New product added!';
             }
         }
     }
@@ -34,7 +34,7 @@
         $sql_delete_img = "SELECT * FROM tbl_product WHERE id = '$delete_id'";
         $query_delete_img = mysqli_query($conn, $sql_delete_img);
         $delete_img = mysqli_fetch_assoc($query_delete_img);
-        unlink('../uploaded_img/'.$delete_img['image']);
+        unlink('../menu/'.$delete_img['image']);
         $sql_delete_product = "DELETE * FROM tbl_product WHERE id = '$delete_id'";
         $query_delete_product = mysqli_query($conn,$sql_delete_product);
         $sql_delete_cart = "DELETE FROM tbl_cart WHERE id = '$delete_id'";
@@ -48,21 +48,21 @@
         $category = $_POST['category'];
         $sql_update_product = "UPDATE tbl_product SET name = '$name', category = '$category', price = '$price' WHERE id = '$product_id'";
         $query_update_product = mysqli_query($conn, $sql_update_product);
-        $message[] = 'product updated!';
+        $message[] = 'Product updated!';
         $old_image = $_POST['old_image'];
         $image = $_FILES['image']['name'];
         $image_size = $_FILES['image']['size'];
         $image_tmp_name = $_FILES['image']['tmp_name'];
-        $image_folder = '../assets/img/uploaded_img/'.$image;
+        $image_folder = '../assets/img/menu/'.$image;
         if (!empty($image)) {
             if ($image_size > 2000000) {
-                $message[] = 'images size is too large!';
+                $message[] = 'Image size is too large!';
             } else {
                 $sql_update_img = "UPDATE tbl_product SET image = '$image' WHERE id = '$product_id'";
                 $query_update_img = mysqli_query($conn, $sql_update_img);
                 move_uploaded_file($image_tmp_name, $image_folder);
-                unlink('../assets/img/uploaded_img/'.$old_image);
-                $message[] = 'image updated!';
+                unlink('../assets/img/menu/'.$old_image);
+                $message[] = 'Image updated!';
             }
         }
     }
@@ -98,17 +98,16 @@
                             <div class="mb-3">
                                 <label class="form-label">Price</label>
                                 <input type="number" min="1" max="999" class="form-control" name="price"
-                                    onkeypress="if(this.value.length == 10) return false;" placeholder="Enter price product"
-                                    required>
+                                    onkeypress="if(this.value.length == 10) return false;"
+                                    placeholder="Enter price product" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Category</label>
                                 <select class="form-control" name="category" required>
                                     <option value="" disabled selected>-- Select Category --</option>
-                                    <option value="main dish">main dish</option>
-                                    <option value="fast food">fast food</option>
-                                    <option value="drinks">drinks</option>
-                                    <option value="desserts">desserts</option>
+                                    <option value="Coffee">Coffee</option>
+                                    <option value="Tea">Tea</option>
+                                    <option value="Dessert">Dessert</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -145,8 +144,8 @@
                                 <td><?= $i; ?></td>
                                 <td><?= $product['name'] ?></td>
                                 <td><?= $product['category'] ?></td>
-                                <td>$ <?= $product['price'] ?></td>
-                                <td><img src="../assets/img/uploaded_img/<?= $product['image']; ?>"></td>
+                                <td>Rp <?= number_format($product['price'], 0, ',', '.') ?></td>
+                                <td><img src="../assets/img/menu/<?= $product['image']; ?>"></td>
                                 <td>
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                         data-bs-target="#modal<?= $product['id'] ?>">
@@ -172,7 +171,7 @@
                                                 <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                                                 <input type="hidden" name="old_image" value="<?= $product['image']; ?>">
                                                 <div class="mb-3">
-                                                    <img src="../assets/img/uploaded_img/<?= $product['image']; ?>"
+                                                    <img src="../assets/img/menu/<?= $product['image']; ?>"
                                                         alt="<?= $product['name']; ?>">
                                                     <input type="file" name="image"
                                                         accept="image/jpg, image/jpeg, image/png, image/webp">
@@ -181,26 +180,23 @@
                                                     <label style="width: 150px;">Name</label>
                                                     <p class="mx-3">:</p>
                                                     <input type="text" name="name" class="form-control"
-                                                        placeholder="Enter name" value="<?= $product['name']; ?>" required>
+                                                        placeholder="Enter name" value="<?= $product['name']; ?>"
+                                                        required>
                                                 </div>
                                                 <div class="d-flex mb-3">
                                                     <label style="width: 150px;">Price</label>
                                                     <p class="mx-3">:</p>
-                                                    <input type="number" min="1" max="999" name="price" class="form-control"
-                                                        placeholder="Enter price"
-                                                        onkeypress="if (this.value.length == 10) return false;" class="box"
-                                                        value="<?= $product['price']; ?>" required>
+                                                    <input type="number" name="price" class="form-control"
+                                                        placeholder="Enter price" value="<?= number_format($product['price'], 0, ',', '.'); ?>"
+                                                        required>
                                                 </div>
                                                 <div class="d-flex mb-3">
                                                     <label style="width: 150px;">Category</label>
                                                     <p class="mx-3">:</p>
                                                     <select name="category" class="form-control" required>
-                                                        <option selected value="<?= $product['category']; ?>">
-                                                            <?= $product['category']; ?></option>
-                                                        <option value="main dish">Main Dish</option>
-                                                        <option value="fast food">Fast Food</option>
-                                                        <option value="drinks">Drinks</option>
-                                                        <option value="desserts">Dessert</option>
+                                                        <option value="Coffee">Coffee</option>
+                                                        <option value="Tea">Tea</option>
+                                                        <option value="Dessert">Dessert</option>
                                                     </select>
                                                 </div>
                                                 <div class="flex-btn">

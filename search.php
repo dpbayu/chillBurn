@@ -63,13 +63,13 @@
                <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
                   class="fas fa-eye"></button>
                <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-               <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="300" height="300">
+               <img src="assets/img/menu/<?= $product['image']; ?>" alt="" width="300" height="300">
                <div class="content">
                   <a href="category.php?category=<?= $product['category']; ?>"
                      class="cat"><?= $product['category']; ?></a>
                   <p class="name"><?= $product['name']; ?></p>
                   <div class="flex">
-                     <p class="price">$ <span><?= $product['price']; ?></span></p>
+                     <p class="price">Rp <span><?= $product['price']; ?></span></p>
                      <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                   </div>
                </div>
@@ -86,7 +86,7 @@
                      </div>
                      <div class="modal-body">
                         <div class="text-center mb-3">
-                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" width="250" height="250"
+                           <img src="assets/img/menu/<?= $product['image']; ?>" width="250" height="250"
                               alt="Image <?= $product['name'] ?>">
                         </div>
                         <div class="d-flex">
@@ -102,7 +102,7 @@
                         <div class="d-flex">
                            <label style="width: 150px;">Price</label>
                            <p class="mx-3">:</p>
-                           <p>$ <?= $product['price'] ?></p>
+                           <p>Rp <?= $product['price'] ?></p>
                         </div>
                         <div class="d-flex">
                            <label style="width: 150px;">Quantity</label>

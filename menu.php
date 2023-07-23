@@ -57,13 +57,13 @@
                <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
                   class="fas fa-eye"></button>
                <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-               <img src="assets/img/uploaded_img/<?= $product['image']; ?>" alt="" width="300" height="300">
+               <img src="assets/img/menu/<?= $product['image']; ?>" alt="" width="300" height="300">
                <div class="content">
                   <a href="category.php?category=<?= $product['category']; ?>"
                      class="cat"><?= $product['category']; ?></a>
                   <p class="name"><?= $product['name']; ?></p>
                   <div class="flex">
-                     <div class="price"><span>$ </span><?= $product['price']; ?></div>
+                     <div class="price"><span>Rp </span><?= $product['price']; ?></div>
                      <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                   </div>
                </div>
@@ -80,7 +80,7 @@
                      </div>
                      <div class="modal-body">
                         <div class="text-center mb-3">
-                           <img src="assets/img/uploaded_img/<?= $product['image']; ?>" width="250" height="250"
+                           <img src="assets/img/menu/<?= $product['image']; ?>" width="250" height="250"
                               alt="Image <?= $product['name'] ?>">
                         </div>
                         <div class="d-flex">
@@ -96,7 +96,7 @@
                         <div class="d-flex">
                            <label style="width: 150px;">Price</label>
                            <p class="mx-3">:</p>
-                           <p>$ <?= $product['price'] ?></p>
+                           <p>Rp <?= $product['price'] ?></p>
                         </div>
                         <div class="d-flex">
                            <label style="width: 150px;">Quantity</label>
@@ -124,25 +124,25 @@
          <div class="col-md-12">
             <div class="row">
                <div class="col-md-6 p-3 m-0">
-                  <h3>Main Dish</h3>
+                  <h3>Coffee</h3>
                   <?php
-                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'main dish' LIMIT 10";
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'coffee' ORDER BY id DESC LIMIT 10";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
-                     ?>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p><?= $product['name'] ?></p>
-                     <p>$ <?= $product['price'] ?></p>
-                  </div>
-                  <?php
+                        ?>
+                        <div class="d-flex w-100 justify-content-between">
+                           <p><?= $product['name'] ?></p>
+                           <p>Rp <?= $product['price'] ?></p>
+                        </div>
+                     <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
                      }
                   ?>
                   <div class="d-flex w-100 justify-content-center mb-3">
-                     <a href="category.php?category=main dish">
+                     <a href="category.php?category=coffee">
                         <button class="btn">View All</button>
                      </a>
                   </div>
@@ -156,18 +156,18 @@
                   <img src="assets/img//menu-img2.png" style="width: 100%; height: 535px;">
                </div>
                <div class="col-md-6 p-3 m-0">
-                  <h3>Drink</h3>
+                  <h3>Tea</h3>
                   <?php
-                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'drink' LIMIT 10";
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'tea' ORDER BY id DESC LIMIT 10";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
-                     ?>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p><?= $product['name'] ?></p>
-                     <p>$ <?= $product['price'] ?></p>
-                  </div>
-                  <?php
+                        ?>
+                        <div class="d-flex w-100 justify-content-between">
+                           <p><?= $product['name'] ?></p>
+                           <p>Rp <?= $product['price'] ?></p>
+                        </div>
+                     <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
@@ -184,16 +184,16 @@
                <div class="col-md-6 p-3 m-0">
                   <h3>Dessert</h3>
                   <?php
-                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'dessert' LIMIT 10";
+                     $sql_product = "SELECT * FROM tbl_product WHERE category = 'dessert' ORDER BY id DESC LIMIT 10";
                      $query_product = mysqli_query($conn, $sql_product);
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
-                     ?>
-                  <div class="d-flex w-100 justify-content-between">
-                     <p><?= $product['name'] ?></p>
-                     <p>$ <?= $product['price'] ?></p>
-                  </div>
-                  <?php
+                        ?>
+                        <div class="d-flex w-100 justify-content-between">
+                           <p><?= $product['name'] ?></p>
+                           <p>Rp <?= $product['price'] ?></p>
+                        </div>
+                     <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
