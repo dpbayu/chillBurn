@@ -97,9 +97,8 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Price</label>
-                                <input type="number" min="1" max="999" class="form-control" name="price"
-                                    onkeypress="if(this.value.length == 10) return false;"
-                                    placeholder="Enter price product" required>
+                                <input type="number" class="form-control" name="price" placeholder="Enter price product"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Category</label>
@@ -187,16 +186,25 @@
                                                     <label style="width: 150px;">Price</label>
                                                     <p class="mx-3">:</p>
                                                     <input type="number" name="price" class="form-control"
-                                                        placeholder="Enter price" value="<?= number_format($product['price'], 0, ',', '.'); ?>"
+                                                        placeholder="Enter price" value="<?= $product['price']; ?>"
                                                         required>
                                                 </div>
                                                 <div class="d-flex mb-3">
                                                     <label style="width: 150px;">Category</label>
                                                     <p class="mx-3">:</p>
                                                     <select name="category" class="form-control" required>
-                                                        <option value="Coffee">Coffee</option>
-                                                        <option value="Tea">Tea</option>
-                                                        <option value="Dessert">Dessert</option>
+                                                        <option value="Coffee"
+                                                            <?= $product['category'] == "Coffee" ? "selected" : '' ?>>
+                                                            Coffee
+                                                        </option>
+                                                        <option value="Tea"
+                                                            <?= $product['category'] == "Tea" ? "selected" : '' ?>>
+                                                            Tea
+                                                        </option>
+                                                        <option value="Dessert"
+                                                            <?= $product['category'] == "Dessert" ? "selected" : '' ?>>
+                                                            Dessert
+                                                        </option>
                                                     </select>
                                                 </div>
                                                 <div class="flex-btn">
