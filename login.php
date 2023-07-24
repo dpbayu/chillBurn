@@ -54,11 +54,11 @@
       <form action="" method="POST">
          <h3>form login</h3>
          <div class="mb-3">
-            <label class="form-label">email</label>
+            <label class="form-label">Email</label>
             <input type="email" name="email" class="form-control box" placeholder="Enter your email" required>
          </div>
          <div class="mb-5">
-         <label class="form-label">password</label>
+         <label class="form-label">Password</label>
             <input type="password" name="password" class="form-control box" placeholder="Enter your password" required>
          </div>
          <input type="submit" value="login now" name="submit" class="btn">

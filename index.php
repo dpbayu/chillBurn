@@ -142,7 +142,7 @@
                               height="200" width="200">
                            <div class="text">
                               <h6><?= $product['name']; ?></h6>
-                              <p>Rp <span><?= number_format($product['price'], 0, ',', '.') ?></span></p>
+                              <p>Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -177,7 +177,7 @@
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
                         <div class="box-content">
-                           <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                           <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name']; ?>"
                               height="200" width="200">
                            <div class="text">
                               <h6><?= $product['name']; ?></h6>
@@ -216,11 +216,11 @@
                         <input type="hidden" name="price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="image" value="<?= $product['image']; ?>">
                         <div class="box-content">
-                           <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
+                           <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name']; ?>"
                               height="200" width="200">
                            <div class="text">
                               <h6><?= $product['name']; ?></h6>
-                              <p>Rp <span><?= number_format($product['price'], 0, ',', '.') ?></span></p>
+                              <p>Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                                  <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
@@ -260,7 +260,7 @@
                   <input type="hidden" name="name" value="<?= $product['name']; ?>">
                   <input type="hidden" name="price" value="<?= $product['price']; ?>">
                   <input type="hidden" name="image" value="<?= $product['image']; ?>">
-                  <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id'] ?>"
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#modal<?= $product['id']; ?>"
                      class="fas fa-eye"></button>
                   <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                   <img src="assets/img/menu/<?= $product['image']; ?>" width="300" height="300">
@@ -275,7 +275,7 @@
                   </div>
                </form>
                <!-- Modal Start -->
-               <div class="modal fade" id="modal<?= $product['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+               <div class="modal fade" id="modal<?= $product['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                   aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">

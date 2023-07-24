@@ -63,7 +63,7 @@
                      class="cat"><?= $product['category']; ?></a>
                   <p class="name"><?= $product['name']; ?></p>
                   <div class="flex">
-                     <div class="price"><span>Rp </span><?= $product['price']; ?></div>
+                     <div class="price">Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></div>
                      <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                   </div>
                </div>
@@ -96,7 +96,7 @@
                         <div class="d-flex">
                            <label style="width: 150px;">Price</label>
                            <p class="mx-3">:</p>
-                           <p>Rp <?= $product['price'] ?></p>
+                           <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
                         </div>
                         <div class="d-flex">
                            <label style="width: 150px;">Quantity</label>
@@ -132,8 +132,8 @@
                         while ($product = mysqli_fetch_array($query_product)) {
                         ?>
                         <div class="d-flex w-100 justify-content-between">
-                           <p><?= $product['name'] ?></p>
-                           <p>Rp <?= $product['price'] ?></p>
+                           <p><?= $product['name']; ?></p>
+                           <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
                         </div>
                      <?php
                      }
@@ -164,8 +164,8 @@
                         while ($product = mysqli_fetch_array($query_product)) {
                         ?>
                         <div class="d-flex w-100 justify-content-between">
-                           <p><?= $product['name'] ?></p>
-                           <p>Rp <?= $product['price'] ?></p>
+                           <p><?= $product['name']; ?></p>
+                           <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
                         </div>
                      <?php
                      }
@@ -190,8 +190,8 @@
                         while ($product = mysqli_fetch_array($query_product)) {
                         ?>
                         <div class="d-flex w-100 justify-content-between">
-                           <p><?= $product['name'] ?></p>
-                           <p>Rp <?= $product['price'] ?></p>
+                           <p><?= $product['name']; ?></p>
+                           <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
                         </div>
                      <?php
                      }

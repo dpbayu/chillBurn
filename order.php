@@ -59,7 +59,7 @@
                   <p>Address : <span><?= $order['address']; ?></span></p>
                   <p>Payment : <span><?= $order['method']; ?></span></p>
                   <p>Your Order : <span><?= $order['total_products']; ?></span></p>
-                  <p>Total Price : <span>Rp <?= $order['total_price']; ?>/-</span></p>
+                  <p>Total Price : <span>Rp <?= number_format($order['total_price'], 0, ',', '.'); ?></span></p>
                   <p> Payment Status : <span
                         style="color:<?php if($order['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $order['payment_status']; ?></span>
                   </p>

@@ -31,41 +31,48 @@
    <!-- Header End -->
    <!-- User Account Start  -->
    <section class="user">
-      <h1 class="heading">USER <span>ACCOUNT</span></h1>
-      <table id="user" class="table" style="width:100%">
-         <thead>
-            <tr>
-               <th>No</th>
-               <th>ID</th>
-               <th>Username</th>
-            </tr>
-         </thead>
-         <tbody>
-         <?php
-            $sql_account = "SELECT * FROM tbl_user";
-            $query_account = mysqli_query($conn, $sql_account);
-            if (mysqli_num_rows($query_account) > 0) {
-               $i = 1;
-               while ($account = mysqli_fetch_assoc($query_account)) {
-            ?>
+      <div class="container">
+         <h1 class="heading">USER <span>ACCOUNT</span></h1>
+         <table id="user" class="table" style="width:100%">
+            <thead>
                <tr>
-                  <td><?= $i; ?></td>
-                  <td><?= $account['id'] ?></td>
-                  <td><?= $account['name'] ?></td>
-                  <td>
-                  <a href="user.php?delete=<?= $account['id']; ?>" class="btn btn-danger"
-                  onclick="return confirm('Delete this account?');">delete</a>
-                  </td>
+                  <th>No</th>
+                  <th>ID</th>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Action</th>
                </tr>
+            </thead>
+            <tbody>
             <?php
-            $i++; 
-            }
-            } else {
-               echo '<p class="empty">No account!</p>';
-            }
-            ?>
-         </tbody>
-      </table>
+               $sql_account = "SELECT * FROM tbl_user";
+               $query_account = mysqli_query($conn, $sql_account);
+               if (mysqli_num_rows($query_account) > 0) {
+                  $i = 1;
+                  while ($account = mysqli_fetch_assoc($query_account)) {
+               ?>
+                  <tr>
+                     <td><?= $i; ?></td>
+                     <td><?= $account['id'] ?></td>
+                     <td><?= $account['name'] ?></td>
+                     <td><?= $account['email'] ?></td>
+                     <td><?= $account['number'] ?></td>
+                     <td>
+                     <a href="user.php?delete=<?= $account['id']; ?>" class="btn btn-danger"
+                     onclick="return confirm('Delete this account?');">delete</a>
+                     </td>
+                  </tr>
+               <?php
+               $i++; 
+               }
+               } else {
+                  echo '<p class="empty">No account!</p>';
+               }
+               ?>
+            </tbody>
+         </table>
+      </div>
    </section>
    <!-- User Account End ens -->
    <!-- JS Start  -->
@@ -77,7 +84,7 @@
             columnDefs: [{
                "searchable": false,
                "orderable": false,
-               "targets": 3,
+               "targets": 5,
             }]
          });
       });

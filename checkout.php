@@ -81,15 +81,15 @@
                      $grand_total += ($cart['quantity'] * $cart['price']);
                ?>
                <p><span class="name"><?= $cart['name']; ?></span><span class="price"><?= $cart['quantity']; ?> x Rp
-                     <?= $cart['price']; ?></span></p>
+                     <?= number_format($cart['price'], 0, ',', '.'); ?></span></p>
                <?php
                }
                } else {
-                  echo '<p class="empty">your cart is empty!</p>';
+                  echo '<p class="empty">Your cart is empty!</p>';
                }
                ?>
                <p class="grand-total"><span class="name">GRAND TOTAL :</span><span class="price">Rp
-                     <?= $grand_total; ?></span></p>
+                     <?= number_format($grand_total, 0, ',', '.'); ?></span></p>
                <a href="cart.php" class="btn">View Cart</a>
             </div>
             <input type="hidden" name="total_products" value="<?= $total_products; ?>">

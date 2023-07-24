@@ -10,16 +10,11 @@
    };
    if (isset($_POST['delete'])) {
       $cart_id = $_POST['cart_id'];
-      // $delete_cart_item = $conn->prepare("DELETE FROM tbl_cart WHERE id = ?");
-      // $delete_cart_item->execute([$cart_id]);
       $sql_delete_cart = "DELETE FROM tbl_cart WHERE id = '$cart_id'";
       $query_delete_cart = mysqli_query($conn, $sql_delete_cart);
       $message[] = 'Cart item deleted!';
    }
    if (isset($_POST['delete_all'])) {
-      // $delete_cart_item = $conn->prepare("DELETE FROM tbl_cart WHERE user_id = ?");
-      // $delete_cart_item->execute([$user_id]);
-      // header('location:cart.php');
       $sql_delete_cart = "DELETE FROM tbl_cart WHERE user_id = '$user_id'";
       $query_delete_cart = mysqli_query($conn, $sql_delete_cart);
       $message[] = 'Deleted all from cart!';
@@ -27,8 +22,6 @@
    if (isset($_POST['update_qty'])) {
       $cart_id = $_POST['cart_id'];
       $qty = $_POST['qty'];
-      // $update_qty = $conn->prepare("UPDATE tbl_cart SET quantity = ? WHERE id = ?");
-      // $update_qty->execute([$qty, $cart_id]);
       $sql_quantity = "UPDATE tbl_cart SET quantity = '$qty' WHERE id = '$cart_id'";
       $query_quantity = mysqli_query($conn, $sql_quantity);
       $message[] = 'Cart quantity updated';
@@ -85,13 +78,16 @@
                   <div class="content">
                      <p class="name"><?= $cart['name']; ?></p>
                      <div class="flex">
-                        <div class="price"><span>Rp </span><?= $cart['price']; ?></div>
+                        <div class="price">Rp <span><?= number_format($cart['price'], 0, ',', '.'); ?></span></div>
                         <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>"
                            maxlength="2">
                         <button type="submit" class="fas fa-edit" name="update_qty"></button>
                      </div>
                      <div class="sub-total">Sub Total :
-                        <span>Rp <?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span>
+                        <div class="d-none">
+                           <span>Rp <?= $sub_total = ($cart['price'] * $cart['quantity']); ?>/-</span>
+                        </div>
+                        <span>Rp <?= number_format($sub_total, 0, ',', '.'); ?></span>
                      </div>
                   </div>
                </form>
@@ -118,7 +114,7 @@
                            <div class="d-flex">
                               <label style="width: 150px;">Price</label>
                               <p class="mx-3">:</p>
-                              <p>Rp <?= $cart['price']; ?></p>
+                              <p>Rp <?= number_format($cart['price'], 0, ',', '.'); ?></p>
                            </div>
                            <div class="d-flex">
                               <label style="width: 150px;">Quantity</label>
@@ -142,7 +138,7 @@
             ?>
          </div>
          <div class="cart-total">
-            <p>CART TOTAL : <span>Rp <?= $grand_total; ?></span></p>
+            <p>CART TOTAL : <span>Rp <?= number_format($grand_total, 0, ',', '.'); ?></span></p>
             <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Proceed to Checkout</a>
          </div>
          <div class="more-btn">
