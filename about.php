@@ -71,7 +71,7 @@
          <div class="swiper reviews-slider">
             <div class="swiper-wrapper">
                <div class="swiper-slide slide">
-                  <img src="images/pic-1.png">
+                  <img src="assets/img/pic-1.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
                      ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
@@ -84,7 +84,7 @@
                   <h3>john deo</h3>
                </div>
                <div class="swiper-slide slide">
-                  <img src="images/pic-2.png">
+                  <img src="assets/img/pic-2.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
                      ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
@@ -97,7 +97,7 @@
                   <h3>john deo</h3>
                </div>
                <div class="swiper-slide slide">
-                  <img src="images/pic-3.png">
+                  <img src="assets/img/pic-3.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
                      ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
@@ -110,7 +110,7 @@
                   <h3>john deo</h3>
                </div>
                <div class="swiper-slide slide">
-                  <img src="images/pic-4.png">
+                  <img src="assets/img/pic-4.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
                      ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
@@ -123,7 +123,7 @@
                   <h3>john deo</h3>
                </div>
                <div class="swiper-slide slide">
-                  <img src="images/pic-5.png">
+                  <img src="assets/img/pic-5.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
                      ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
@@ -136,7 +136,7 @@
                   <h3>john deo</h3>
                </div>
                <div class="swiper-slide slide">
-                  <img src="images/pic-6.png">
+                  <img src="assets/img/pic-6.png">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias
                      ut earum nulla sint voluptatum labore nemo.</p>
                   <div class="stars">
