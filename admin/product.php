@@ -119,8 +119,8 @@
                     </section>
                     <!-- Add Product End -->
                 </div>
-                <div class="col-xl-8">
-                    <table id="product" class="table" style="width:100%; overflow-x:auto;">
+                <div class="col-xl-8" style="overflow-x: scroll;">
+                    <table id="product" class="table" style="width:100%;">
                         <thead>
                             <tr>
                                 <th>No</th>

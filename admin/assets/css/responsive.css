@@ -1,4 +1,7 @@
-@media (max-width:991px) {
+@media (min-width:1440px) {
+    .form-container form {
+        width: 600px;
+    }
 }
 
 @media (max-width:768px) {
@@ -30,6 +33,9 @@
         top: 55%;
         border: 1px solid var(--orange);
     }
+    .form-container form {
+        width: 75%;
+    }
 }
 
 @media (max-width:425px) {
@@ -54,5 +60,8 @@
     }
     .messages .box-container {
         grid-template-columns: none;
+    }
+    .form-container form {
+        width: 100%;
     }
 }

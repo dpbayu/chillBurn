@@ -94,12 +94,13 @@
                <div class="col-md-6">
                   <div class="content">
                      <h3>Our History</h3>
-                     <h4>Cursus habitasse <span>neque</span></h4>
-                     <p>Our incredibly rare beans come from humble beginnings in Yemen, where decades of political
-                        turmoil once forced local farmers to start growing Khat, a narcotic native to the Arabian
-                        Peninsula.</p>
-                     <p>The Dawoodi Bohra Community changed this, removing all the Khat plants and replacing the with
-                        coffee, bringing this humble brew back to its roots.</p>
+                     <h4>Introduction in <span>Chill & Burn</span></h4>
+                     <p>Coffee Shop Chill&Burn is a trendy and vibrant coffee shop that aims to create a welcoming and
+                        relaxed atmosphere for coffee enthusiasts and those looking to unwind. Our coffee shop is
+                        designed to be a perfect blend of a cozy space for chilling out and a hub for coffee lovers who
+                        seek the perfect brew.</p>
+                     <p>At Chill&Burn, we take pride in our exceptional coffee, diverse menu, and
+                        commitment to creating memorable experiences for our customers.</p>
                   </div>
                </div>
             </div>
@@ -275,8 +276,8 @@
                   </div>
                </form>
                <!-- Modal Start -->
-               <div class="modal fade" id="modal<?= $product['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
-                  aria-hidden="true">
+               <div class="modal fade" id="modal<?= $product['id']; ?>" tabindex="-1"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header">
@@ -285,8 +286,7 @@
                         </div>
                         <div class="modal-body">
                            <div class="text-center mb-3">
-                              <img src="assets/img/menu/<?= $product['image']; ?>"
-                                 alt="Image <?= $product['name']; ?>">
+                              <img src="assets/img/menu/<?= $product['image']; ?>" alt="Image <?= $product['name']; ?>">
                            </div>
                            <div class="d-flex">
                               <label style="width: 150px;">Name</label>
