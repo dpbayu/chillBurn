@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 06:01 AM
+-- Generation Time: Jul 25, 2023 at 01:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `food_db`
+-- Database: `chillburn`
 --
 
 -- --------------------------------------------------------
@@ -63,8 +63,8 @@ CREATE TABLE `tbl_cart` (
 
 INSERT INTO `tbl_cart` (`id`, `user_id`, `product_id`, `name`, `price`, `quantity`, `image`) VALUES
 (42, 11, 10, 'Kue tart', 220, 5, 'Tzuyu 5.jpeg'),
-(44, 12, 6, 'Udang biru', 350, 5, 'Tzuyu 1.jfif'),
-(45, 12, 9, 'KFC', 250, 5, 'Tzuyu 4.jpg');
+(48, 12, 21, 'Apple Pie', 30000, 5, 'applepie.png'),
+(49, 12, 5, 'Red Tea', 25000, 1, 'redtea.png');
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,8 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `total_products`, `total_price`, `placed_on`, `payment_status`) VALUES
-(6, 12, 'bayu', '097908797', 'dwi@gmail.com', 'credit card', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235', 'AW (10 x 200) - ', 2000, '2023-07-18', 'pending');
+(6, 12, 'bayu', '097908797', 'dwi@gmail.com', 'credit card', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235', 'AW (10 x 200) - ', 2000, '2023-07-18', 'pending'),
+(7, 12, 'bayu', '097908797', 'dwi@gmail.com', 'cash on delivery', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235', 'Udang biru (5 x 350) - KFC (5 x 250) - teh ocha (5 x 50) - ', 3250, '2023-07-20', 'pending');
 
 -- --------------------------------------------------------
 
@@ -127,22 +128,29 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`id`, `name`, `category`, `price`, `image`) VALUES
-(1, 'mie goreng', 'main dish', 1050, 'Tzuyu 8.jpg'),
-(2, 'kue chiffon', 'desserts', 590, 'Tzuyu 9.jpg'),
-(3, 'coca cola', 'drink', 560, 'Tzuyu 6.jpeg'),
-(4, 'AW', 'main dish', 200, 'FFXV.jpg'),
-(5, 'vanilla tart', 'dessert', 500, 'Tzuyu 8.jpg'),
-(6, 'Udang biru', 'main dish', 350, 'Tzuyu 1.jfif'),
-(7, 'Soup jepang', 'main dish', 100, 'Antony.jpeg'),
-(8, 'steak chicken', 'main dish', 400, 'Tzuyu 3.jpg'),
-(9, 'KFC', 'main dish', 250, 'Tzuyu 4.jpg'),
-(10, 'Kue tart', 'dessert', 220, 'Tzuyu 5.jpeg'),
-(11, 'kopi uenak', 'main dish', 10, 'Wallpaper 2.jpg'),
-(12, 'teh ocha', 'main dish', 50, 'Wallpaper 3.jpg'),
-(13, 'pop iced', 'main dish', 5, 'Wallpaper 4.jpg'),
-(14, 'Fried Rice', 'main dish', 5, 'Wallpaper 7.jpg'),
-(15, 'Frappucino', 'main dish', 10, 'Tzuyu 9.jpg'),
-(16, 'Ice Tea', 'drinks', 5, 'Wallpaper 9.jpg');
+(1, 'Espresso', 'Coffee', 12000, 'espresso.png'),
+(2, 'Raspberry Triffle', 'Dessert', 25000, 'raspberrytriffle.png'),
+(3, 'Afforgato', 'Coffee', 20000, 'afforgato.png'),
+(4, 'Americano', 'Coffee', 10000, 'americano.png'),
+(5, 'Red Tea', 'Tea', 25000, 'redtea.png'),
+(6, 'Flat White', 'Coffee', 15000, 'flatwhite.png'),
+(7, 'Macchiato', 'Coffee', 17000, 'macchiato.png'),
+(8, 'Latte', 'Coffee', 15000, 'latte.png'),
+(9, 'Cappucino', 'Coffee', 13000, 'cappucino.png'),
+(10, 'Banoffee Pie', 'Dessert', 20000, 'banoffeepie.png'),
+(11, 'Gelato', 'Dessert', 10000, 'gelato.png'),
+(12, 'Mango Sticky Rice', 'Dessert', 17000, 'mangostickyrice.png'),
+(13, 'Chamomile Tea', 'Tea', 20000, 'chamomiletea.png'),
+(14, 'Cortado', 'Coffee', 25000, 'cortado.png'),
+(15, 'Lemon Tea', 'Tea', 10000, 'lemontea.png'),
+(16, 'Ice Tea', 'Tea', 5000, 'icedtea.png'),
+(17, 'Vanilla Latte', 'Coffee', 18000, 'vanillalatte.png'),
+(18, 'Green Tea', 'Tea', 6000, 'greentea.png'),
+(19, 'White Tea', 'Tea', 12000, 'whitetea.png'),
+(20, 'Brownies', 'Dessert', 10000, 'brownies.png'),
+(21, 'Apple Pie', 'Dessert', 30000, 'applepie.png'),
+(22, 'Waffle Cake', 'Dessert', 35000, 'wafflecake.png'),
+(23, 'Peanut Butter Chessecake', 'Dessert', 50000, 'peanutbutterchessecake.png');
 
 -- --------------------------------------------------------
 
@@ -164,7 +172,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name`, `email`, `number`, `password`, `address`) VALUES
-(12, 'bayu', 'dwi@gmail.com', '097908797', '$2y$10$L8mr9i.z8QpMbRF8OeIaYuzdJ.NNGdLiU6K0Ki/XbFe3l9xVMZENq', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235'),
+(12, 'bayu', 'dwi@gmail.com', '097908797', '$2y$10$nrDMGg.EoMr1uQPkPuGET.GRPtcT4k4cQHqYPSSdAuiBigiB4r/bm', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235'),
 (13, 'Syifa Khairunnisa', 'syifakhairunnisa@gmail.com', '0896043335', '$2y$10$2XamHX6u4hywMTpuVZ4jRe5fplBcnLxzXuuYLgGszfpW0FqVX86Ze', '');
 
 --
@@ -221,7 +229,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tbl_message`
@@ -233,13 +241,13 @@ ALTER TABLE `tbl_message`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

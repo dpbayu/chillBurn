@@ -4,7 +4,7 @@
    require '../include/connect.php';
    $admin_id = $_SESSION['admin_id'];
    if (!isset($admin_id)) {
-      header('location:login.php');
+      header('location:index.php');
    }
    if (isset($_POST['submit'])) {
       $name = $_POST['name'];
