@@ -49,11 +49,14 @@
          </nav>
       </div>
    </div>
-   <div class="credit">&copy; Copyright @ <?= date('Y'); ?> by <span>Dwi Putra Bayu Oktantyo</span> | All Right Reserved!</div>
+   <div class="credit">&copy; Copyright @ <?= date('Y'); ?> by <span>Dwi Putra Bayu Oktantyo</span> | All Right
+      Reserved!</div>
 </footer>
 <!-- Footer End -->
 <!-- JS Start -->
 <script src="https://kit.fontawesome.com/e4027260b9.js" crossorigin="anonymous"></script>
+<!-- Datables -->
+<script src="assets/libs/dataTables/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- JS End -->

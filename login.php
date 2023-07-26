@@ -20,6 +20,8 @@
          } else {
             $message[] = 'Incorrect username or password!';
          }
+      } else {
+         $message[] = 'Incorrect username or password!';
       }
    }
 ?>
@@ -58,7 +60,7 @@
             <input type="email" name="email" class="form-control box" placeholder="Enter your email" required>
          </div>
          <div class="mb-5">
-         <label class="form-label">Password</label>
+            <label class="form-label">Password</label>
             <input type="password" name="password" class="form-control box" placeholder="Enter your password" required>
          </div>
          <input type="submit" value="login now" name="submit" class="btn">

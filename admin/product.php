@@ -141,13 +141,13 @@
                             ?>
                             <tr>
                                 <td><?= $i; ?></td>
-                                <td><?= $product['name'] ?></td>
-                                <td><?= $product['category'] ?></td>
+                                <td><?= $product['name']; ?></td>
+                                <td><?= $product['category']; ?></td>
                                 <td>Rp <?= number_format($product['price'], 0, ',', '.') ?></td>
                                 <td><img src="../assets/img/menu/<?= $product['image']; ?>"></td>
                                 <td>
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#modal<?= $product['id'] ?>">
+                                        data-bs-target="#modal<?= $product['id']; ?>">
                                         Edit
                                     </button>
                                     <a href="product.php?delete=<?= $product['id']; ?>" class="btn btn-danger"
@@ -155,13 +155,13 @@
                                 </td>
                             </tr>
                             <!-- Modal Start -->
-                            <div class="modal fade" id="modal<?= $product['id'] ?>" tabindex="-1"
+                            <div class="modal fade" id="modal<?= $product['id']; ?>" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel">Product <span
-                                                    class="fw-bold"><?= $product['name'] ?></span></h1>
+                                                    class="fw-bold"><?= $product['name']; ?></span></h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>

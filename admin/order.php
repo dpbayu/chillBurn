@@ -9,14 +9,16 @@
    if (isset($_POST['update_payment'])) {
       $order_id = $_POST['order_id'];
       $payment_status = $_POST['payment_status'];
-      $update_status = $conn->prepare("UPDATE tbl_order SET payment_status = ? WHERE id = ?");
-      $update_status->execute([$payment_status, $order_id]);
-      $message[] = 'payment status updated!';
+      $sql_update_status = "SELECT tbl_order SET payment_status = '$payment_status' WHERE id = '$order_id'";
+      $query_update_status = mysqli_query($conn, $sql_update_status);
+      $message[] = 'Payment status updated!';
    }
    if (isset($_GET['delete'])) {
       $delete_id = $_GET['delete'];
       $delete_order = $conn->prepare("DELETE FROM tbl_order WHERE id = ?");
       $delete_order->execute([$delete_id]);
+      $sql_delete_order = "DELETE FROM tbl_order WHERE id = '$delete_id'";
+      $query_delete_order = mysqli_query($conn, $sql_delete_order);
       header('location:order.php');
    }
    $page = 'order';
@@ -58,13 +60,13 @@
                <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
                <select name="payment_status" class="form-control mb-3">
                   <option value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
-                  <option value="pending">pending</option>
-                  <option value="completed">completed</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Completed">Completed</option>
                </select>
                <div class="flex-btn">
                   <input type="submit" value="Update" class="btn btn-info" name="update_payment">
                   <a href="order.php?delete=<?= $fetch_orders['id']; ?>" class="btn btn-danger"
-                     onclick="return confirm('delete this order?');">Delete</a>
+                     onclick="return confirm('Delete this order?');">Delete</a>
                </div>
             </form>
          </div>

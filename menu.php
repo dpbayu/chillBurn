@@ -174,7 +174,7 @@
                      }
                   ?>
                   <div class="d-flex w-100 justify-content-center mb-3">
-                     <a href="category.php?category=drink">
+                     <a href="category.php?category=tea">
                         <button class="btn">View All</button>
                      </a>
                   </div>

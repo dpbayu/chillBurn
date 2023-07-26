@@ -76,7 +76,7 @@
                   $query_cart = mysqli_query($conn, $sql_cart);
                   if (mysqli_num_rows($query_cart) > 0) {
                      while ($cart = mysqli_fetch_assoc($query_cart)) {
-                     $cart_items[] = $cart['name'].' ('.$cart['quantity'].' x '. $cart['price'].') - ';
+                     $cart_items[] = $cart['name'].' ('.$cart['quantity'].' x Rp '.number_format($cart['price'], 0, ',', '.').') <br> ';
                      $total_products = implode($cart_items);
                      $grand_total += ($cart['quantity'] * $cart['price']);
                ?>

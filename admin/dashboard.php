@@ -37,13 +37,13 @@
             <div class="box">
                <?php
                   $total_pendings = 0;
-                  $sql_pending = "SELECT * FROM tbl_order WHERE payment_status = 'pending'";
+                  $sql_pending = "SELECT * FROM tbl_order WHERE payment_status = 'Pending'";
                   $query_pending = mysqli_query($conn, $sql_pending);
                   while ($pending = mysqli_fetch_assoc($query_pending)) {
                      $total_pendings += $pending['total_price'];
                   }
                ?>
-               <h3><span>$ </span><?= $total_pendings; ?><span>/-</span></h3>
+               <h3><span>Rp </span><?= number_format($total_pendings, 0, ',', '.') ?><span></span></h3>
                <p>Total Pending</p>
                <a href="order.php" class="btn btn-primary">See Order</a>
             </div>
@@ -52,13 +52,13 @@
             <div class="box">
                <?php
                   $total_completes = 0;
-                  $sql_complete = "SELECT * FROM tbl_order WHERE payment_status = 'completed'";
+                  $sql_complete = "SELECT * FROM tbl_order WHERE payment_status = 'Completed'";
                   $query_complete = mysqli_query($conn, $sql_complete);
                   while ($complete = mysqli_fetch_assoc($query_complete)) {
                      $total_completes += $complete['total_price'];
                   }
                ?>
-               <h3><span>$ </span><?= $total_completes; ?><span>/-</span></h3>
+               <h3><span>Rp </span><?= number_format($total_completes, 0, ',', '.') ?><span></span></h3>
                <p>Total Completed</p>
                <a href="order.php" class="btn btn-primary">See Order</a>
             </div>
