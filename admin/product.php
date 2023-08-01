@@ -4,7 +4,7 @@
     require '../include/connect.php';
     $admin_id = $_SESSION['admin_id'];
     if (!isset($admin_id)) {
-        header('location:index.php');
+        header('location: index.php');
     };
     if (isset($_POST['add_product'])) {
         $name = $_POST['name'];
@@ -39,7 +39,7 @@
         $query_delete_product = mysqli_query($conn,$sql_delete_product);
         $sql_delete_cart = "DELETE FROM tbl_cart WHERE id = '$delete_id'";
         $query_delete_cart = mysqli_query($conn,$sql_delete_cart);
-        header('location:product.php');
+        header('location: product.php');
     }
     if (isset($_POST['update'])) {
         $product_id = $_POST['product_id'];

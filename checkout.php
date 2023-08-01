@@ -6,7 +6,7 @@
       $user_id = $_SESSION['user_id'];
    } else {
       $user_id = '';
-      header('location:index.php');
+      header('location: index.php');
    };
 
    if (isset($_POST['submit'])) {
@@ -110,11 +110,11 @@
                </p>
                <a href="update_address.php" class="btn">Update Address</a>
                <select name="method" class="box" required>
-                  <option value="" disabled selected>select payment method --</option>
-                  <option value="cash on delivery">cash on delivery</option>
-                  <option value="credit card">credit card</option>
-                  <option value="paytm">paytm</option>
-                  <option value="paypal">paypal</option>
+                  <option value="" disabled selected>-- Select Payment Method --</option>
+                  <option value="Cash on Delivery">Cash on Delivery</option>
+                  <option value="Credit Card">Credit Card</option>
+                  <option value="Paytm">Paytm</option>
+                  <option value="Paypal">Paypal</option>
                </select>
                <input type="submit" value="Place Order"
                   class="btn <?php if ($user['address'] == '') { echo 'disabled'; } ?>"

@@ -263,11 +263,6 @@ nav .profile.active {
 }
 
 .placed-orders .box-container {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, 33rem);
-   gap: 20px;
-   justify-content: center;
-   align-items: flex-start;
 }
 
 .placed-orders .box-container .box {

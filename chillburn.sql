@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2023 at 01:43 AM
+-- Generation Time: Aug 01, 2023 at 02:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_admin` (
-  `id` int(100) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -48,23 +48,14 @@ INSERT INTO `tbl_admin` (`id`, `name`, `password`) VALUES
 --
 
 CREATE TABLE `tbl_cart` (
-  `id` int(100) NOT NULL,
-  `user_id` int(100) NOT NULL,
-  `product_id` int(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `price` int(10) NOT NULL,
-  `quantity` int(10) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_cart`
---
-
-INSERT INTO `tbl_cart` (`id`, `user_id`, `product_id`, `name`, `price`, `quantity`, `image`) VALUES
-(42, 11, 10, 'Kue tart', 220, 5, 'Tzuyu 5.jpeg'),
-(48, 12, 21, 'Apple Pie', 30000, 5, 'applepie.png'),
-(49, 12, 5, 'Red Tea', 25000, 1, 'redtea.png');
 
 -- --------------------------------------------------------
 
@@ -88,17 +79,17 @@ CREATE TABLE `tbl_message` (
 --
 
 CREATE TABLE `tbl_order` (
-  `id` int(100) NOT NULL,
-  `user_id` int(100) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `number` varchar(10) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `method` varchar(50) NOT NULL,
-  `address` varchar(500) NOT NULL,
-  `total_products` varchar(1000) NOT NULL,
-  `total_price` int(100) NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `number` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `method` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `total_products` varchar(255) NOT NULL,
+  `total_price` int(11) NOT NULL,
   `placed_on` date NOT NULL DEFAULT current_timestamp(),
-  `payment_status` varchar(20) NOT NULL DEFAULT 'pending'
+  `payment_status` varchar(255) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -106,8 +97,7 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `total_products`, `total_price`, `placed_on`, `payment_status`) VALUES
-(6, 12, 'bayu', '097908797', 'dwi@gmail.com', 'credit card', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235', 'AW (10 x 200) - ', 2000, '2023-07-18', 'pending'),
-(7, 12, 'bayu', '097908797', 'dwi@gmail.com', 'cash on delivery', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235', 'Udang biru (5 x 350) - KFC (5 x 250) - teh ocha (5 x 50) - ', 3250, '2023-07-20', 'pending');
+(8, 12, 'bayu', '097908797', 'dwi@gmail.com', 'Cash on Delivery', 'Jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235', 'Apple Pie (5 x Rp 30.000) <br> Red Tea (1 x Rp 25.000) <br> ', 175000, '2023-08-01', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -172,7 +162,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name`, `email`, `number`, `password`, `address`) VALUES
-(12, 'bayu', 'dwi@gmail.com', '097908797', '$2y$10$nrDMGg.EoMr1uQPkPuGET.GRPtcT4k4cQHqYPSSdAuiBigiB4r/bm', 'jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235'),
+(12, 'bayu', 'dwi@gmail.com', '097908797', '$2y$10$nrDMGg.EoMr1uQPkPuGET.GRPtcT4k4cQHqYPSSdAuiBigiB4r/bm', 'Jln Zamrud VI Blok A-7 No 5, Kembangan Utara, Kembangan, Jakarta - 11235'),
 (13, 'Syifa Khairunnisa', 'syifakhairunnisa@gmail.com', '0896043335', '$2y$10$2XamHX6u4hywMTpuVZ4jRe5fplBcnLxzXuuYLgGszfpW0FqVX86Ze', '');
 
 --
@@ -189,7 +179,9 @@ ALTER TABLE `tbl_admin`
 -- Indexes for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_message`
@@ -201,7 +193,8 @@ ALTER TABLE `tbl_message`
 -- Indexes for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_product`
@@ -223,13 +216,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tbl_message`
@@ -241,7 +234,7 @@ ALTER TABLE `tbl_message`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`
@@ -254,6 +247,23 @@ ALTER TABLE `tbl_product`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_cart`
+--
+ALTER TABLE `tbl_cart`
+  ADD CONSTRAINT `tbl_cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `tbl_product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+  ADD CONSTRAINT `tbl_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

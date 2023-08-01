@@ -4,7 +4,7 @@
    require '../include/connect.php';
    $admin_id = $_SESSION['admin_id'];
    if (!isset($admin_id)) {
-      header('location:index.php');
+      header('location: index.php');
    }
    if (isset($_GET['delete'])) {
       $delete_id = $_GET['delete'];

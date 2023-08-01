@@ -68,7 +68,7 @@
                      <input type="text" class="form-control" name="name" placeholder="Enter name" required>
                   </div>
                   <div class="mb-3">
-                     <label class="form-label text-white">Number</label>
+                     <label class="form-label text-white">Phone</label>
                      <input type="number" class="form-control" name="number" placeholder="Enter number" maxlength="12"
                         required>
                   </div>

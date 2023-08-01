@@ -13,7 +13,7 @@
       $sql_address = "UPDATE tbl_user SET address = '$address' WHERE id = '$user_id'";
       $query_address = mysqli_query($conn, $sql_address);
       $message[] = 'Address saved!';
-      header('location:checkout.php');
+      header('location: checkout.php');
    }
 ?>
 <!-- PHP -->

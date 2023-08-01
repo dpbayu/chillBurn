@@ -6,7 +6,7 @@
       $user_id = $_SESSION['user_id'];
    } else {
       $user_id = '';
-      header('location:index.php');
+      header('location: index.php');
    };
    $page = 'order';
 ?>
@@ -77,10 +77,10 @@
                            </span>
                         </td>
                         <td>
-                           <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                           <a type="submit" class="text-info text-decoration-none" data-bs-toggle="modal"
                               data-bs-target="#modal<?= $order['id'] ?>">
                               View
-                           </button>
+                           </a>
                         </td>
                      </tr>
                      <!-- Modal Start -->
@@ -89,51 +89,48 @@
                         <div class="modal-dialog">
                            <div class="modal-content">
                               <div class="modal-header">
-                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Product</h1>
+                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Order</h1>
                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
                                  <form action="" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="order_id" value="<?= $order['id']; ?>">
-                                    <div class="d-flex mb-3">
+                                    <div class="d-flex">
                                        <label style="width: 50px;">Name</label>
                                        <p class="mx-3">:</p>
                                        <p><?= $order['name']; ?></p>
                                     </div>
-                                    <div class="d-flex mb-3">
-                                       <label style="width: 50px;">Number</label>
+                                    <div class="d-flex">
+                                       <label style="width: 50px;">Phone</label>
                                        <p class="mx-3">:</p>
                                        <p><?= $order['number']; ?></p>
                                     </div>
-                                    <div class="d-flex mb-3">
+                                    <div class="d-flex">
                                        <label style="width: 50px;">Email</label>
                                        <p class="mx-3">:</p>
                                        <p><?= $order['email']; ?></p>
                                     </div>
-                                    <div class="d-flex mb-3">
+                                    <div class="d-flex">
                                        <label style="width: 50px;">Address</label>
                                        <p class="mx-3">:</p>
                                        <p><?= $order['address']; ?></p>
                                     </div>
-                                    <div class="d-flex mb-3">
+                                    <div class="d-flex">
                                        <label style="width: 50px;">Price</label>
                                        <p class="mx-3">:</p>
                                        <p>Rp <?= number_format($order['total_price'], 0, ',', '.'); ?></p>
                                     </div>
-                                    <div class="d-flex mb-3">
+                                    <div class="d-flex">
                                        <label style="width: 50px;">Method</label>
                                        <p class="mx-3">:</p>
                                        <p><?= $order['method']; ?></p>
                                     </div>
-                                    <div class="d-flex mb-3">
+                                    <div class="d-flex">
                                        <label style="width: 50px;">Status</label>
                                        <p class="mx-3">:</p>
                                        <span
                                           style="color:<?php if($order['payment_status'] == 'Pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $order['payment_status']; ?>
                                        </span>
-                                    </div>
-                                    <div class="flex-btn">
-                                       <input type="submit" value="Update" class="btn btn-success" name="update">
                                     </div>
                                  </form>
                               </div>
