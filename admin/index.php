@@ -56,7 +56,6 @@
    <section class="form-container">
       <form action="" method="POST">
          <h3>LOGIN <span>NOW</span></h3>
-         <p>default username = <span>admin</span> & password = <span>111</span></p>
          <div class="mb-3">
             <label class="form-label">Username</label>
             <input type="text" name="name" required placeholder="Enter username" class="form-control">

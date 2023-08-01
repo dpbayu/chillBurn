@@ -51,25 +51,43 @@
          </div>
       </div>
    </div>
+   <!-- Contact Start  -->
    <div class="container">
-      <!-- Contact Start  -->
       <section class="contact">
          <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
+               <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5974692962263!2d106.7297888757804!3d-6.184591160598543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f77a2c923f9b%3A0x93729a82ec90bf04!2sPermata%20Puri%20Media!5e0!3m2!1sid!2sid!4v1690879701690!5m2!1sid!2sid"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-6">
                <form action="" method="POST">
-                  <h3 class="text-white">TELL US <span>SOMETHING!</span></h3>
-                  <input type="text" class="form-control mb-3" name="name" placeholder="Enter name" required>
-                  <input type="number" class="form-control mb-3" name="number" placeholder="Enter number" maxlength="12" required>
-                  <input type="email" class="form-control mb-3" name="email" placeholder="Enter email" required>
-                  <textarea name="msg" class="form-control mb-3" required placeholder="Enter message" maxlength="500"
-                     cols="20" rows="10"></textarea>
+                  <h3 class="text-white text-center">TELL US <span>SOMETHING!</span></h3>
+                  <div class="mb-3">
+                     <label class="form-label text-white">Name</label>
+                     <input type="text" class="form-control" name="name" placeholder="Enter name" required>
+                  </div>
+                  <div class="mb-3">
+                     <label class="form-label text-white">Number</label>
+                     <input type="number" class="form-control" name="number" placeholder="Enter number" maxlength="12"
+                        required>
+                  </div>
+                  <div class="mb-3">
+                     <label class="form-label text-white">Email</label>
+                     <input type="email" class="form-control" name="email" placeholder="Enter email" required>
+                  </div>
+                  <div class="mb-3">
+                     <label class="form-label text-white">Message</label>
+                     <textarea name="msg" class="form-control" required placeholder="Enter message" maxlength="500"
+                        cols="15" rows="10"></textarea>
+                  </div>
                   <input type="submit" value="Send Message" name="send" class="btn">
                </form>
             </div>
          </div>
       </section>
-      <!-- Contact End -->
    </div>
+   <!-- Contact End -->
    <!-- Footer Start  -->
    <?php include 'partials/footer.php'; ?>
    <!-- Footer End -->
