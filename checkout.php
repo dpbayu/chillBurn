@@ -93,7 +93,7 @@
                <a href="cart.php" class="btn">View Cart</a>
             </div>
             <input type="hidden" name="total_products" value="<?= $total_products; ?>">
-            <input type="hidden" name="total_price" value="<?= $grand_total; ?>" value="">
+            <input type="hidden" name="total_price" value="<?= $grand_total; ?>">
             <input type="hidden" name="name" value="<?= $user['name'] ?>">
             <input type="hidden" name="number" value="<?= $user['number'] ?>">
             <input type="hidden" name="email" value="<?= $user['email'] ?>">
