@@ -38,8 +38,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-</html>
 <!-- Head Start -->
 <?php include 'partials/head.php'; ?>
 <!-- Head End -->
