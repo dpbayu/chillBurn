@@ -89,7 +89,7 @@
          <div class="col-md-12">
             <div class="row">
                <div class="col-md-6">
-                  <img src="assets/img/image-1.png">
+                  <img src="assets/img/Image-1.png">
                </div>
                <div class="col-md-6">
                   <div class="content">
