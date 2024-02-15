@@ -54,59 +54,30 @@
       </div>
    </div>
    <!-- Hero End -->
+   <!-- Overview Start -->
+   <section class="overview">
+      <div class="col-md-12">
+         <div class="row m-0 p-0">
+            <div class="col-md-6 p-0">
+               <img src="assets/img/img-history.png">
+            </div>
+            <div class="col-md-6">
+               <div class="content">
+                  <div class="title">Our History</div>
+                  <div class="subtitle">Introduction in <span>Chill & Burn</span></div>
+                  <p>Coffee Shop Chill&Burn is a trendy and vibrant coffee shop that aims to create a welcoming and
+                     relaxed atmosphere for coffee enthusiasts and those looking to unwind. Our coffee shop is
+                     designed to be a perfect blend of a cozy space for chilling out and a hub for coffee lovers who
+                     seek the perfect brew.</p>
+                  <p>At Chill&Burn, we take pride in our exceptional coffee, diverse menu, and
+                     commitment to creating memorable experiences for our customers.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- Overview End -->
    <div class="container">
-      <!-- Section 1 Start -->
-      <section class="section-1">
-         <div class="container">
-            <div class="box-container">
-               <div class="box">
-                  <img src="assets/img/img-1.png">
-                  <div class="text">
-                     <p>01</p>
-                     <h5>Fun hangout</h5>
-                  </div>
-               </div>
-               <div class="box">
-                  <img src="assets/img/img-2.png">
-                  <div class="text">
-                     <p>02</p>
-                     <h5>Comfortable place to be alone</h5>
-                  </div>
-               </div>
-               <div class="box">
-                  <img src="assets/img/img-3.png">
-                  <div class="text">
-                     <p>03</p>
-                     <h5>Can also be used for meetings</h5>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Section 1 End -->
-      <!-- Section 2 Start -->
-      <section class="section-2">
-         <div class="col-md-12">
-            <div class="row">
-               <div class="col-md-6">
-                  <img src="assets/img/Image-1.png">
-               </div>
-               <div class="col-md-6">
-                  <div class="content">
-                     <h3>Our History</h3>
-                     <h4>Introduction in <span>Chill & Burn</span></h4>
-                     <p>Coffee Shop Chill&Burn is a trendy and vibrant coffee shop that aims to create a welcoming and
-                        relaxed atmosphere for coffee enthusiasts and those looking to unwind. Our coffee shop is
-                        designed to be a perfect blend of a cozy space for chilling out and a hub for coffee lovers who
-                        seek the perfect brew.</p>
-                     <p>At Chill&Burn, we take pride in our exceptional coffee, diverse menu, and
-                        commitment to creating memorable experiences for our customers.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Section 2 End -->
       <!-- Category Start -->
       <section class="category">
          <h1 class="title">POPULAR <span>MENU</span></h1>
@@ -363,12 +334,13 @@
    <!-- Subscribe Start -->
    <div class="subscribe">
       <div class="content">
-         <h1 class="title text-white">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
-         <p>ENTER YOUR EMAIL</p>
-         <form action="">
-            <input type="text" placeholder="Your Email">
-         </form>
-         <button class="btn" type="submit">Subscribe</button>
+         <h1 class="title">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
+            <form action="" method="">
+               <input type="text" placeholder="Your email">
+               <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+               </button>
+            </form>
       </div>
    </div>
    <!-- Subscribe End -->

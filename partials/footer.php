@@ -20,10 +20,10 @@
             </div>
          </div>
          <div class="social-media">
-            <a href=""><i class="fas fa-brands fa-instagram me-3"></i></a>
-            <a href=""><i class="fas fa-brands fa-square-facebook me-3"></i></a>
-            <a href=""><i class="fas fa-brands fa-square-twitter me-3"></i></a>
-            <a href=""><i class="fas fa-brands fa-snapchat me-3"></i></a>
+            <a href=""><i class="fas fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fas fa-brands fa-square-facebook"></i></a>
+            <a href=""><i class="fas fa-brands fa-square-twitter"></i></a>
+            <a href=""><i class="fas fa-brands fa-snapchat"></i></a>
          </div>
       </div>
    </div>

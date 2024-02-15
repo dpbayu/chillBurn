@@ -1,14 +1,7 @@
-@media (min-width:1441px) {
-    /* .hero {
-        height: fit-content;
-    } */
-    /* .hero .content {
-        top: 15%;
-        height: 0;
-    } */
-}
-
 @media (max-width: 1440px) {
+    .container {
+        width: 100%;
+    }
 }
 
 @media (max-width: 1024px) {

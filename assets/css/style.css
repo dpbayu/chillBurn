@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
 
 :root {
-   --primary: #F48922;
+   --primary: #f48922;
    --secondary: #563222;
-   --black: #222;
-   --background: #1b1b1b;
-   --white: #fff;
-   --light-color: #777;
-   --border: 1px solid var(--black);
+   --dark-2: #1b1b1b;
+   --dark-1: #111111;
+   --white: #ffffff;
+   --light-color: #777777;
+   --border: 1px solid var(--light-color);
+   --text: #fde7d3;
 }
 
 * {
@@ -19,7 +20,7 @@
 
 *::selection {
    background-color: var(--primary);
-   color: var(--black);
+   color: var(--dark-2);
 }
 
 ::-webkit-scrollbar {
@@ -28,7 +29,7 @@
 }
 
 ::-webkit-scrollbar-track {
-   background-color: var(--black);
+   background-color: var(--dark-2);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -42,7 +43,7 @@ html {
 }
 
 body {
-   background-color: var(--background);
+   background-color: var(--dark-1);
    overflow-x: hidden;
 }
 
@@ -72,14 +73,13 @@ span {
 
 .title {
    text-align: center;
-   margin: 20px 0;
-   color: var(--white);
-   text-decoration: underline;
-   text-underline-offset: 10px;
+   font-weight: 800;
+   /* text-decoration: underline;
+   text-underline-offset: 10px; */
 }
 
-.title span {
-   color: var(--primary);
+.subtitle {
+   font-weight: 700;
 }
 
 .heading {
@@ -96,7 +96,7 @@ span {
 }
 
 .heading p {
-   font-size: 24px;
+   font-size: 16px;
    text-align: center;
 }
 
@@ -111,15 +111,13 @@ span {
 
 .btn,
 .delete-btn {
-   border-radius: 50px;
-   padding: 10px 40px;
    cursor: pointer;
    transition: .2s linear;
 }
 
 .btn {
    background-color: var(--primary);
-   color: var(--black);
+   color: var(--dark-2);
 }
 
 .delete-btn {
@@ -153,7 +151,7 @@ span {
 
 .message span {
    font-size: 24px;
-   color: var(--black);
+   color: var(--dark-2);
 }
 
 .message i {
@@ -163,7 +161,7 @@ span {
 }
 
 .message i:hover {
-   color: var(--black);
+   color: var(--dark-2);
 }
 
 .empty {
@@ -182,7 +180,7 @@ span {
 
 /* Nav Start */
 nav {
-   background-color: var(--black);
+   background-color: var(--dark-2);
 }
 
 nav .nav-link {
@@ -223,7 +221,7 @@ nav .navbar-toggler {
 }
 
 nav .profile {
-   background-color: var(--black);
+   background-color: var(--dark-2);
    border-radius: 12px;
    padding: 25px;
    text-align: center;
@@ -320,94 +318,63 @@ nav .profile .name {
 
 /* Hero End */
 
-/* Section 1 Start */
-.section-1 {
-   margin: 50px 0;
-}
-
-.section-1 .box-container {
-   width: 100%;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-evenly;
-   color: var(--white);
-}
-
-.section-1 .box-container .box {
-   position: relative;
-}
-
-.section-1 .box-container .box img {
-   width: 100%;
-   height: 250px;
-   object-fit: cover;
-   border-radius: 10px;
-}
-
-.section-1 .box-container .box .text {
-   padding: 32px;
-   position: absolute;
-   top: 0;
-   left: 0;
-}
-
-.section-1 .box-container .box .text p {
-   color: var(--primary);
-}
-
-.section-1 .box-container .box:hover img {
-   filter: grayscale(.7);
-}
-
-/* Section 1 End */
-
-/* Section 2 Start */
-.section-2 {
+/* Overview Start */
+.overview {
    margin: 50px 0;
    display: flex;
    width: 100%;
-   background-color: var(--black);
-   border-radius: 10px;
+   background-color: var(--dark-2);
 }
 
-.section-2 img {
+.overview img {
    object-fit: cover;
    width: 100%;
    height: 100%;
-   border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
 }
 
-.section-2 .content {
-   color: var(--white);
+.overview .content {
+   color: var(--text);
    display: flex;
    flex-direction: column;
    justify-content: center;
-   padding: 75px;
    width: 100%;
+   padding: 25px;
+   gap: 20px;
 }
 
-.section-2 .content h3 {
+.overview .content .title {
+   text-align: start;
+   font-size: 39px;
+}
+
+.overview .content .subtitle {
+   font-size: 25px;
+   width: 215px;
+}
+
+.overview .content .subtitle span {
    color: var(--primary);
 }
 
-.section-2 .content h4 {
-   width: 215px;
-   margin: 20px 0;
-}
-
-/* Section 2 End */
+/* Overview End */
 
 /* Category Start */
 .category {
    margin: 50px 0;
 }
 
+.category .title {
+   color: var(--text);
+   text-decoration: underline;
+   text-underline-offset: 20px;
+}
+
 .category ul {
+   color: var(--text);
    display: flex;
    width: 100%;
    justify-content: center;
-   gap: 20px;
+   gap: 100px;
    margin: 50px 0 0;
 }
 
@@ -418,6 +385,7 @@ nav .profile .name {
 .category ul li a {
    text-decoration: none;
    color: var(--white);
+   font-size: 20px;
 }
 
 .category ul li a.active {
@@ -442,25 +410,26 @@ nav .profile .name {
 
 .category .box-container .box .box-content {
    position: relative;
-   padding: 10px;
-   background-color: var(--black);
+   padding: 12px;
+   background-color: var(--dark-2);
    width: 95%;
    color: var(--white);
+   height: 100%;
 }
 
 .category .box-container .box .box-content img {
    position: absolute;
-   top: -7px;
+   top: 0;
    right: -45px;
-   height: 130px;
-   width: 130px;
+   height: 145px;
+   width: 145px;
    border-radius: 50%;
    object-fit: cover;
 }
 
 .category .box-container .box .box-content .text {
    width: 250px;
-   height: 100px;
+   height: 100%;
 }
 
 .category .box-container .box .box-content .text p {
@@ -546,7 +515,7 @@ nav .profile .name {
    background-color: var(--primary);
    cursor: pointer;
    font-size: 16px;
-   color: var(--black);
+   color: var(--dark-2);
    transition: .2s linear;
    text-align: center;
    text-decoration: none;
@@ -623,7 +592,7 @@ nav .profile .name {
    padding: 10px;
    font-size: 16px;
    color: var(--white);
-   background-color: var(--black);
+   background-color: var(--dark-2);
    border-radius: 6px;
 }
 
@@ -631,7 +600,7 @@ nav .profile .name {
    width: 32px;
    height: 32px;
    background-color: var(--primary);
-   color: var(--black);
+   color: var(--dark-2);
    cursor: pointer;
    font-size: 18px;
    border-radius: 6px;
@@ -660,7 +629,7 @@ nav .profile .name {
 }
 
 .menu .box-container .box .fa-times:hover {
-   background-color: var(--black);
+   background-color: var(--dark-2);
    color: var(--white);
 }
 
@@ -999,7 +968,7 @@ nav .profile .name {
 
 /* Subscribe Start */
 .subscribe {
-   background: url(../img/subscribe.png);
+   background: url(../img/bg-subscribe.png);
    background-repeat: no-repeat;
    background-size: cover;
    height: 500px;
@@ -1011,29 +980,46 @@ nav .profile .name {
 }
 
 .subscribe .content {
-   width: 75%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
-.subscribe .content p {
-   font-size: 24px;
-   color: var(--white);
-}
-
-.subscribe .content form {
    width: 50%;
    display: flex;
-   align-items: center;
    flex-direction: column;
-   margin: 20px;
+   align-items: center;
 }
 
-.subscribe .content form input {
+.subscribe .content h1 {
+   font-size: 39px;
+   color: var(--text);
+}
+
+.subscribe form {
    width: 75%;
-   border-radius: 50px;
-   padding: 12px;
+   display: flex;
+   height: 45px;
+}
+
+.subscribe input {
+   width: 100%;
+   border: none;
+   padding: 10px;
+   height: 100%;
+   background-color: var(--text);
+}
+
+.subscribe input:focus {
+   color: var(--primary);
+   border: 1px solid var(--primary);
+   outline: none;
+}
+
+.subscribe .searchButton {
+   width: 75px;
+   height: 100%;
+   border: 1px solid var(--primary);
+   background: var(--primary);
+   text-align: center;
+   color: var(--text);
+   cursor: pointer;
+   font-size: 20px;
 }
 
 /* Subscribe End */
@@ -1068,14 +1054,14 @@ nav .profile .name {
 
 .contact .row form h3 {
    font-size: 40px;
-   color: var(--black);
+   color: var(--dark-2);
    margin-bottom: 16px;
 }
 
 .contact .row form .box {
    margin: 10px 0;
    font-size: 28px;
-   color: var(--black);
+   color: var(--dark-2);
    border: var(--border);
    padding: 22px;
    width: 100%;
@@ -1092,7 +1078,7 @@ nav .profile .name {
 .simple-hero {
    position: relative;
    height: 30vh;
-   background-color: var(--black);
+   background-color: var(--dark-2);
    background-size: cover;
 }
 
@@ -1113,14 +1099,14 @@ nav .profile .name {
    width: 100%;
    padding: 10px;
    font-size: 20px;
-   color: var(--black);
+   color: var(--dark-2);
    border-top-left-radius: 10px;
    border-bottom-left-radius: 10px;
 }
 
 .search-form form .fa-search {
    width: fit-content;
-   background-color: var(--black);
+   background-color: var(--dark-2);
    color: var(--white);
    cursor: pointer;
    font-size: 21px;
@@ -1131,7 +1117,7 @@ nav .profile .name {
 
 .search-form form .fa-search:hover {
    background-color: var(--primary);
-   color: var(--black);
+   color: var(--dark-2);
 }
 
 /* Search End */
@@ -1150,7 +1136,7 @@ nav .profile .name {
 }
 
 .checkout form .cart-items {
-   background-color: var(--black);
+   background-color: var(--dark-2);
    padding: 20px;
    padding-top: 0;
 }
@@ -1309,24 +1295,25 @@ nav .profile .name {
 
 /* Footer */
 .footer {
-   background-color: var(--black);
+   background-color: var(--dark-2);
    width: 100vw;
 }
 
 .footer .box-container {
    padding-bottom: 10px;
-   border-bottom: 2px solid var(--primary);
+   border-bottom: 1px solid var(--light-color);
 }
 
 .footer .social-media {
    width: 100%;
    justify-content: end;
    display: flex;
-   font-size: 18px;
+   font-size: 16px;
+   gap: 20px;
 }
 
 .footer .social-media a {
-   color: var(--light-color);
+   color: var(--text);
 }
 
 .footer .social-media a:hover {
@@ -1336,11 +1323,11 @@ nav .profile .name {
 .footer .grid {
    display: flex;
    flex-wrap: wrap;
+   gap: 100px;
 }
 
 .footer .grid .box {
-   border: var(--border);
-   padding: 25px;
+   padding: 25px 0;
    height: 100%;
 }
 
@@ -1354,7 +1341,7 @@ nav .profile .name {
 
 .footer .grid .box h3 {
    font-weight: 700;
-   font-size: 18px;
+   font-size: 25px;
    margin: 10px 0;
    color: var(--primary);
 }
@@ -1362,8 +1349,8 @@ nav .profile .name {
 .footer .grid .box p,
 .footer .grid .box a {
    display: block;
-   font-size: 14px;
-   color: var(--light-color);
+   font-size: 12px;
+   color: var(--text);
    margin: 0;
    padding: 0;
    text-decoration: none;
@@ -1385,7 +1372,7 @@ nav .profile .name {
 }
 
 .footer .flex .navbar a {
-   font-size: 20px;
+   font-size: 16px;
    margin: 0 10px;
    text-decoration: none;
 }
@@ -1399,8 +1386,9 @@ nav .profile .name {
 .credit {
    padding: 25px;
    text-align: center;
-   background-color: var(--black);
+   background-color: var(--dark-2);
    color: var(--light-color);
+   font-size: 12px;
 }
 
 .credit span {
