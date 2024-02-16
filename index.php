@@ -302,12 +302,12 @@
       </section>
       <!-- Product End -->
       <!-- Blog Start -->
-      <!-- <section class="blog">
+      <section class="blog">
          <div class="container">
             <div class="grid-container">
                <div class="grid-item item1">
                   <div class="content">
-                     <h1 class="title">read our <span>blog</span></h1>
+                     <h1 class="title">READ OUR <span>BLOG</span></h1>
                      <p>Contains hot news from various regions about coffee and for coffee lovers</p>
                      <div class="more-btn">
                         <a href="menu.php" class="btn">View All</a>
@@ -316,25 +316,28 @@
                </div>
                <div class="grid-item item2">
                   <img src="assets/img/blog/blog 1.png" alt="">
-                  <h3>WHEN THE BEST TIME TO tea COFFEE</h3>
+                  <h3>WHEN THE BEST TIME TO DRINK COFFEE ?</h3>
+                  <div class="line"></div>
                </div>
                <div class="grid-item item3">
                   <img src="assets/img/blog/blog 2.png" alt="">
                   <h3>HOW TO MAKE DELICIOUS COFFEE AT HOME ?</h3>
+                  <div class="line"></div>
                </div>
                <div class="grid-item item4">
                   <img src="assets/img/blog/blog 3.png" alt="">
-                  <h3>IS IT HEALTHY TO tea TEA ?</h3>
+                  <h3>IS IT HEALTHY TO DRINK TEA ?</h3>
+                  <div class="line"></div>
                </div>
             </div>
          </div>
-      </section> -->
+      </section>
       <!-- Blog End -->
    </div>
    <!-- Subscribe Start -->
    <section id="subscribe">
-      <div class="subscribe">
-         <div class="content">
+      <div class="subscribe"></div>
+      <div class="content">
             <h1 class="title">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
                <form action="" method="">
                   <input type="text" placeholder="Your email">
@@ -343,7 +346,6 @@
                   </button>
                </form>
          </div>
-      </div>
    </section>
    <!-- Subscribe End -->
    <!-- Footer Start -->
