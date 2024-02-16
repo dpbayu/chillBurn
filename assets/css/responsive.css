@@ -1,7 +1,16 @@
-@media (max-width: 1440px) {
-    .container {
-        width: 100%;
+@media (min-width: 1441px) {
+    .overview {
+        max-width: 1200px;
     }
+    .subscribe {
+        max-width: 1200px;
+    }
+    footer {
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 1440px) {
 }
 
 @media (max-width: 1024px) {

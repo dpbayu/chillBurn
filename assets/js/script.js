@@ -21,3 +21,23 @@ document.querySelectorAll('input[type="number"]').forEach(numberInput => {
       if (numberInput.value.length > numberInput.maxLength) numberInput.value = numberInput.value.slice(0, numberInput.maxLength);
    };
 });
+
+// Responsive
+// $(function () {
+//    $(window).resize(function () {
+//       if (window.matchMedia('(min-width: 1441px)')) {
+//          $('#overview').addClass('container');
+//       } else {
+//          $('#overview').removeClass('container');
+//       }
+//    });
+// });
+// $(function () {
+//    $(window).resize(function () {
+//       if (window.matchMedia('(min-width: 1441px)')) {
+//          $('#subscribe').addClass('container');
+//       } else {
+//          $('#subscribe').removeClass('container');
+//       }
+//    });
+// });

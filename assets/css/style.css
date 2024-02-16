@@ -48,7 +48,7 @@ body {
 }
 
 section {
-   margin: 20px auto;
+   margin: 0 auto;
 }
 
 span {
@@ -320,10 +320,10 @@ nav .profile .name {
 
 /* Overview Start */
 .overview {
-   margin: 50px 0;
-   display: flex;
+   margin: 50px auto;
    width: 100%;
    background-color: var(--dark-2);
+   display: flex;
 }
 
 .overview img {
@@ -992,6 +992,7 @@ nav .profile .name {
 
 /* Subscribe Start */
 .subscribe {
+   margin: 50px auto 0;
    background: url(../img/bg-subscribe.png);
    background-repeat: no-repeat;
    background-size: cover;
@@ -1320,7 +1321,8 @@ nav .profile .name {
 /* Footer */
 .footer {
    background-color: var(--dark-2);
-   width: 100vw;
+   width: 100%;
+   margin: 0 auto;
 }
 
 .footer .box-container {

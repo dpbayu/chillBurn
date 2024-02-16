@@ -55,7 +55,7 @@
    </div>
    <!-- Hero End -->
    <!-- Overview Start -->
-   <section class="overview">
+   <section class="overview" id="overview">
       <div class="col-md-12">
          <div class="row m-0 p-0">
             <div class="col-md-6 p-0">
@@ -332,17 +332,19 @@
       <!-- Blog End -->
    </div>
    <!-- Subscribe Start -->
-   <div class="subscribe">
-      <div class="content">
-         <h1 class="title">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
-            <form action="" method="">
-               <input type="text" placeholder="Your email">
-               <button type="submit" class="send">
-                  <i class="fa fa-send"></i>
-               </button>
-            </form>
+   <section id="subscribe">
+      <div class="subscribe">
+         <div class="content">
+            <h1 class="title">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
+               <form action="" method="">
+                  <input type="text" placeholder="Your email">
+                  <button type="submit" class="send">
+                     <i class="fa fa-send"></i>
+                  </button>
+               </form>
+         </div>
       </div>
-   </div>
+   </section>
    <!-- Subscribe End -->
    <!-- Footer Start -->
    <?php include 'partials/footer.php'; ?>
