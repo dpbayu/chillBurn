@@ -113,7 +113,7 @@
                            <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name'] ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h6><?= $product['name']; ?></h6>
+                              <div class="name"><?= $product['name']; ?></div>
                               <p>Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
@@ -152,7 +152,7 @@
                            <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name']; ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h6><?= $product['name']; ?></h6>
+                              <div class="name"><?= $product['name']; ?></div>
                               <p>Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
@@ -191,7 +191,7 @@
                            <img src="assets/img/menu/<?= $product['image']; ?>" alt="<?= $product['name']; ?>"
                               height="200" width="200">
                            <div class="text">
-                              <h6><?= $product['name']; ?></h6>
+                              <div class="name"><?= $product['name']; ?></div>
                               <p>Rp <span><?= number_format($product['price'], 0, ',', '.'); ?></span></p>
                               <div class="quantity">
                                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
@@ -219,7 +219,7 @@
       <!-- Product Start -->
       <section class="menu my-5">
          <div class="container">
-            <h1 class="title">PRODUCT OF THE <span>WEEK</span></h1>
+            <h1 class="title">MENU OF THE <span>WEEK</span></h1>
             <div class="box-container">
                <?php
                $sql_product = "SELECT * FROM tbl_product ORDER BY id DESC LIMIT 3";
@@ -337,8 +337,8 @@
          <h1 class="title">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
             <form action="" method="">
                <input type="text" placeholder="Your email">
-               <button type="submit" class="searchButton">
-                  <i class="fa fa-search"></i>
+               <button type="submit" class="send">
+                  <i class="fa fa-send"></i>
                </button>
             </form>
       </div>

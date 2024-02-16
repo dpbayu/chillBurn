@@ -365,12 +365,9 @@ nav .profile .name {
 
 .category .title {
    color: var(--text);
-   text-decoration: underline;
-   text-underline-offset: 20px;
 }
 
 .category ul {
-   color: var(--text);
    display: flex;
    width: 100%;
    justify-content: center;
@@ -384,13 +381,12 @@ nav .profile .name {
 
 .category ul li a {
    text-decoration: none;
-   color: var(--white);
+   color: var(--text);
    font-size: 20px;
 }
 
 .category ul li a.active {
    color: var(--primary);
-   font-weight: 600;
 }
 
 .category .content .box-container {
@@ -405,22 +401,33 @@ nav .profile .name {
    border-top: 1px solid var(--primary);
    border-left: 1px solid var(--primary);
    border-bottom: 1px solid var(--primary);
-   padding: 20px;
+   padding: 12px;
+}
+
+.category .content .box-container .box:hover {
+   border-top: 1px solid var(--text);
+   border-left: 1px solid var(--text);
+   border-bottom: 1px solid var(--text);
+}
+
+.category .box-container .box .box-content:hover {
+   background-color: var(--text);
+   color: var(--primary);
 }
 
 .category .box-container .box .box-content {
    position: relative;
-   padding: 12px;
+   padding: 16px;
    background-color: var(--dark-2);
-   width: 95%;
-   color: var(--white);
+   width: 90%;
+   color: var(--text);
    height: 100%;
 }
 
 .category .box-container .box .box-content img {
    position: absolute;
    top: 0;
-   right: -45px;
+   right: -70px;
    height: 145px;
    width: 145px;
    border-radius: 50%;
@@ -432,13 +439,19 @@ nav .profile .name {
    height: 100%;
 }
 
+.category .box-container .box .box-content .text .name {
+   font-size: 18px;
+   width: 75%;
+   font-weight: 800;
+}
 .category .box-container .box .box-content .text p {
    color: var(--light-color);
-   font-size: 18px;
+   font-size: 16px;
 }
 
 .category .box-container .box .box-content .text p span {
-   font-size: 24px;
+   font-size: 20px;
+   font-weight: 600;
 }
 
 .category .box-container .box .box-content .text .quantity {
@@ -490,6 +503,10 @@ nav .profile .name {
    margin: 25px 0;
 }
 
+.menu .title {
+   color: var(--text);
+}
+
 .menu .box-container {
    display: flex;
    justify-content: center;
@@ -503,7 +520,14 @@ nav .profile .name {
    position: relative;
    overflow: hidden;
    height: fit-content;
+   color: var(--text);
 }
+
+.menu .box-container .box:hover {
+   border: 1px solid var(--text);
+   background-color: var(--text);
+   color: var(--primary);
+} 
 
 .menu .box-container .box .fa-eye,
 .menu .box-container .box .fa-shopping-cart {
@@ -515,11 +539,10 @@ nav .profile .name {
    background-color: var(--primary);
    cursor: pointer;
    font-size: 16px;
-   color: var(--dark-2);
+   color: var(--text);
    transition: .2s linear;
    text-align: center;
    text-decoration: none;
-   border-radius: 6px;
    border: none;
 }
 
@@ -567,7 +590,7 @@ nav .profile .name {
 
 .menu .box-container .box .content .name {
    font-size: 18px;
-   color: var(--white);
+   font-weight: 500;
    margin: 10px 0;
 }
 
@@ -585,12 +608,13 @@ nav .profile .name {
 }
 
 .menu .box-container .box .content .flex .price span {
-   font-size: 24px;
+   font-size: 20px;
+   font-weight: 700;
 }
 
 .menu .box-container .box .content .flex .qty {
    padding: 10px;
-   font-size: 16px;
+   font-size: 12px;
    color: var(--white);
    background-color: var(--dark-2);
    border-radius: 6px;
@@ -1011,7 +1035,7 @@ nav .profile .name {
    outline: none;
 }
 
-.subscribe .searchButton {
+.subscribe .send {
    width: 75px;
    height: 100%;
    border: 1px solid var(--primary);
