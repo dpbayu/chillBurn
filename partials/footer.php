@@ -26,8 +26,6 @@
             <a href=""><i class="fas fa-brands fa-snapchat"></i></a>
          </div>
       </div>
-   </div>
-   <div class="container">
       <div class="flex">
          <a href="index.php"><img src="assets/img/Logo.png" alt="logo" width="100"></a>
          <nav class="navbar">
