@@ -20,35 +20,34 @@
 
 <body>
    <!-- Loader Start -->
-   <div class="loader">
+   <!-- <div class="loader">
       <img src="assets/img/loader.gif">
-   </div>
+   </div> -->
    <!-- Loader End -->
    <!-- Header Start -->
    <?php require 'partials/header.php'; ?>
    <!-- Header End -->
    <!-- Hero Start -->
-   <div class="hero">
+   <div class="hero"></div>
+   <div class="hero-content">
       <div class="container">
-         <div class="content">
-            <div class="box-1">
-               <h2>START THE MORNING <span>WITH A COFFEE</span></h2>
-               <p>A place to experience the delights of modern coffee art! It offers its guest scrumption dessert,
-                  tasty coffee and, of course, warmth</p>
-               <div class="more-btn">
-                  <a href="menu.php" class="btn"><i class="fas fa-shopping-cart me-3"></i>Orders</a>
-               </div>
+         <div class="box-1">
+            <h2>START THE MORNING <span>WITH A COFFEE</span></h2>
+            <p>A place to experience the delights of modern coffee art! It offers its guest scrumption dessert,
+               tasty coffee and, of course, warmth</p>
+            <div class="more-btn">
+               <a href="menu.php" class="btn"><i class="fas fa-shopping-cart me-3"></i>Orders</a>
             </div>
-            <div class="box-2">
-               <div class="social-media">
-                  <i class="fas fa-brands fa-instagram me-3"></i>
-                  <i class="fas fa-brands fa-square-facebook me-3"></i>
-                  <i class="fas fa-brands fa-square-twitter me-3"></i>
-               </div>
-               <div class="download">
-                  <a href="menu.php" class="btn"><i class="fas fa-brands fa-apple me-3"></i>Apple</a>
-                  <a href="menu.php" class="btn"><i class="fas fa-brands fa-android me-3"></i>Play Store</a>
-               </div>
+         </div>
+         <div class="box-2">
+            <div class="social-media">
+               <i class="fas fa-brands fa-instagram me-3"></i>
+               <i class="fas fa-brands fa-square-facebook me-3"></i>
+               <i class="fas fa-brands fa-square-twitter me-3"></i>
+            </div>
+            <div class="download">
+               <a href="menu.php" class=" btn btn-secondary"><i class="fas fa-brands fa-apple me-3"></i>Apple</a>
+               <a href="menu.php" class=" btn btn-secondary"><i class="fas fa-brands fa-android me-3"></i>Play Store</a>
             </div>
          </div>
       </div>
@@ -338,14 +337,14 @@
    <section id="subscribe">
       <div class="subscribe"></div>
       <div class="content">
-            <h1 class="title">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
-               <form action="" method="">
-                  <input type="text" placeholder="Your email">
-                  <button type="submit" class="send">
-                     <i class="fa fa-send"></i>
-                  </button>
-               </form>
-         </div>
+         <h1 class="title">SUBSCRIBE TO OUR NEWSLETTER AND <span>YOUTUBE</span></h1>
+         <form action="" method="">
+            <input type="text" placeholder="Your email">
+            <button type="submit" class="send">
+               <i class="fa fa-send"></i>
+            </button>
+         </form>
+      </div>
    </section>
    <!-- Subscribe End -->
    <!-- Footer Start -->

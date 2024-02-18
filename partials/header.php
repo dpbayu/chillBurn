@@ -12,13 +12,13 @@
     }
 ?>
 <!-- PHP -->
-<!-- Nav Start -->
-<nav class="navbar navbar-expand-lg bg-transparent">
-    <div class="container position-relative">
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
         <a href="index.php"><img src="assets/img/Logo.png" alt="logo" width="75"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler bg-dark rounded-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -38,7 +38,7 @@
                     <a class="nav-link <?php if ($page == 'contact') {echo 'active';} ?>" href="contact.php">Contact</a>
                 </li>
             </ul>
-            <div class="d-flex">
+            <div class="d-flex position-relative">
                 <div class="icons">
                     <?php
                         $sql_cart = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
@@ -76,4 +76,5 @@
         </div>
     </div>
 </nav>
+<!-- Nav Start -->
 <!-- Nav End -->

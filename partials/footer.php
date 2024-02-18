@@ -52,9 +52,39 @@
 </footer>
 <!-- Footer End -->
 <!-- JS Start -->
-<script src="https://kit.fontawesome.com/e4027260b9.js" crossorigin="anonymous"></script>
+<!-- <script src="https://kit.fontawesome.com/e4027260b9.js" crossorigin="anonymous"></script> -->
 <!-- Datables -->
-<script src="assets/libs/dataTables/datatables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-   integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<!-- <script src="assets/libs/dataTables/datatables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+   integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+   integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+</script> -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+   integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+   integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+</script>
+<script src="https://kit.fontawesome.com/e4027260b9.js" crossorigin="anonymous"></script>
+<script>
+   let nav = document.querySelector("nav");
+   window.onscroll = function () {
+      if (document.documentElement.scrollTop > 20) {
+         nav.classList.add("sticky");
+      } else {
+         nav.classList.remove("sticky");
+      }
+   }
+   $(function () {
+      $(window).resize(function () {
+         if (window.matchMedia('(max-width: 1024px)')) {
+            $('#navbarSupportedContent').addClass('show');
+         } else {
+            $('#navbarSupportedContent').removeClass('show');
+         }
+      });
+   });
+</script>
 <!-- JS End -->
