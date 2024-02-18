@@ -223,7 +223,7 @@ nav ul .navbar-nav {
 
 nav .navbar-nav .nav-link {
    color: var(--text);
-   padding: 10px;
+   padding: 10px 20px;
    transition: all 0.4s ease;
    -webkit-transition: all 0.4s ease;
    -moz-transition: all 0.4s ease;
@@ -232,7 +232,7 @@ nav .navbar-nav .nav-link {
 }
 
 nav .navbar-nav .nav-link:hover {
-   color: #6200ff;
+   color: var(--primary);
 }
 
 .show {
@@ -325,8 +325,8 @@ nav .profile .name {
    background-size: cover;
    background-position: center;
    background-attachment: fixed;
-   filter: brightness(0.7);
-   -webkit-filter: brightness(0.7);
+   filter: brightness(0.5);
+   -webkit-filter: brightness(0.5);
 }
 
 .hero-content {
@@ -407,8 +407,8 @@ nav .profile .name {
 
 .overview img {
    object-fit: cover;
-   filter: brightness(0.7);
-   -webkit-filter: brightness(0.7);
+   filter: brightness(0.5);
+   -webkit-filter: brightness(0.5);
    width: 100%;
    height: 100%;
 }
@@ -572,21 +572,67 @@ nav .profile .name {
    height: 100vh;
    background: url('../img/menu-hero.png');
    background-size: cover;
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   filter: brightness(0.5);
+   -webkit-filter: brightness(0.5);
 }
 
-.menu-hero .content {
+.menu-content {
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+   color: var(--text);
+   text-align: center;
+}
+
+.menu-content p {
+   font-size: 18px;
+}
+
+.menu-content p a {
+   color: var(--text);
+   text-decoration: none;
 }
 
 .menu {
-   margin: 25px 0;
+   padding: 50px 0;
+   max-width: 1200px;
 }
 
-.menu .title {
+.menu h1 {
    color: var(--text);
+}
+
+.list-menu {
+   color: var(--text);
+   margin: 0 auto 50px;
+   max-width: 900px;
+}
+
+.list-menu h1 {
+   margin: 0 auto 50px;
+}
+
+.list-menu h3 {
+   text-align: center;
+}
+
+.list-menu .content {
+   background-color: var(--dark-2);
+}
+
+.list-menu .content .menu {
+   z-index: 10;
+   padding: 20px;
+}
+
+.list-menu .content img {
+   object-fit: cover;
+   height: 100%;
+   width: 100%;
 }
 
 .menu .box-container {
@@ -800,8 +846,8 @@ nav .profile .name {
    background-size: cover;
    background-position: center;
    background-attachment: fixed;
-   filter: brightness(0.7);
-   -webkit-filter: brightness(0.7);
+   filter: brightness(0.5);
+   -webkit-filter: brightness(0.5);
 }
 
 .about-content {
@@ -828,10 +874,10 @@ nav .profile .name {
 
 /* About Section 1 Start */
 .about-section1 .grid-container {
-   margin: 25px auto;
+   margin: auto;
    display: grid;
    gap: 10px;
-   padding: 20px;
+   padding: 50px 0;
    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 }
 
@@ -894,11 +940,16 @@ nav .profile .name {
 
 /* Review Start */
 .reviews {
+   padding: 50px 0;
    max-width: 1200px;
 }
 
 .reviews h1 {
    color: var(--text);
+}
+
+.swiper-pointer-events {
+   padding: 10px;
 }
 
 .reviews .slide {
@@ -949,10 +1000,10 @@ nav .profile .name {
 
 /* About Section 2 Start */
 .about-section2 .grid-container {
-   margin: 25px auto;
+   margin: auto;
    display: grid;
    gap: 10px;
-   padding: 20px;
+   padding: 50px;
    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 }
 
@@ -1007,7 +1058,7 @@ nav .profile .name {
 
 /* About Section 3 Start */
 .about-section3 {
-   margin: 25px 0;
+   margin: 50px 0;
 }
 
 .about-section3 img {
@@ -1216,8 +1267,8 @@ nav .profile .name {
    background-size: cover;
    height: 500px;
    width: 100%;
-   filter: brightness(0.7);
-   -webkit-filter: brightness(0.7);
+   filter: brightness(0.5);
+   -webkit-filter: brightness(0.5);
 }
 
 #subscribe .content {

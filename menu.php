@@ -28,18 +28,15 @@
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
-   <div class="menu-hero">
+   <div class="menu-hero"></div>
+   <div class="menu-content">
       <div class="container">
-         <div class="content">
-            <div class="heading">
-               <h3>MENU</h3>
-               <p><a href="index.php">Home</a> <span> / Menu</span></p>
-            </div>
-         </div>
+         <h3>MENU</h3>
+         <p><a class="text-decoration-none" href="index.php">Home</a> <span> / Menu</span></p>
       </div>
    </div>
    <div class="container">
-      <!-- Menu Start  -->
+      <!-- Menu Latest Dishes Start  -->
       <section class="menu">
          <h1 class="title">LATEST <span>DISHES</span></h1>
          <div class="box-container">
@@ -119,11 +116,13 @@
             ?>
          </div>
       </section>
-      <!-- Menu End -->
-      <section class="list-menu my-5 text-white">
+      <!-- Menu Latest Dishes End -->
+      <!-- List Menu Start -->
+      <section class="list-menu">
+      <h1 class="title">OUR <span>MENU</span></h1>
          <div class="col-md-12">
-            <div class="row">
-               <div class="col-md-6 p-3 m-0">
+            <div class="row content">
+               <div class="col-md-6 m-0 menu">
                   <h3>Coffee</h3>
                   <?php
                      $sql_product = "SELECT * FROM tbl_product WHERE category = 'coffee' ORDER BY id DESC LIMIT 10";
@@ -131,31 +130,31 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                         ?>
-                        <div class="d-flex w-100 justify-content-between">
-                           <p><?= $product['name']; ?></p>
-                           <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
-                        </div>
-                     <?php
+                  <div class="d-flex w-100 justify-content-between">
+                     <p><?= $product['name']; ?></p>
+                     <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
+                  </div>
+                  <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
                      }
                   ?>
-                  <div class="d-flex w-100 justify-content-center mb-3">
+                  <div class="d-flex w-100 justify-content-center my-3">
                      <a href="category.php?category=coffee">
                         <button class="btn">View All</button>
                      </a>
                   </div>
                </div>
-               <div class="col-md-6 p-0 m-0">
-                  <img src="assets/img/menu-img1.png" style="width: 100%; height: 535px;">
+               <div class="col-md-6 p-0 m-0 image-menu">
+                  <img src="assets/img/menu-img1.png">
                </div>
             </div>
-            <div class="row">
-               <div class="col-md-6 p-0 m-0">
-                  <img src="assets/img//menu-img2.png" style="width: 100%; height: 535px;">
+            <div class="row content">
+               <div class="col-md-6 p-0 m-0 image-menu">
+                  <img src="assets/img//menu-img2.png">
                </div>
-               <div class="col-md-6 p-3 m-0">
+               <div class="col-md-6 m-0 menu">
                   <h3>Tea</h3>
                   <?php
                      $sql_product = "SELECT * FROM tbl_product WHERE category = 'tea' ORDER BY id DESC LIMIT 10";
@@ -163,25 +162,25 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                         ?>
-                        <div class="d-flex w-100 justify-content-between">
-                           <p><?= $product['name']; ?></p>
-                           <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
-                        </div>
-                     <?php
+                  <div class="d-flex w-100 justify-content-between">
+                     <p><?= $product['name']; ?></p>
+                     <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
+                  </div>
+                  <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
                      }
                   ?>
-                  <div class="d-flex w-100 justify-content-center mb-3">
+                  <div class="d-flex w-100 justify-content-center my-3">
                      <a href="category.php?category=tea">
                         <button class="btn">View All</button>
                      </a>
                   </div>
                </div>
             </div>
-            <div class="row">
-               <div class="col-md-6 p-3 m-0">
+            <div class="row content">
+               <div class="col-md-6 m-0 menu">
                   <h3>Dessert</h3>
                   <?php
                      $sql_product = "SELECT * FROM tbl_product WHERE category = 'dessert' ORDER BY id DESC LIMIT 10";
@@ -189,28 +188,29 @@
                      if (mysqli_num_rows($query_product) > 0) {
                         while ($product = mysqli_fetch_array($query_product)) {
                         ?>
-                        <div class="d-flex w-100 justify-content-between">
-                           <p><?= $product['name']; ?></p>
-                           <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
-                        </div>
-                     <?php
+                  <div class="d-flex w-100 justify-content-between">
+                     <p><?= $product['name']; ?></p>
+                     <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
+                  </div>
+                  <?php
                      }
                      } else {
                         echo '<p class="empty">no products added yet!</p>';
                      }
                   ?>
-                  <div class="d-flex w-100 justify-content-center mb-3">
+                  <div class="d-flex w-100 justify-content-center my-3">
                      <a href="category.php?category=dessert">
                         <button class="btn">View All</button>
                      </a>
                   </div>
                </div>
-               <div class="col-md-6 p-0 m-0">
-                  <img src="assets/img/menu-img3.png" style="width: 100%; height: 535px;">
+               <div class="col-md-6 p-0 m-0 image-menu">
+                  <img src="assets/img/menu-img3.png">
                </div>
             </div>
          </div>
       </section>
+      <!-- List Menu End -->
    </div>
    <!-- Footer Start  -->
    <?php include 'partials/footer.php'; ?>
