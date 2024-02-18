@@ -22,7 +22,7 @@ function loader() {
 }
 
 function fadeOut() {
-   setInterval(loader, 1000);
+   setInterval(loader, 100);
 }
 window.onload = fadeOut;
 document.querySelectorAll('input[type="number"]').forEach(numberInput => {

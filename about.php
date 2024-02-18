@@ -20,22 +20,19 @@
 
 <body>
    <!-- Loader Start -->
-   <div class="loader">
+   <!-- <div class="loader">
       <img src="assets/img/loader.gif">
-   </div>
+   </div> -->
    <!-- Loader End -->
    <!-- Header Start  -->
    <?php include 'partials/header.php'; ?>
    <!-- Header End -->
    <!-- Hero Start -->
-   <div class="about-hero">
+   <div class="about-hero"></div>
+   <div class="about-content">
       <div class="container">
-         <div class="content">
-            <div class="heading">
-               <h3>ABOUT US</h3>
-               <p><a href="index.php">Home</a> <span> / About</span></p>
-            </div>
-         </div>
+         <h3>MENU</h3>
+         <p><a class="text-decoration-none" href="index.php">Home</a> <span> / Menu</span></p>
       </div>
    </div>
    <!-- Hero End -->
@@ -175,7 +172,6 @@
                      coffee really worth enjoying.</p>
                </div>
             </div>
-         </div>
       </section>
       <!-- About End 2 -->
       <!-- About Start 3 -->

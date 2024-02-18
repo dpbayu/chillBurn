@@ -20,9 +20,9 @@
 
 <body>
    <!-- Loader Start -->
-   <!-- <div class="loader">
+   <div class="loader">
       <img src="assets/img/loader.gif">
-   </div> -->
+   </div>
    <!-- Loader End -->
    <!-- Header Start -->
    <?php require 'partials/header.php'; ?>
