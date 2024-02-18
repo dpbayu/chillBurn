@@ -224,6 +224,7 @@ nav ul .navbar-nav {
 
 nav .navbar-nav .nav-link {
    color: var(--text);
+   padding: 10px;
    transition: all 0.4s ease;
    -webkit-transition: all 0.4s ease;
    -moz-transition: all 0.4s ease;
@@ -236,8 +237,7 @@ nav .navbar-nav .nav-link:hover {
 }
 
 .show {
-   background-color: rgb(33, 37, 41);
-   padding: 10px;
+   background-color: var(--dark-1);
    transition: all 0.3s ease;
    -webkit-transition: all 0.3s ease;
    -moz-transition: all 0.3s ease;
@@ -254,8 +254,9 @@ nav .nav-link:hover {
 }
 
 nav .navbar-nav .nav-link.active {
-   color: var(--primary);
+   color: var(--text);
    font-weight: 700;
+   background-color: var(--primary);
 }
 
 nav .icons>* {
