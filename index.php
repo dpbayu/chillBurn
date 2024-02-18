@@ -315,18 +315,24 @@
                </div>
                <div class="grid-item item2">
                   <img src="assets/img/blog/blog 1.png" alt="">
-                  <h3>WHEN THE BEST TIME TO DRINK COFFEE ?</h3>
-                  <div class="line"></div>
+                  <div class="content">
+                     <h3>WHEN THE BEST TIME TO DRINK COFFEE ?</h3>
+                     <div class="line"></div>
+                  </div>
                </div>
                <div class="grid-item item3">
                   <img src="assets/img/blog/blog 2.png" alt="">
-                  <h3>HOW TO MAKE DELICIOUS COFFEE AT HOME ?</h3>
-                  <div class="line"></div>
+                  <div class="content">
+                     <h3>HOW TO MAKE DELICIOUS COFFEE AT HOME ?</h3>
+                     <div class="line"></div>
+                  </div>
                </div>
                <div class="grid-item item4">
                   <img src="assets/img/blog/blog 3.png" alt="">
-                  <h3>IS IT HEALTHY TO DRINK TEA ?</h3>
-                  <div class="line"></div>
+                  <div class="content">
+                     <h3>IS IT HEALTHY TO DRINK TEA ?</h3>
+                     <div class="line"></div>
+                  </div>
                </div>
             </div>
          </div>

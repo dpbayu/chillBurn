@@ -30,6 +30,27 @@
     .about-section2 .row .item3 img {
         width: 100%;
     }
+
+    /* Blog */
+    .blog .grid-item.item2 {
+        grid-column: 4 / span 2;
+    }
+    .blog .grid-item.item2 .content h3 {
+        font-size: 28px;
+    }
+    .blog .grid-item.item3 .content h3 {
+        height: 75px;
+        font-size: 18px;
+    }
+    .blog .grid-item.item4 .content h3 {
+        height: 75px;
+        font-size: 18px;
+    }
+
+    /* Subscribe */
+    #subscribe .content h1 {
+        font-size: 32px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -180,24 +201,35 @@
     .about-section3 img {
         width: 100%;
     }
+
+    /* Category */
+    .category .content .box-container {
+        gap: 50px;
+    }
+
+    /* Footer */
+    .footer .grid {
+        justify-content: space-between;
+        gap: 0;
+    }
+    .footer .flex {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 425px) {
-    .title {
-        font-size: 32px;
-        line-height: 50px;
-    }
-
     /* Home Start */
     /* Hero */
     .hero-content .box-1 h2 {
         width: 100%;
     }
-
     .hero-content .box-1 p {
         width: 100%;
+        text-align: start;
     }
-
+    .hero-content .box-1 .more-btn {
+        text-align: center;
+    }
     .hero-content .box-2 {
         flex-direction: column;
         gap: 20px;
@@ -209,13 +241,11 @@
         padding: 0 20px;
         margin: 0;
     }
-
     .category .box-container .box .content img {
         height: 125px;
         top: 10px;
         right: -35px;
     }
-
     .category .box-container .box .text p {
         width: 50%;
     }
@@ -224,12 +254,10 @@
     .menu .box-container {
         grid-template-columns: 1fr;
     }
-
     .menu .cart-total {
         padding: 1.5rem;
         justify-content: center;
     }
-
     .flex-btn {
         flex-flow: column;
         gap: 0;
@@ -237,30 +265,41 @@
 
     /* Blog */
     .blog .grid-item.item1 {
-        grid-column: 1 / sapn 12;
+        grid-column: 1 / span 12;
         grid-row: 1;
     }
-
     .blog .grid-item.item2 {
         grid-column: 1 / span 12;
         grid-row: 2;
     }
-
+    .blog .grid-item.item2 .content h3 {
+        font-size: 24px;
+    }
     .blog .grid-item.item3 {
-        grid-column: 1 / sapn 12;
+        grid-column: 1 / span 12;
         grid-row: 3;
     }
-
+    .blog .grid-item.item3 .content h3 {
+        height: 50px;
+        font-size: 20px;
+    }
     .blog .grid-item.item4 {
-        grid-column: 1/ sapn 12;
+        grid-column: 1/ span 12;
         grid-row: 4;
+    }
+    .blog .grid-item.item4 .content h3 {
+        height: 50px;
+        font-size: 20px;
     }
 
     /* Subscribe */
     #subscribe .content {
         width: 100%;
     }
-
+    #subscribe .content h1 {
+        font-size: 28px;
+        margin: 25px 0;
+    }
     /* Home End */
 
     /* About Start */
@@ -269,77 +308,54 @@
         top: 55%;
         text-align: center;
     }
-
     .about-section1 .row .grid-container {
         display: unset;
     }
-
     .about-section1 .row .grid-container .grid-item {
         padding: 0;
         height: fit-content;
     }
-
     .about-section1 .row .grid-container .item1 img {
         width: 100%;
     }
-
     .about-section1 .row .grid-container .item4 {
         margin-top: 0;
     }
-
     .about-section1 .row .grid-container .item4 img {
         width: 100%;
     }
-
     .about-section2 .row .grid-container {
         display: unset;
     }
-
     .about-section2 .row .grid-container .grid-item {
         padding: 0;
         margin: 20px 0;
     }
-
     .about-section2 .row .grid-container .item3 img {
         width: 100%;
     }
-
     .about-section2 .row .grid-container .item3 {
         margin-top: 0;
     }
-
     .about-section2 .row .grid-container .item2 img {
         width: 100%;
     }
-
     .about-section3 img {
         width: 100%;
     }
-
     .about-section3 {
         margin: 25px;
     }
-
     .about-section3 .row h2 {
         width: 100%;
     }
-
     /* About End */
 
     /* Footer */
-    .footer .grid {
-        gap: 20px;
-    }
-
     .footer .grid .box {
         padding: 10px;
         width: 100%;
     }
-
-    .footer .flex {
-        justify-content: center;
-    }
-
     .footer .flex .navbar {
         justify-content: center;
         width: 100%;
